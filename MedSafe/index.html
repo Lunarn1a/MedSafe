@@ -1,0 +1,4346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Medication Safety Assistant</title>
+  <!-- Load Supported Drugs and Interactions Database -->
+  <script src="drugs-data.js"></script>
+  <style>
+    /* ── Reset & Base ──────────────────────────────────── */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+        Helvetica, Arial, sans-serif;
+      background: #f5f5f5;
+      color: #1a1a1a;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    /* ── Card Container ────────────────────────────────── */
+    .card {
+      display: flex;
+      width: 900px;
+      min-height: 540px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, .07);
+      overflow: hidden;
+    }
+
+    /* ── Left Panel (branding) ─────────────────────────── */
+    .panel-left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 36px;
+      border-right: 1px solid #e8e8e8;
+      background: #fafafa;
+    }
+
+    .logo-circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #ddd;
+      margin-bottom: 28px;
+    }
+
+    .panel-left h1 {
+      font-size: 22px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .panel-left p {
+      font-size: 14px;
+      color: #666;
+      text-align: center;
+      line-height: 1.55;
+      max-width: 310px;
+    }
+
+    /* ── Right Panel (content) ─────────────────────────── */
+    .panel-right {
+      flex: 1;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 44px;
+      background: #f9f9f9;
+    }
+
+    /* ── Screen containers ─────────────────────────────── */
+    .screen {
+      width: 100%;
+      max-width: 340px;
+      display: none;
+      flex-direction: column;
+      animation: fadeSlide .35s ease;
+    }
+
+    .screen.active {
+      display: flex;
+    }
+
+    @keyframes fadeSlide {
+      from {
+        opacity: 0;
+        transform: translateX(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* ── Screen 1 – Role Selection ─────────────────────── */
+    .screen-role h2 {
+      font-size: 30px;
+      font-weight: 300;
+      color: #444;
+      margin-bottom: 24px;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 14px 0;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 30px;
+      border: 2px solid #1a1a1a;
+      background: transparent;
+      color: #1a1a1a;
+      cursor: pointer;
+      transition: background .2s, color .2s, transform .12s, box-shadow .2s;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background: #333;
+      color: #fff;
+    }
+
+    .btn:active {
+      transform: scale(.97);
+    }
+
+    .btn-filled {
+      background: #1a1a1a;
+      color: #fff;
+    }
+
+    .btn-filled:hover {
+      background: #333;
+    }
+
+    .btn+.btn {
+      margin-top: 14px;
+    }
+
+    .divider {
+      text-align: center;
+      font-size: 18px;
+      color: #999;
+      margin: 18px 0;
+      font-style: italic;
+    }
+
+    /* ── Screen 2 – Sign In ────────────────────────────── */
+    .screen-signin h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .screen-signin .subtitle {
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 14px;
+    }
+
+    .toggle-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .toggle-btn {
+      flex: 1;
+      padding: 10px 0;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 30px;
+      border: 2px solid #1a1a1a;
+      background: transparent;
+      color: #1a1a1a;
+      cursor: pointer;
+      transition: background .2s, color .2s;
+      text-align: center;
+    }
+
+    .toggle-btn.selected {
+      background: #1a1a1a;
+      color: #fff;
+    }
+
+    .toggle-btn:not(.selected):hover {
+      background: #f0f0f0;
+    }
+
+    .field {
+      margin-bottom: 18px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: #555;
+    }
+
+    .field input {
+      width: 100%;
+      padding: 12px 14px;
+      font-size: 15px;
+      border: 1.5px solid #ccc;
+      border-radius: 10px;
+      outline: none;
+      transition: border-color .2s;
+      background: #fff;
+    }
+
+    .field input:focus {
+      border-color: #1a1a1a;
+    }
+
+    .field input::placeholder {
+      color: #bbb;
+    }
+
+    .btn-signin {
+      margin-top: 6px;
+    }
+
+    .forgot {
+      display: block;
+      text-align: center;
+      margin-top: 16px;
+      font-size: 13px;
+      color: #888;
+      text-decoration: none;
+      cursor: pointer;
+      transition: color .2s;
+    }
+
+    .forgot:hover {
+      color: #1a1a1a;
+    }
+
+    .back-btn {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: none;
+      background: #eee;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .2s;
+      color: #555;
+    }
+
+    .back-btn:hover {
+      background: #ddd;
+    }
+
+    /* ── Interaction Check Modal Overlay ───────────────── */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(15, 23, 42, 0.45);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      padding: 20px;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+      opacity: 1;
+    }
+
+    /* ── Interaction Check Card (matching PNG) ─────────── */
+    .interaction-card {
+      display: flex;
+      width: 940px;
+      max-width: 96vw;
+      min-height: 580px;
+      background: #ffffff;
+      border-radius: 22px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.16);
+      overflow: hidden;
+      transform: scale(0.96) translateY(12px);
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+
+    .modal-overlay.open .interaction-card {
+      transform: scale(1) translateY(0);
+    }
+
+    /* ── Sidebar (Left Panel in PNG) ───────────────────── */
+    .ic-sidebar {
+      width: 220px;
+      background: #f2f3f5;
+      padding: 28px 20px;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid #e5e7eb;
+      flex-shrink: 0;
+    }
+
+    .ic-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 44px;
+    }
+
+    .ic-brand-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #8e8e93;
+      flex-shrink: 0;
+    }
+
+    .ic-brand-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: -0.2px;
+    }
+
+    .ic-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .ic-nav-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #111315;
+      color: #ffffff;
+      padding: 10px 18px;
+      border-radius: 9999px;
+      font-size: 13.5px;
+      font-weight: 600;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+      user-select: none;
+    }
+
+    .ic-nav-pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ffffff;
+      flex-shrink: 0;
+    }
+
+    .ic-sidebar-footer {
+      margin-top: auto;
+      padding-top: 20px;
+    }
+
+    .ic-close-text-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: transparent;
+      border: none;
+      color: #666;
+      font-size: 13.5px;
+      font-weight: 500;
+      cursor: pointer;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: background .15s, color .15s;
+    }
+
+    .ic-close-text-btn:hover {
+      background: #e5e7eb;
+      color: #111;
+    }
+
+    /* ── Main Content Area (Right in PNG) ──────────────── */
+    .ic-main {
+      flex: 1;
+      background: #ffffff;
+      padding: 34px 44px 40px 44px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow-y: auto;
+      max-height: 85vh;
+    }
+
+    .ic-modal-close-icon {
+      position: absolute;
+      top: 24px;
+      right: 28px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #f3f4f6;
+      border: none;
+      font-size: 18px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6b7280;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+      z-index: 10;
+    }
+
+    .ic-modal-close-icon:hover {
+      background: #e5e7eb;
+      color: #111827;
+    }
+
+    .ic-heading {
+      font-size: 24px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 26px;
+      letter-spacing: -0.3px;
+    }
+
+    /* Form Fields */
+    .ic-form-group {
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .ic-label {
+      display: block;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 8px;
+    }
+
+    /* ── Custom Select Trigger (Styling identical to PNG) ─ */
+    .cs-trigger {
+      width: 100%;
+      height: 48px;
+      border: 1.5px solid #9ca3af;
+      border-radius: 12px;
+      background: #ffffff;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: border-color .18s, box-shadow .18s;
+      outline: none;
+    }
+
+    .cs-trigger:hover {
+      border-color: #6b7280;
+    }
+
+    .cs-trigger:focus,
+    .cs-trigger.active {
+      border-color: #111827;
+      box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.08);
+    }
+
+    .cs-value-text {
+      font-size: 15px;
+      color: #111827;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: left;
+    }
+
+    .cs-value-text.placeholder {
+      color: #9ca3af;
+      font-weight: 400;
+    }
+
+    .cs-arrow {
+      font-size: 11px;
+      color: #111827;
+      margin-left: 12px;
+      transition: transform .2s ease;
+      flex-shrink: 0;
+    }
+
+    .cs-trigger.active .cs-arrow {
+      transform: rotate(180deg);
+    }
+
+    /* Dropdown Popover */
+    .cs-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      z-index: 50;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      animation: dropdownSlide .18s ease;
+    }
+
+    .cs-dropdown-menu.show {
+      display: flex;
+    }
+
+    @keyframes dropdownSlide {
+      from {
+        opacity: 0;
+        transform: translateY(-6px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .cs-search-wrapper {
+      padding: 10px 12px;
+      background: #fafafa;
+      border-bottom: 1px solid #f0f0f0;
+      position: relative;
+    }
+
+    .cs-search-input {
+      width: 100%;
+      padding: 9px 12px;
+      font-size: 14px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      outline: none;
+      background: #ffffff;
+    }
+
+    .cs-search-input:focus {
+      border-color: #111827;
+    }
+
+    .cs-list {
+      list-style: none;
+      max-height: 240px;
+      overflow-y: auto;
+      padding: 4px 0;
+      margin: 0;
+    }
+
+    .cs-option {
+      padding: 10px 16px;
+      font-size: 14px;
+      color: #1f2937;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.12s;
+    }
+
+    .cs-option:hover {
+      background: #f3f4f6;
+    }
+
+    .cs-option.selected {
+      background: #f0fdf4;
+      font-weight: 600;
+      color: #166534;
+    }
+
+    .cs-option.disabled {
+      color: #9ca3af;
+      cursor: not-allowed;
+      background: #fafafa;
+      font-style: italic;
+    }
+
+    .cs-option.disabled:hover {
+      background: #fafafa;
+    }
+
+    .cs-badge-disabled {
+      font-size: 11px;
+      color: #ef4444;
+      font-style: normal;
+      font-weight: 500;
+      background: #fee2e2;
+      padding: 2px 7px;
+      border-radius: 10px;
+    }
+
+    .cs-no-results {
+      padding: 14px 16px;
+      font-size: 13.5px;
+      color: #9ca3af;
+      text-align: center;
+    }
+
+    /* Validation Alert */
+    .ic-alert {
+      display: none;
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      margin-top: 8px;
+      margin-bottom: 16px;
+      animation: fadeSlide .2s ease;
+    }
+
+    .ic-alert.show {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .ic-alert-error {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #b91c1c;
+    }
+
+    /* ── Results Container ─────────────────────────────── */
+    .ic-result-box {
+      margin-top: 10px;
+      padding: 20px;
+      border-radius: 14px;
+      display: none;
+      animation: fadeSlide .25s ease;
+      position: relative;
+    }
+
+    .ic-result-box.show {
+      display: block;
+    }
+
+    .ic-result-box.level-Major {
+      background: #fff1f2;
+      border: 1.5px solid #fda4af;
+      color: #9f1239;
+    }
+
+    .ic-result-box.level-Moderate {
+      background: #fffbeb;
+      border: 1.5px solid #fcd34d;
+      color: #92400e;
+    }
+
+    .ic-result-box.level-Minor {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+      color: #166534;
+    }
+
+    .ic-result-box.level-None {
+      background: #f8fafc;
+      border: 1.5px solid #cbd5e1;
+      color: #334155;
+    }
+
+    .ic-result-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .ic-result-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .level-Major .ic-result-badge {
+      background: #e11d48;
+      color: #ffffff;
+    }
+
+    .level-Moderate .ic-result-badge {
+      background: #d97706;
+      color: #ffffff;
+    }
+
+    .level-Minor .ic-result-badge {
+      background: #16a34a;
+      color: #ffffff;
+    }
+
+    .level-None .ic-result-badge {
+      background: #64748b;
+      color: #ffffff;
+    }
+
+    .ic-result-title {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .ic-result-desc {
+      font-size: 14px;
+      line-height: 1.5;
+      color: inherit;
+      opacity: 0.95;
+    }
+
+    .ic-action-row {
+      margin-top: 18px;
+      display: flex;
+      gap: 12px;
+    }
+
+    .ic-reset-btn {
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: 1px solid currentColor;
+      background: transparent;
+      color: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity .15s;
+    }
+
+    .ic-reset-btn:hover {
+      opacity: 0.8;
+    }
+
+    /* ── Dashboard Layout ───────────────────────────────── */
+    .dashboard-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #f5f5f5;
+      z-index: 500;
+      display: none;
+      animation: fadeSlide .35s ease;
+    }
+
+    .dashboard-overlay.open {
+      display: flex;
+    }
+
+    .dash-card {
+      display: flex;
+      width: 940px;
+      max-width: 96vw;
+      min-height: 580px;
+      background: #fff;
+      border-radius: 22px;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, .07);
+      overflow: hidden;
+      margin: auto;
+    }
+
+    /* Sidebar */
+    .dash-sidebar {
+      width: 200px;
+      background: #f2f3f5;
+      padding: 28px 16px;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid #e5e7eb;
+      flex-shrink: 0;
+    }
+
+    .dash-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+
+    .dash-brand-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #8e8e93;
+      flex-shrink: 0;
+    }
+
+    .dash-brand-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+
+    .dash-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .dash-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 9999px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #555;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      text-align: left;
+      transition: background .15s, color .15s;
+    }
+
+    .dash-nav-item:hover {
+      background: #e9eaed;
+      color: #111;
+    }
+
+    .dash-nav-item.active {
+      background: #111315;
+      color: #fff;
+      font-weight: 600;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, .12);
+    }
+
+    .dash-nav-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: currentColor;
+      flex-shrink: 0;
+    }
+
+    .dash-sidebar-footer {
+      margin-top: auto;
+      padding-top: 20px;
+    }
+
+    .dash-logout-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: transparent;
+      border: none;
+      color: #666;
+      font-size: 13.5px;
+      font-weight: 500;
+      cursor: pointer;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: background .15s, color .15s;
+    }
+
+    .dash-logout-btn:hover {
+      background: #e5e7eb;
+      color: #111;
+    }
+
+    /* Main content */
+    .dash-main {
+      flex: 1;
+      background: #fff;
+      padding: 28px 36px 36px 36px;
+      overflow-y: auto;
+      max-height: 100vh;
+      position: relative;
+    }
+
+    /* Top bar */
+    .dash-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .dash-topbar-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+
+    .dash-user-pill {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 16px;
+      border-radius: 8px;
+      border: 1.5px solid #d1d5db;
+      background: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a1a1a;
+      cursor: default;
+    }
+
+    /* Greeting */
+    .dash-greeting {
+      font-size: 20px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 20px;
+    }
+
+    /* Stat cards row */
+    .dash-stats {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .dash-stat-card {
+      flex: 1;
+      padding: 16px 20px;
+      border: 1.5px solid #e5e7eb;
+      border-radius: 12px;
+      background: #fff;
+    }
+
+    .dash-stat-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #6b7280;
+      margin-bottom: 4px;
+    }
+
+    .dash-stat-value {
+      font-size: 30px;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+
+    .dash-stat-card.alert-card {
+      border-color: #fecaca;
+    }
+
+    .dash-stat-card.alert-card .dash-stat-value {
+      color: #dc2626;
+    }
+
+    /* Alert banner */
+    .dash-alert-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
+      border-radius: 12px;
+      border: 1.5px solid #fecaca;
+      background: #fff5f5;
+      margin-bottom: 24px;
+      gap: 12px;
+    }
+
+    .dash-alert-text {
+      font-size: 14px;
+      font-weight: 500;
+      color: #b91c1c;
+    }
+
+    .dash-alert-btn {
+      padding: 8px 18px;
+      border-radius: 8px;
+      border: 1.5px solid #1a1a1a;
+      background: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      color: #1a1a1a;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background .15s, color .15s;
+    }
+
+    .dash-alert-btn:hover {
+      background: #1a1a1a;
+      color: #fff;
+    }
+
+    /* Section heading */
+    .dash-section-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 12px;
+    }
+
+    /* Table */
+    .dash-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1.5px solid #e5e7eb;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .dash-table thead th {
+      text-align: left;
+      padding: 12px 16px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      color: #6b7280;
+      background: #fafafa;
+      border-bottom: 1.5px solid #e5e7eb;
+    }
+
+    .dash-table tbody td {
+      padding: 14px 16px;
+      font-size: 14px;
+      color: #1f2937;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .dash-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .dash-table tbody tr:hover {
+      background: #fafafa;
+    }
+
+    /* Stock bar */
+    .stock-bar-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .stock-bar {
+      width: 80px;
+      height: 8px;
+      border-radius: 4px;
+      background: #e5e7eb;
+      overflow: hidden;
+    }
+
+    .stock-bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      transition: width .3s ease;
+    }
+
+    .stock-bar-fill.ok {
+      background: #16a34a;
+    }
+
+    .stock-bar-fill.low {
+      background: #dc2626;
+    }
+
+    .stock-text {
+      font-size: 13px;
+      color: #6b7280;
+      white-space: nowrap;
+    }
+
+    /* Status badges */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3px 12px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .status-badge.ok {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .status-badge.low {
+      background: #fee2e2;
+      color: #b91c1c;
+    }
+
+    .status-badge.low-stock {
+      background: #fee2e2;
+      color: #b91c1c;
+    }
+
+    /* Edit Stock button styling */
+    button.stock-inline-edit-icon {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      margin-left: 4px;
+      color: #6b7280;
+      /* subtle icon color */
+      transition: color .2s;
+    }
+
+    button.stock-inline-edit-icon:hover {
+      color: #2563eb;
+      /* on hover primary blue */
+    }
+
+    /* Dashboard page sections (toggled by nav) */
+    .dash-page {
+      display: none;
+    }
+
+    /* Stock cell wrapper to ensure edit button visibility */
+    .stock-cell-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dash-page.active {
+      display: block;
+    }
+
+    /* Empty state */
+    .dash-empty {
+      text-align: center;
+      padding: 40px 20px;
+      color: #9ca3af;
+      font-size: 15px;
+    }
+
+    .dash-empty-icon {
+      font-size: 40px;
+      margin-bottom: 12px;
+      opacity: 0.5;
+    }
+
+    .dash-empty-text {
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    /* Add-item form row */
+    .dash-add-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+      align-items: flex-end;
+    }
+
+    .dash-add-field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .dash-add-field label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .dash-add-field input,
+    .dash-add-field select {
+      padding: 9px 12px;
+      font-size: 14px;
+      border: 1.5px solid #d1d5db;
+      border-radius: 8px;
+      outline: none;
+      background: #fff;
+      transition: border-color .15s;
+    }
+
+    .dash-add-field input:focus,
+    .dash-add-field select:focus {
+      border-color: #111827;
+    }
+
+    .dash-add-field select {
+      min-width: 160px;
+      cursor: pointer;
+    }
+
+    .dash-add-btn {
+      padding: 9px 18px;
+      border-radius: 8px;
+      border: 2px solid #1a1a1a;
+      background: #1a1a1a;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .15s;
+      white-space: nowrap;
+      height: fit-content;
+    }
+
+    .dash-add-btn:hover {
+      background: #333;
+    }
+
+    /* Remove button in table */
+    .dash-remove-btn {
+      background: none;
+      border: none;
+      color: #ef4444;
+      font-size: 18px;
+      cursor: pointer;
+      padding: 2px 6px;
+      border-radius: 4px;
+      transition: background .12s;
+    }
+
+    .dash-remove-btn:hover {
+      background: #fee2e2;
+    }
+
+    /* Interaction alerts panel */
+    .dash-interactions-panel {
+      margin-top: 24px;
+    }
+
+    .dash-ix-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .dash-ix-heading {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1a1a1a;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dash-ix-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      margin-bottom: 10px;
+      font-size: 14px;
+      animation: fadeSlide .25s ease;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+    }
+
+    .dash-ix-item.ix-Major {
+      background: #fff1f2;
+      border: 1.5px solid #fda4af;
+      color: #9f1239;
+    }
+
+    .dash-ix-item.ix-Moderate {
+      background: #fffbeb;
+      border: 1.5px solid #fcd34d;
+      color: #92400e;
+    }
+
+    .dash-ix-item.ix-Minor {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+      color: #166534;
+    }
+
+    .dash-ix-item.ix-Safe {
+      background: #f0fdf4;
+      border: 1.5px solid #bbf7d0;
+      color: #166534;
+    }
+
+    /* Sidebar interaction badge in dash-nav */
+    .dash-nav-item {
+      position: relative;
+    }
+
+    .dash-nav-badge {
+      margin-left: auto;
+      padding: 2px 7px;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .dash-nav-badge.badge-danger {
+      background: #ef4444;
+      color: #ffffff;
+    }
+
+    .dash-nav-badge.badge-warning {
+      background: #f59e0b;
+      color: #ffffff;
+    }
+
+    .dash-nav-badge.badge-safe {
+      background: #10b981;
+      color: #ffffff;
+    }
+
+    /* Dashboard Sidebar Interaction Alert Widget */
+    .dash-sidebar-interaction-widget {
+      margin-top: 14px;
+      margin-bottom: 8px;
+    }
+
+    .dash-sidebar-widget-card {
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-size: 12px;
+      cursor: pointer;
+      transition: transform .15s, box-shadow .15s;
+      border: 1.5px solid transparent;
+    }
+
+    .dash-sidebar-widget-card:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    }
+
+    .dash-sidebar-widget-card.widget-danger {
+      background: #fff1f2;
+      border-color: #fecdd3;
+      color: #9f1239;
+    }
+
+    .dash-sidebar-widget-card.widget-safe {
+      background: #f0fdf4;
+      border-color: #bbf7d0;
+      color: #166534;
+    }
+
+    .dash-sidebar-widget-header {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-weight: 700;
+      font-size: 12.5px;
+      margin-bottom: 3px;
+    }
+
+    .dash-sidebar-widget-text {
+      font-size: 11px;
+      line-height: 1.35;
+      opacity: 0.92;
+      margin-bottom: 4px;
+    }
+
+    .dash-sidebar-widget-link {
+      font-size: 11px;
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    /* Interaction Check Modal Sidebar (ic-sidebar) Patient Section */
+    .ic-sidebar-patient-section {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      overflow-y: auto;
+      max-height: calc(85vh - 220px);
+    }
+
+    .ic-sidebar-section-title {
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #6b7280;
+      margin-bottom: 4px;
+    }
+
+    .ic-sidebar-med-chip-list {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .ic-sidebar-med-chip {
+      font-size: 12px;
+      padding: 6px 10px;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      color: #1f2937;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: all .15s ease;
+    }
+
+    .ic-sidebar-med-chip:hover {
+      border-color: #111827;
+      background: #f9fafb;
+    }
+
+    .ic-sidebar-alert-card {
+      padding: 9px 11px;
+      border-radius: 10px;
+      font-size: 11.5px;
+      cursor: pointer;
+      transition: transform .15s, box-shadow .15s;
+      border: 1.5px solid transparent;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .ic-sidebar-alert-card:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    }
+
+    .ic-sidebar-alert-card.alert-Major {
+      background: #fff1f2;
+      border-color: #fecdd3;
+      color: #9f1239;
+    }
+
+    .ic-sidebar-alert-card.alert-Moderate {
+      background: #fffbeb;
+      border-color: #fde68a;
+      color: #92400e;
+    }
+
+    .ic-sidebar-alert-card.alert-Minor {
+      background: #f0fdf4;
+      border-color: #bbf7d0;
+      color: #166534;
+    }
+
+    .ic-sidebar-alert-card.alert-Safe {
+      background: #f0fdf4;
+      border-color: #bbf7d0;
+      color: #166534;
+    }
+
+    .ic-sidebar-alert-badge {
+      display: inline-block;
+      align-self: flex-start;
+      font-size: 9.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      border-radius: 9999px;
+      color: #fff;
+    }
+
+    .alert-Major .ic-sidebar-alert-badge {
+      background: #e11d48;
+    }
+
+    .alert-Moderate .ic-sidebar-alert-badge {
+      background: #d97706;
+    }
+
+    .alert-Minor .ic-sidebar-alert-badge {
+      background: #16a34a;
+    }
+
+    .alert-Safe .ic-sidebar-alert-badge {
+      background: #16a34a;
+    }
+
+    .ic-sidebar-alert-pair {
+      font-weight: 700;
+      font-size: 11.5px;
+      line-height: 1.3;
+    }
+
+    .ic-sidebar-alert-hint {
+      font-size: 10.5px;
+      opacity: 0.8;
+    }
+
+    .dash-ix-badge {
+      padding: 3px 10px;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #fff;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .ix-Major .dash-ix-badge {
+      background: #e11d48;
+    }
+
+    .ix-Moderate .dash-ix-badge {
+      background: #d97706;
+    }
+
+    .ix-Minor .dash-ix-badge {
+      background: #16a34a;
+    }
+
+    .ix-Safe .dash-ix-badge {
+      background: #16a34a;
+    }
+
+    .dash-ix-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .dash-ix-drugs {
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .dash-ix-desc {
+      font-size: 13px;
+      line-height: 1.45;
+      opacity: 0.92;
+    }
+
+    .dash-ix-btn {
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      border-radius: 6px;
+      border: 1px solid currentColor;
+      background: rgba(255, 255, 255, 0.7);
+      cursor: pointer;
+      color: inherit;
+      align-self: flex-start;
+      margin-top: 4px;
+      transition: background .15s;
+    }
+
+    .dash-ix-btn:hover {
+      background: #fff;
+    }
+
+    .dash-alert-banner.hidden {
+      display: none;
+    }
+
+    /* ── Searchable Medicine Combobox ──────────────────── */
+    .med-combobox-wrapper {
+      position: relative;
+    }
+
+    .combobox-input-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+
+    .combobox-search-input {
+      width: 100%;
+      padding: 9px 36px 9px 12px;
+      font-size: 14px;
+      border: 1.5px solid #d1d5db;
+      border-radius: 8px;
+      outline: none;
+      background: #ffffff;
+      color: #111827;
+      transition: border-color .15s, box-shadow .15s;
+    }
+
+    .combobox-search-input:focus {
+      border-color: #111827;
+      box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.08);
+    }
+
+    .combobox-arrow-btn {
+      position: absolute;
+      right: 4px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      font-size: 12px;
+      color: #6b7280;
+      padding: 6px 10px;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: color .15s;
+    }
+
+    .combobox-arrow-btn:hover {
+      color: #111827;
+    }
+
+    .combobox-clear-btn {
+      position: absolute;
+      right: 28px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      font-size: 13px;
+      color: #9ca3af;
+      padding: 3px 6px;
+      cursor: pointer;
+      border-radius: 50%;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color .15s, background .15s;
+    }
+
+    .combobox-clear-btn:hover {
+      color: #111827;
+      background: #f3f4f6;
+    }
+
+    .combobox-dropdown {
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      border: 1.5px solid #e5e7eb;
+      border-radius: 10px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+      z-index: 100;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      animation: dropdownSlide .18s ease;
+      min-width: 250px;
+    }
+
+    .combobox-dropdown.show {
+      display: flex;
+    }
+
+    .combobox-hint-bar {
+      padding: 6px 12px;
+      background: #f9fafb;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #4b5563;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .combobox-hint-btn {
+      background: none;
+      border: none;
+      color: #2563eb;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: underline;
+      padding: 0;
+    }
+
+    .combobox-hint-btn:hover {
+      color: #1d4ed8;
+    }
+
+    .combobox-list {
+      list-style: none;
+      max-height: 220px;
+      overflow-y: auto;
+      padding: 4px 0;
+      margin: 0;
+    }
+
+    .combobox-option {
+      padding: 8px 14px;
+      font-size: 13.5px;
+      color: #1f2937;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.12s;
+    }
+
+    .combobox-option:hover,
+    .combobox-option.highlighted {
+      background: #f3f4f6;
+      color: #111827;
+    }
+
+    .combobox-option.selected {
+      background: #f0fdf4;
+      font-weight: 600;
+      color: #166534;
+    }
+
+    .combobox-match-highlight {
+      font-weight: 700;
+      color: #0f172a;
+      background: #fef08a;
+      padding: 0 2px;
+      border-radius: 2px;
+    }
+
+    .combobox-no-results {
+      padding: 14px;
+      font-size: 13px;
+      color: #9ca3af;
+      text-align: center;
+      font-style: italic;
+    }
+
+    /* ── Edit Medicine Stock Button & Interactive Cell ── */
+    .edit-stock-btn {
+      background: #f3f4f6;
+      border: 1px solid #d1d5db;
+      color: #374151;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 11px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all .15s ease;
+      margin-right: 6px;
+    }
+
+    .edit-stock-btn:hover {
+      background: #111827;
+      color: #ffffff;
+      border-color: #111827;
+    }
+
+    .stock-cell-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      padding: 4px 6px;
+      border-radius: 6px;
+      transition: background .12s;
+    }
+
+    .stock-cell-wrap:hover {
+      background: #f3f4f6;
+    }
+
+    .stock-inline-edit-icon {
+      background: transparent;
+      border: none;
+      font-size: 12px;
+      opacity: 0;
+      cursor: pointer;
+      color: #6b7280;
+      transition: opacity .15s;
+    }
+
+    .stock-cell-wrap:hover .stock-inline-edit-icon {
+      opacity: 1;
+    }
+
+    /* ── Edit Stock Modal Card ────────────────────────── */
+    .edit-stock-card {
+      width: 440px;
+      max-width: 92vw;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.18);
+      padding: 30px 28px 26px 28px;
+      position: relative;
+      animation: modalPopIn .24s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    @keyframes modalPopIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95) translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    .edit-stock-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 2px;
+    }
+
+    .edit-stock-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: #eff6ff;
+      color: #2563eb;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .edit-stock-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #111827;
+      line-height: 1.2;
+    }
+
+    .edit-stock-subtitle {
+      font-size: 13px;
+      color: #6b7280;
+      margin-top: 2px;
+    }
+
+    .edit-stock-info-card {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .edit-stock-info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+    }
+
+    .edit-stock-label {
+      color: #6b7280;
+      font-weight: 500;
+    }
+
+    .edit-stock-val {
+      color: #111827;
+      font-weight: 600;
+    }
+
+    .edit-stock-form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .edit-stock-input-label {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #374151;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .edit-stock-stepper-wrap {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .stepper-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      border: 1.5px solid #d1d5db;
+      background: #f9fafb;
+      color: #374151;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .15s ease;
+      user-select: none;
+    }
+
+    .stepper-btn:hover {
+      background: #111827;
+      color: #ffffff;
+      border-color: #111827;
+    }
+
+    .stepper-btn:active {
+      transform: scale(0.95);
+    }
+
+    .edit-stock-input {
+      flex: 1;
+      height: 42px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 700;
+      color: #111827;
+      border: 2px solid #d1d5db;
+      border-radius: 10px;
+      outline: none;
+      background: #ffffff;
+      transition: border-color .15s, box-shadow .15s;
+    }
+
+    .edit-stock-input:focus {
+      border-color: #111827;
+      box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.08);
+    }
+
+    .edit-stock-presets {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .edit-stock-presets-label {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #6b7280;
+      margin-right: 2px;
+    }
+
+    .preset-pill {
+      background: #f3f4f6;
+      border: 1px solid #e5e7eb;
+      color: #4b5563;
+      padding: 4px 9px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .12s;
+    }
+
+    .preset-pill:hover {
+      background: #e5e7eb;
+      color: #111827;
+    }
+
+    .preset-pill.add {
+      background: #ecfdf5;
+      border-color: #a7f3d0;
+      color: #065f46;
+    }
+
+    .preset-pill.add:hover {
+      background: #d1fae5;
+    }
+
+    .edit-stock-preview {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+      background: #f9fafb;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #4b5563;
+    }
+
+    .edit-stock-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    /* ── Responsive ────────────────────────────────────── */
+    @media (max-width: 800px) {
+      .card {
+        flex-direction: column;
+        width: 95vw;
+        min-height: auto;
+      }
+
+      .panel-left {
+        border-right: none;
+        border-bottom: 1px solid #e8e8e8;
+        padding: 36px 24px;
+      }
+
+      .panel-right {
+        padding: 36px 28px;
+      }
+
+      .interaction-card {
+        flex-direction: column;
+        min-height: auto;
+        max-height: 90vh;
+      }
+
+      .ic-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #e5e7eb;
+        padding: 18px 20px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .ic-brand {
+        margin-bottom: 0;
+      }
+
+      .ic-sidebar-footer {
+        display: none;
+      }
+
+      .ic-main {
+        padding: 24px 20px;
+      }
+
+      .dash-card {
+        flex-direction: column;
+        min-height: auto;
+      }
+
+      .dash-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #e5e7eb;
+        padding: 18px 20px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .dash-brand {
+        margin-bottom: 0;
+      }
+
+      .dash-sidebar-footer {
+        display: none;
+      }
+
+      .dash-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .dash-stats {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Main Card Container -->
+  <div class="card">
+    <!-- ─── Left Panel ─────────────────────────────────── -->
+    <div class="panel-left">
+      <div class="logo-circle"></div>
+      <h1>Medication Safety Assistant</h1>
+      <p>Track maintenance medicines, monitor stock and catch risky combinations early.</p>
+    </div>
+
+    <!-- ─── Right Panel ────────────────────────────────── -->
+    <div class="panel-right">
+
+      <!-- Screen 1 – Role Selection -->
+      <div id="screen-role" class="screen screen-role active">
+        <h2>I am a…</h2>
+        <button class="btn" onclick="goSignIn('patient')">Patient</button>
+        <button class="btn btn-filled" onclick="goSignIn('caregiver')">Caregiver</button>
+        <div class="divider">or</div>
+        <button class="btn" id="btn-check-interactions" onclick="openInteractionModal()">Check Drug
+          Interactions</button>
+      </div>
+
+      <!-- Screen 2 – Sign In -->
+      <div id="screen-signin" class="screen screen-signin">
+        <button class="back-btn" onclick="goBack()" aria-label="Go back">←</button>
+
+        <h2>Sign in</h2>
+        <p class="subtitle">I am a…</p>
+
+        <div class="toggle-row">
+          <button id="tog-patient" class="toggle-btn selected" onclick="selectRole('patient')">Patient</button>
+          <button id="tog-caregiver" class="toggle-btn" onclick="selectRole('caregiver')">Caregiver</button>
+        </div>
+
+        <form onsubmit="handleSignIn(event)">
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="name@email.com" required />
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <input id="password" type="password" placeholder="••••••••" required />
+          </div>
+
+          <button type="submit" class="btn btn-filled btn-signin">Sign In</button>
+        </form>
+
+        <a class="forgot" href="#">Forgot password?</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ─── Dashboard (Patient / Caregiver) ────────────── -->
+  <div id="dashboard-overlay" class="dashboard-overlay">
+    <div class="dash-card">
+
+      <!-- Sidebar -->
+      <div class="dash-sidebar">
+        <div class="dash-brand">
+          <div class="dash-brand-icon"></div>
+          <span class="dash-brand-title">MedSafe</span>
+        </div>
+
+        <div class="dash-nav" id="dash-nav"></div>
+
+        <div id="dash-sidebar-interaction-widget" class="dash-sidebar-interaction-widget"></div>
+
+        <div class="dash-sidebar-footer">
+          <button class="dash-logout-btn" onclick="dashLogout()">← Sign out</button>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="dash-main">
+        <!-- Top Bar -->
+        <div class="dash-topbar">
+          <span class="dash-topbar-title" id="dash-topbar-title">Home</span>
+          <div class="dash-user-pill" id="dash-user-pill">Maria ▾</div>
+        </div>
+
+        <!-- Page: Home -->
+        <div class="dash-page active" id="dash-page-home">
+          <div class="dash-greeting" id="dash-greeting">Good morning, Maria</div>
+
+          <div class="dash-stats">
+            <div class="dash-stat-card" id="stat-card-patients">
+              <div class="dash-stat-label" id="stat-label-first">MEDICINES</div>
+              <div class="dash-stat-value" id="stat-patients">0</div>
+            </div>
+            <div class="dash-stat-card" id="stat-card-lowstock">
+              <div class="dash-stat-label">LOW STOCK</div>
+              <div class="dash-stat-value" id="stat-low-stock">0</div>
+            </div>
+            <div class="dash-stat-card">
+              <div class="dash-stat-label">INTERACTIONS</div>
+              <div class="dash-stat-value" id="stat-checks">0</div>
+            </div>
+          </div>
+
+          <div class="dash-alert-banner hidden" id="dash-alert-banner">
+            <span class="dash-alert-text" id="dash-alert-text"></span>
+            <button class="dash-alert-btn" id="dash-view-meds-btn" onclick="dashNavTo('medicines')">View
+              medicines</button>
+          </div>
+
+          <!-- Patient Home: My Medicines table -->
+          <div id="dash-home-patient-table">
+            <div class="dash-section-title">My Medicines</div>
+            <div id="patient-home-empty" class="dash-empty">
+              <div class="dash-empty-icon">💊</div>
+              <div class="dash-empty-text">You haven't added any medicines yet.<br>Go to <strong>My Medicines</strong>
+                to add the medications you are currently taking.</div>
+              <button class="dash-add-btn" onclick="dashNavTo('medicines')">+ Add Medicine</button>
+            </div>
+            <table class="dash-table" id="patient-home-table" style="display:none">
+              <thead>
+                <tr>
+                  <th>Medicine</th>
+                  <th>Dosage</th>
+                  <th>Frequency</th>
+                  <th>Stock</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="patient-home-tbody"></tbody>
+            </table>
+            <!-- Interaction Alerts (auto-computed) -->
+            <div class="dash-interactions-panel" id="dash-home-interactions"></div>
+          </div>
+
+          <!-- Caregiver Home: My Patients table -->
+          <div id="dash-home-caregiver-table" style="display:none">
+            <div class="dash-section-title">My patients</div>
+            <div id="caregiver-home-empty" class="dash-empty">
+              <div class="dash-empty-icon">👥</div>
+              <div class="dash-empty-text">You haven't added any patients yet.<br>Go to <strong>Patients</strong> to
+                create a patient profile.</div>
+              <button class="dash-add-btn" onclick="dashNavTo('patients')">+ Add Patient</button>
+            </div>
+            <table class="dash-table" id="caregiver-home-table" style="display:none">
+              <thead>
+                <tr>
+                  <th>Patient</th>
+                  <th>Medicines</th>
+                  <th>Last check</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="caregiver-home-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Page: Medicines -->
+        <div class="dash-page" id="dash-page-medicines">
+          <div class="dash-section-title">My Medicines</div>
+          <div class="dash-add-row" id="add-med-row">
+            <div class="dash-add-field med-combobox-wrapper" style="flex:2; min-width:220px;">
+              <label for="add-med-input">Medicine (search or scroll)</label>
+              <div class="combobox-input-container">
+                <input type="text" id="add-med-input" class="combobox-search-input"
+                  placeholder="Type to search or scroll..." autocomplete="off" oninput="handleComboboxInput('add')"
+                  onfocus="openCombobox('add')" onkeydown="handleComboboxKeydown('add', event)" />
+                <button type="button" class="combobox-clear-btn" id="add-med-clear"
+                  onclick="clearCombobox('add', event)" title="Clear search" style="display:none;">✕</button>
+                <button type="button" class="combobox-arrow-btn" onclick="toggleCombobox('add', event)"
+                  title="Toggle medicine dropdown">▾</button>
+              </div>
+              <input type="hidden" id="add-med-select" value="" />
+              <div class="combobox-dropdown" id="add-med-dropdown">
+                <div class="combobox-hint-bar">
+                  <span id="add-med-count">1,242 medicines</span>
+                  <span id="add-med-hint-action" style="font-size:11px; color:#9ca3af;">Scroll or type to search</span>
+                </div>
+                <ul class="combobox-list" id="add-med-list"></ul>
+              </div>
+            </div>
+            <div class="dash-add-field">
+              <label for="add-med-dosage">Dosage</label>
+              <input type="text" id="add-med-dosage" placeholder="e.g. 500 mg" style="width:110px" />
+            </div>
+            <div class="dash-add-field">
+              <label for="add-med-freq">Frequency</label>
+              <select id="add-med-freq">
+                <option value="1x daily">1x daily</option>
+                <option value="2x daily">2x daily</option>
+                <option value="3x daily">3x daily</option>
+                <option value="As needed">As needed</option>
+              </select>
+            </div>
+            <div class="dash-add-field">
+              <label for="add-med-stock">Stock</label>
+              <input type="number" id="add-med-stock" placeholder="30" style="width:70px" min="0" />
+            </div>
+            <button class="dash-add-btn" onclick="addMedicine()">+ Add</button>
+          </div>
+          <div id="med-page-empty" class="dash-empty">
+            <div class="dash-empty-icon">💊</div>
+            <div class="dash-empty-text">No medicines added yet. Use the form above to add the medications you are
+              currently taking.</div>
+          </div>
+          <table class="dash-table" id="med-page-table" style="display:none">
+            <thead>
+              <tr>
+                <th>Medicine</th>
+                <th>Dosage</th>
+                <th>Frequency</th>
+                <th>Stock</th>
+                <th>Status</th>
+                <th style="text-align:right">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="med-page-tbody"></tbody>
+          </table>
+          <!-- Interaction Alerts on Medicines page -->
+          <div class="dash-interactions-panel" id="dash-med-interactions"></div>
+        </div>
+
+        <!-- Page: Patients (caregiver only) -->
+        <div class="dash-page" id="dash-page-patients">
+          <div class="dash-section-title">My patients</div>
+          <div class="dash-add-row" id="add-patient-row">
+            <div class="dash-add-field">
+              <label for="add-pt-name">Name</label>
+              <input type="text" id="add-pt-name" placeholder="e.g. Lolo Ben" style="width:140px" />
+            </div>
+            <div class="dash-add-field">
+              <label for="add-pt-age">Age</label>
+              <input type="number" id="add-pt-age" placeholder="75" style="width:60px" min="0" />
+            </div>
+            <button class="dash-add-btn" onclick="addPatient()">+ Add Patient</button>
+          </div>
+          <div id="pt-page-empty" class="dash-empty">
+            <div class="dash-empty-icon">👥</div>
+            <div class="dash-empty-text">No patients added yet. Use the form above to create a patient profile.</div>
+          </div>
+          <table class="dash-table" id="pt-page-table" style="display:none">
+            <thead>
+              <tr>
+                <th>Patient</th>
+                <th>Medicines</th>
+                <th>Last check</th>
+                <th>Status</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="pt-page-tbody"></tbody>
+          </table>
+        </div>
+
+        <!-- Page: Assign Medicines (caregiver only) -->
+        <div class="dash-page" id="dash-page-assign_meds">
+          <div class="dash-section-title">Assign Medicines to Patients</div>
+
+          <!-- Empty state when caregiver has NO patients -->
+          <div id="assign-meds-no-patients" class="dash-empty">
+            <div class="dash-empty-icon">👥</div>
+            <div class="dash-empty-text">
+              No patients found.<br>
+              You must create a patient profile in the <strong>Patients</strong> tab before assigning medications.
+            </div>
+            <button class="dash-add-btn" onclick="dashNavTo('patients')">+ Add Patient Profile</button>
+          </div>
+
+          <!-- Container when caregiver HAS patients -->
+          <div id="assign-meds-content" style="display:none;">
+            <!-- Patient Selector -->
+            <div
+              style="background:#f9fafb; border:1.5px solid #e5e7eb; border-radius:12px; padding:16px; margin-bottom:20px; display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+              <label for="assign-patient-select"
+                style="font-size:12px; font-weight:700; color:#374151; text-transform:uppercase; letter-spacing:0.4px;">
+                Select Patient:
+              </label>
+              <select id="assign-patient-select" onchange="onAssignPatientSelectChange()"
+                style="padding:9px 14px; border:1.5px solid #d1d5db; border-radius:8px; font-size:14px; font-weight:600; min-width:220px; outline:none; background:#fff;">
+              </select>
+              <span id="assign-patient-summary" style="font-size:13px; color:#6b7280;"></span>
+            </div>
+
+            <!-- Form: Assign Medicine to Selected Patient -->
+            <div class="dash-add-row" id="assign-med-row">
+              <div class="dash-add-field med-combobox-wrapper" style="flex:2; min-width:220px;">
+                <label for="assign-med-input">Medicine (search or scroll)</label>
+                <div class="combobox-input-container">
+                  <input type="text" id="assign-med-input" class="combobox-search-input"
+                    placeholder="Type to search or scroll..." autocomplete="off" oninput="handleComboboxInput('assign')"
+                    onfocus="openCombobox('assign')" onkeydown="handleComboboxKeydown('assign', event)" />
+                  <button type="button" class="combobox-clear-btn" id="assign-med-clear"
+                    onclick="clearCombobox('assign', event)" title="Clear search" style="display:none;">✕</button>
+                  <button type="button" class="combobox-arrow-btn" onclick="toggleCombobox('assign', event)"
+                    title="Toggle medicine dropdown">▾</button>
+                </div>
+                <input type="hidden" id="assign-med-select" value="" />
+                <div class="combobox-dropdown" id="assign-med-dropdown">
+                  <div class="combobox-hint-bar">
+                    <span id="assign-med-count">1,242 medicines</span>
+                    <span id="assign-med-hint-action" style="font-size:11px; color:#9ca3af;">Scroll or type to
+                      search</span>
+                  </div>
+                  <ul class="combobox-list" id="assign-med-list"></ul>
+                </div>
+              </div>
+              <div class="dash-add-field">
+                <label for="assign-med-dosage">Dosage</label>
+                <input type="text" id="assign-med-dosage" placeholder="e.g. 500 mg" style="width:110px" />
+              </div>
+              <div class="dash-add-field">
+                <label for="assign-med-freq">Frequency</label>
+                <select id="assign-med-freq">
+                  <option value="1x daily">1x daily</option>
+                  <option value="2x daily">2x daily</option>
+                  <option value="3x daily">3x daily</option>
+                  <option value="As needed">As needed</option>
+                </select>
+              </div>
+              <div class="dash-add-field">
+                <label for="assign-med-stock">Stock</label>
+                <input type="number" id="assign-med-stock" placeholder="30" style="width:70px" min="0" />
+              </div>
+              <button class="dash-add-btn" onclick="assignMedicineToPatient()">+ Assign Medicine</button>
+            </div>
+
+            <!-- Selected Patient's Medicines Table -->
+            <div id="assign-patient-meds-empty" class="dash-empty" style="padding:28px 16px;">
+              <div class="dash-empty-icon" style="font-size:32px;">💊</div>
+              <div class="dash-empty-text" id="assign-patient-meds-empty-text">No medications assigned to this patient
+                yet. Use the form above to assign medications.</div>
+            </div>
+
+            <table class="dash-table" id="assign-patient-meds-table" style="display:none;">
+              <thead>
+                <tr>
+                  <th>Medicine</th>
+                  <th>Dosage</th>
+                  <th>Frequency</th>
+                  <th>Stock</th>
+                  <th>Status</th>
+                  <th style="text-align:right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="assign-patient-meds-tbody"></tbody>
+            </table>
+
+            <!-- Patient Interaction Check Panel -->
+            <div class="dash-interactions-panel" id="assign-patient-interactions"></div>
+          </div>
+        </div>
+
+        <!-- Page: Interaction Check -->
+        <div class="dash-page" id="dash-page-interaction">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+            <div>
+              <div class="dash-section-title" style="margin-bottom:4px;">Interaction Check</div>
+              <p style="font-size:14px; color:#6b7280;">Real-time interaction analysis of your maintenance medications.
+              </p>
+            </div>
+            <button class="dash-add-btn" onclick="openInteractionModal()">Launch Interactive Checker ↗</button>
+          </div>
+
+          <!-- Live Interactions List for Current Patient Medications -->
+          <div id="dash-interaction-page-results" class="dash-interactions-panel" style="margin-top:0;"></div>
+
+          <!-- Quick Pair Inspector Box -->
+          <div id="dash-quick-inspect-box"
+            style="margin-top:24px; padding:20px; background:#fafafa; border:1.5px solid #e5e7eb; border-radius:14px;">
+            <div style="font-size:15px; font-weight:700; margin-bottom:8px;">Custom Pairwise Check</div>
+            <p style="font-size:13.5px; color:#555; margin-bottom:14px;">Test any two medications from your regimen or
+              search the complete DDInter drug database.</p>
+            <button class="btn btn-filled" style="max-width:260px;" onclick="openInteractionModal()">Open Full
+              Interaction Checker</button>
+          </div>
+        </div>
+
+        <!-- Page: History (caregiver only) -->
+        <div class="dash-page" id="dash-page-history">
+          <div class="dash-section-title">History</div>
+          <p style="font-size:14px;color:#888;margin-top:8px;">No interaction checks recorded yet.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── Screen: Interaction Check Popup (Refer to PNG) ─ -->
+  <div id="modal-interaction" class="modal-overlay" onclick="handleBackdropClick(event)">
+    <div class="interaction-card" onclick="event.stopPropagation()">
+
+      <!-- Left Sidebar (Matching PNG) -->
+      <div class="ic-sidebar">
+        <div class="ic-brand">
+          <div class="ic-brand-icon"></div>
+          <span class="ic-brand-title">MedSafe</span>
+        </div>
+
+        <div class="ic-nav">
+          <div class="ic-nav-pill">
+            <span class="ic-nav-pill-dot"></span>
+            <span>Interaction Check</span>
+          </div>
+        </div>
+
+        <!-- Patient Medications & Interactions in Modal Sidebar -->
+        <div id="ic-sidebar-patient-section" class="ic-sidebar-patient-section"></div>
+
+        <div class="ic-sidebar-footer">
+          <button class="ic-close-text-btn" onclick="closeInteractionModal()">
+            ← Back to Home
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Main Content (Matching PNG) -->
+      <div class="ic-main">
+        <button class="ic-modal-close-icon" onclick="closeInteractionModal()" aria-label="Close modal">×</button>
+
+        <h1 class="ic-heading">Interaction Check</h1>
+
+        <!-- Inline error alert for selecting same medicine -->
+        <div id="ic-same-med-alert" class="ic-alert ic-alert-error">
+          <span>⚠️</span>
+          <span>Please choose two different medicines from the supported list.</span>
+        </div>
+
+        <!-- Field A -->
+        <div class="ic-form-group" id="group-a">
+          <label class="ic-label" id="label-med-a">Medicine A (from supported list)</label>
+          <button type="button" class="cs-trigger" id="trigger-a" onclick="toggleDropdown('a', event)">
+            <span class="cs-value-text placeholder" id="text-a">Select medicine</span>
+            <span class="cs-arrow">▾</span>
+          </button>
+
+          <!-- Dropdown Popover A -->
+          <div class="cs-dropdown-menu" id="menu-a">
+            <div class="cs-search-wrapper">
+              <input type="text" class="cs-search-input" id="search-a" placeholder="Search 1,242 medicines..."
+                oninput="handleSearch('a')" />
+            </div>
+            <ul class="cs-list" id="list-a"></ul>
+          </div>
+        </div>
+
+        <!-- Field B -->
+        <div class="ic-form-group" id="group-b">
+          <label class="ic-label" id="label-med-b">Medicine B (from supported list)</label>
+          <button type="button" class="cs-trigger" id="trigger-b" onclick="toggleDropdown('b', event)">
+            <span class="cs-value-text placeholder" id="text-b">Select medicine</span>
+            <span class="cs-arrow">▾</span>
+          </button>
+
+          <!-- Dropdown Popover B -->
+          <div class="cs-dropdown-menu" id="menu-b">
+            <div class="cs-search-wrapper">
+              <input type="text" class="cs-search-input" id="search-b" placeholder="Search 1,242 medicines..."
+                oninput="handleSearch('b')" />
+            </div>
+            <ul class="cs-list" id="list-b"></ul>
+          </div>
+        </div>
+
+        <!-- Interaction Check Result Card -->
+        <div id="ic-result-box" class="ic-result-box">
+          <div class="ic-result-header">
+            <span id="ic-badge" class="ic-result-badge">Interaction Level</span>
+          </div>
+          <div id="ic-result-title" class="ic-result-title">Analysis Complete</div>
+          <p id="ic-result-desc" class="ic-result-desc">Detailed interaction findings will appear here.</p>
+          <div class="ic-action-row">
+            <button class="ic-reset-btn" onclick="resetMedicines()">Clear Selection</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── Screen: Edit Medicine Stock Modal ─────────────── -->
+  <div id="modal-edit-stock" class="modal-overlay" onclick="handleEditStockBackdropClick(event)">
+    <div class="edit-stock-card" onclick="event.stopPropagation()">
+      <button class="ic-modal-close-icon" onclick="closeEditStockModal()" title="Close">✕</button>
+      <div class="edit-stock-header">
+        <div class="edit-stock-icon">💊</div>
+        <div>
+          <h2 class="edit-stock-title" id="edit-stock-title">Update Stock</h2>
+          <p class="edit-stock-subtitle" id="edit-stock-subtitle">Adjust inventory count for this medication</p>
+        </div>
+      </div>
+
+      <div class="edit-stock-info-card">
+        <div class="edit-stock-info-row">
+          <span class="edit-stock-label">Medicine:</span>
+          <strong class="edit-stock-val" id="edit-stock-med-name">—</strong>
+        </div>
+        <div class="edit-stock-info-row">
+          <span class="edit-stock-label">Dosage & Regimen:</span>
+          <span class="edit-stock-val" id="edit-stock-med-regimen">—</span>
+        </div>
+        <div class="edit-stock-info-row">
+          <span class="edit-stock-label">Current Status:</span>
+          <span id="edit-stock-current-badge" class="status-badge ok">In Stock</span>
+        </div>
+      </div>
+
+      <div class="edit-stock-form-group">
+        <label for="edit-stock-input" class="edit-stock-input-label">Remaining Tablets / Units:</label>
+        <div class="edit-stock-stepper-wrap">
+          <button type="button" class="stepper-btn" onclick="stepStock(-5)" title="Decrease by 5">−5</button>
+          <button type="button" class="stepper-btn" onclick="stepStock(-1)" title="Decrease by 1">−</button>
+          <input type="number" id="edit-stock-input" min="0" max="9999" class="edit-stock-input"
+            oninput="onStockInputChange()"
+            onkeydown="if(event.key==='Enter') saveStockModalChanges(); else if(event.key==='Escape') closeEditStockModal();" />
+          <button type="button" class="stepper-btn" onclick="stepStock(1)" title="Increase by 1">+</button>
+          <button type="button" class="stepper-btn" onclick="stepStock(5)" title="Increase by 5">+5</button>
+        </div>
+      </div>
+
+      <div class="edit-stock-presets">
+        <span class="edit-stock-presets-label">Quick refills:</span>
+        <button type="button" class="preset-pill" onclick="setStockPreset(30)">30 days (1 mo)</button>
+        <button type="button" class="preset-pill" onclick="setStockPreset(60)">60 days (2 mo)</button>
+        <button type="button" class="preset-pill" onclick="setStockPreset(90)">90 days (3 mo)</button>
+        <button type="button" class="preset-pill add" onclick="addStockPreset(30)">+30 refill</button>
+      </div>
+
+      <div class="edit-stock-preview">
+        <span>Projected Status:</span>
+        <span id="edit-stock-preview-badge" class="status-badge ok">In Stock</span>
+      </div>
+
+      <div class="edit-stock-actions">
+        <button type="button" class="btn btn-outline" onclick="closeEditStockModal()">Cancel</button>
+        <button type="button" class="btn btn-filled" onclick="saveStockModalChanges()">Save Changes</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentRole = 'patient';
+    let selectedMedA = null;
+    let selectedMedB = null;
+    let activeDropdown = null;
+
+    // Get drug list and interactions from window.DRUG_DATABASE
+    const drugsList = (window.DRUG_DATABASE && window.DRUG_DATABASE.drugs) ? window.DRUG_DATABASE.drugs : [];
+    const interactionsMap = (window.DRUG_DATABASE && window.DRUG_DATABASE.interactions) ? window.DRUG_DATABASE.interactions : {};
+
+    function show(id) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    function goSignIn(role) {
+      currentRole = role;
+      updateToggle();
+      show('screen-signin');
+    }
+
+    function goBack() {
+      show('screen-role');
+    }
+
+    function selectRole(role) {
+      currentRole = role;
+      updateToggle();
+    }
+
+    function updateToggle() {
+      document.getElementById('tog-patient').classList.toggle('selected', currentRole === 'patient');
+      document.getElementById('tog-caregiver').classList.toggle('selected', currentRole === 'caregiver');
+    }
+
+    let currentUser = {
+      email: '',
+      role: 'patient',
+      name: ''
+    };
+
+    function handleSignIn(e) {
+      e.preventDefault();
+      const email = (document.getElementById('email').value || '').trim().toLowerCase();
+      const name = email.split('@')[0].replace(/[^a-zA-Z]/g, ' ').replace(/\b\w/g, c => c.toUpperCase()) || (currentRole === 'patient' ? 'Patient' : 'Caregiver');
+      currentUser = {
+        email: email,
+        role: currentRole,
+        name: name
+      };
+      openDashboard(currentRole, name, email);
+    }
+
+    /* ── Dashboard Logic ───────────────────────────────── */
+    const patientNav = [
+      { id: 'home', label: 'Home' },
+      { id: 'medicines', label: 'My Medicines' },
+      { id: 'interaction', label: 'Interaction Check' }
+    ];
+    const caregiverNav = [
+      { id: 'home', label: 'Home' },
+      { id: 'patients', label: 'Patients' },
+      { id: 'assign_meds', label: 'Assign Medicines' },
+      { id: 'interaction', label: 'Interaction Check' },
+      { id: 'history', label: 'History' }
+    ];
+    let activeDashPage = 'home';
+
+    // Account-isolated state
+    let patientMeds = [];
+    let caregiverPatients = [];
+    let caregiverMeds = [];
+
+    function getStoragePrefix() {
+      const emailKey = (currentUser && currentUser.email) ? currentUser.email.toLowerCase().trim() : 'anonymous';
+      const roleKey = (currentUser && currentUser.role) ? currentUser.role : currentRole;
+      return `medsafe_${roleKey}_${encodeURIComponent(emailKey)}`;
+    }
+
+    function loadSavedData() {
+      // Clear legacy shared keys so un-scoped data never bleeds
+      try {
+        localStorage.removeItem('medsafe_patient_meds');
+        localStorage.removeItem('medsafe_caregiver_patients');
+      } catch (e) { }
+
+      if (currentRole === 'patient') {
+        try {
+          const key = `${getStoragePrefix()}_meds`;
+          const savedMeds = localStorage.getItem(key);
+          patientMeds = savedMeds ? JSON.parse(savedMeds) : [];
+        } catch (e) {
+          patientMeds = [];
+        }
+        caregiverPatients = [];
+        caregiverMeds = [];
+      } else {
+        // Caregiver
+        try {
+          const ptKey = `${getStoragePrefix()}_patients`;
+          const savedPts = localStorage.getItem(ptKey);
+          caregiverPatients = (savedPts ? JSON.parse(savedPts) : []).map(p => ({
+            ...p,
+            id: p.id || ('pt_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5)),
+            medicines: Array.isArray(p.medicines) ? p.medicines : []
+          }));
+        } catch (e) {
+          caregiverPatients = [];
+        }
+        try {
+          const medKey = `${getStoragePrefix()}_meds`;
+          const savedMeds = localStorage.getItem(medKey);
+          caregiverMeds = savedMeds ? JSON.parse(savedMeds) : [];
+        } catch (e) {
+          caregiverMeds = [];
+        }
+        patientMeds = [];
+      }
+    }
+
+    function savePatientMeds() {
+      if (currentRole !== 'patient') return;
+      try {
+        const key = `${getStoragePrefix()}_meds`;
+        localStorage.setItem(key, JSON.stringify(patientMeds));
+      } catch (e) { }
+    }
+
+    function saveCaregiverPatients() {
+      if (currentRole !== 'caregiver') return;
+      try {
+        const key = `${getStoragePrefix()}_patients`;
+        localStorage.setItem(key, JSON.stringify(caregiverPatients));
+      } catch (e) { }
+    }
+
+    function saveCaregiverMeds() {
+      if (currentRole !== 'caregiver') return;
+      try {
+        const key = `${getStoragePrefix()}_meds`;
+        localStorage.setItem(key, JSON.stringify(caregiverMeds));
+      } catch (e) { }
+    }
+
+    /* ── Searchable Medicine Combobox Functions ───────── */
+    const comboboxHighlightedIndex = { add: -1, assign: -1 };
+
+    function openCombobox(type) {
+      closeAllComboboxes();
+      const dropdown = document.getElementById(`${type}-med-dropdown`);
+      if (!dropdown) return;
+      dropdown.classList.add('show');
+      const input = document.getElementById(`${type}-med-input`);
+      const query = input ? input.value.trim() : '';
+      updateClearButton(type);
+      populateComboboxList(type, query);
+    }
+
+    function toggleCombobox(type, e) {
+      if (e) {
+        e.stopPropagation();
+        e.preventDefault();
+      }
+      const dropdown = document.getElementById(`${type}-med-dropdown`);
+      if (!dropdown) return;
+      const isOpen = dropdown.classList.contains('show');
+      if (isOpen) {
+        dropdown.classList.remove('show');
+      } else {
+        openCombobox(type);
+        const input = document.getElementById(`${type}-med-input`);
+        if (input) {
+          input.focus();
+          input.select();
+        }
+      }
+    }
+
+    function clearCombobox(type, e) {
+      if (e) {
+        e.stopPropagation();
+        e.preventDefault();
+      }
+      const input = document.getElementById(`${type}-med-input`);
+      const select = document.getElementById(`${type}-med-select`);
+      if (input) {
+        input.value = '';
+        input.focus();
+      }
+      if (select) select.value = '';
+      updateClearButton(type);
+      openCombobox(type);
+    }
+
+    function updateClearButton(type) {
+      const input = document.getElementById(`${type}-med-input`);
+      const clearBtn = document.getElementById(`${type}-med-clear`);
+      if (clearBtn) {
+        clearBtn.style.display = (input && input.value.trim().length > 0) ? 'flex' : 'none';
+      }
+    }
+
+    function closeAllComboboxes() {
+      document.querySelectorAll('.combobox-dropdown').forEach(d => d.classList.remove('show'));
+      comboboxHighlightedIndex.add = -1;
+      comboboxHighlightedIndex.assign = -1;
+    }
+
+    function handleComboboxInput(type) {
+      const dropdown = document.getElementById(`${type}-med-dropdown`);
+      if (dropdown && !dropdown.classList.contains('show')) {
+        dropdown.classList.add('show');
+      }
+      const input = document.getElementById(`${type}-med-input`);
+      const val = input ? input.value.trim() : '';
+      updateClearButton(type);
+
+      const select = document.getElementById(`${type}-med-select`);
+      const exactMatch = drugsList.find(d => d.toLowerCase() === val.toLowerCase());
+      if (select) {
+        select.value = exactMatch || '';
+      }
+      comboboxHighlightedIndex[type] = -1;
+      populateComboboxList(type, val);
+    }
+
+    function handleComboboxKeydown(type, e) {
+      const listEl = document.getElementById(`${type}-med-list`);
+      if (!listEl) return;
+      const options = Array.from(listEl.querySelectorAll('.combobox-option'));
+
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        const dropdown = document.getElementById(`${type}-med-dropdown`);
+        if (!dropdown || !dropdown.classList.contains('show')) {
+          openCombobox(type);
+          return;
+        }
+        if (options.length === 0) return;
+        comboboxHighlightedIndex[type] = (comboboxHighlightedIndex[type] + 1) % options.length;
+        updateComboboxHighlight(type, options);
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (options.length === 0) return;
+        comboboxHighlightedIndex[type] = (comboboxHighlightedIndex[type] - 1 + options.length) % options.length;
+        updateComboboxHighlight(type, options);
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        if (options.length === 0) return;
+        const targetOption = comboboxHighlightedIndex[type] >= 0
+          ? options[comboboxHighlightedIndex[type]]
+          : options[0];
+        if (targetOption) {
+          targetOption.dispatchEvent(new MouseEvent('mousedown'));
+        }
+      } else if (e.key === 'Escape') {
+        closeAllComboboxes();
+      }
+    }
+
+    function updateComboboxHighlight(type, options) {
+      options.forEach((opt, idx) => {
+        if (idx === comboboxHighlightedIndex[type]) {
+          opt.classList.add('highlighted');
+          opt.scrollIntoView({ block: 'nearest' });
+        } else {
+          opt.classList.remove('highlighted');
+        }
+      });
+    }
+
+    function populateComboboxList(type, query) {
+      const listEl = document.getElementById(`${type}-med-list`);
+      const countEl = document.getElementById(`${type}-med-count`);
+      const hintActionEl = document.getElementById(`${type}-med-hint-action`);
+      if (!listEl) return;
+
+      listEl.innerHTML = '';
+
+      let filtered = drugsList;
+      if (query) {
+        const q = query.toLowerCase();
+        filtered = drugsList.filter(d => d.toLowerCase().includes(q));
+      }
+
+      if (countEl) {
+        countEl.textContent = query
+          ? `${filtered.length} match${filtered.length !== 1 ? 'es' : ''}`
+          : `${drugsList.length} medicines`;
+      }
+
+      if (hintActionEl) {
+        if (query) {
+          hintActionEl.innerHTML = `<button type="button" class="combobox-hint-btn" onmousedown="event.preventDefault(); clearCombobox('${type}', event);">Show all ${drugsList.length}</button>`;
+        } else {
+          hintActionEl.innerHTML = `<span style="font-size:11px; color:#9ca3af;">Scroll or type to search</span>`;
+        }
+      }
+
+      if (filtered.length === 0) {
+        const li = document.createElement('li');
+        li.className = 'combobox-no-results';
+        li.textContent = `No supported medicines found matching "${query}"`;
+        listEl.appendChild(li);
+        return;
+      }
+
+      const input = document.getElementById(`${type}-med-input`);
+      const currentVal = input ? input.value.trim().toLowerCase() : '';
+
+      const displayCount = query ? Math.min(filtered.length, 120) : Math.min(filtered.length, 150);
+      const frag = document.createDocumentFragment();
+
+      for (let i = 0; i < displayCount; i++) {
+        const drug = filtered[i];
+        const li = document.createElement('li');
+        li.className = 'combobox-option';
+        if (drug.toLowerCase() === currentVal) {
+          li.classList.add('selected');
+        }
+
+        let labelHtml = drug;
+        if (query) {
+          const idx = drug.toLowerCase().indexOf(query.toLowerCase());
+          if (idx !== -1) {
+            const before = drug.slice(0, idx);
+            const match = drug.slice(idx, idx + query.length);
+            const after = drug.slice(idx + query.length);
+            labelHtml = `${before}<span class="combobox-match-highlight">${match}</span>${after}`;
+          }
+        }
+
+        li.innerHTML = `<span>${labelHtml}</span><span style="font-size:11px; opacity:0.6;">Select</span>`;
+        li.onmousedown = (e) => {
+          e.preventDefault();
+          selectComboboxMedicine(type, drug);
+        };
+        frag.appendChild(li);
+      }
+
+      listEl.appendChild(frag);
+
+      if (filtered.length > displayCount) {
+        const moreLi = document.createElement('li');
+        moreLi.className = 'combobox-no-results';
+        moreLi.style.fontSize = '11px';
+        moreLi.style.padding = '6px 12px';
+        moreLi.textContent = `+${filtered.length - displayCount} more — type to refine search`;
+        listEl.appendChild(moreLi);
+      }
+    }
+
+    function selectComboboxMedicine(type, drugName) {
+      const input = document.getElementById(`${type}-med-input`);
+      const select = document.getElementById(`${type}-med-select`);
+      if (input) input.value = drugName;
+      if (select) select.value = drugName;
+      updateClearButton(type);
+      closeAllComboboxes();
+
+      const dosage = document.getElementById(`${type}-med-dosage`);
+      if (dosage) dosage.focus();
+    }
+
+    function populateMedicineSelect() {
+      populateComboboxList('add', '');
+      populateComboboxList('assign', '');
+    }
+
+    function addMedicine() {
+      const select = document.getElementById('add-med-select');
+      const input = document.getElementById('add-med-input');
+      const dosageInput = document.getElementById('add-med-dosage');
+      const freqSelect = document.getElementById('add-med-freq');
+      const stockInput = document.getElementById('add-med-stock');
+
+      let name = (select ? select.value.trim() : '') || (input ? input.value.trim() : '');
+      const validDrug = drugsList.find(d => d.toLowerCase() === name.toLowerCase());
+      if (validDrug) {
+        name = validDrug;
+      }
+
+      if (!name || !validDrug) {
+        alert('Please search and select a valid medicine from the supported list.');
+        if (input) input.focus();
+        return;
+      }
+
+      const exists = patientMeds.some(m => m.name.toLowerCase() === name.toLowerCase());
+      if (exists) {
+        alert(`"${name}" is already in your medication list.`);
+        return;
+      }
+
+      const dosage = dosageInput.value.trim() || 'Standard';
+      const frequency = freqSelect.value || '1x daily';
+      const stockVal = stockInput.value.trim();
+      const stock = stockVal !== '' ? parseInt(stockVal, 10) : 30;
+
+      patientMeds.push({
+        name,
+        dosage,
+        frequency,
+        stock: isNaN(stock) ? 30 : stock
+      });
+
+      savePatientMeds();
+
+      // Reset fields
+      if (input) input.value = '';
+      if (select) select.value = '';
+      dosageInput.value = '';
+      stockInput.value = '';
+      closeAllComboboxes();
+
+      renderDashboard();
+    }
+
+    function removeMedicine(index) {
+      if (index >= 0 && index < patientMeds.length) {
+        patientMeds.splice(index, 1);
+        savePatientMeds();
+        renderDashboard();
+      }
+    }
+
+    function addPatient() {
+      const nameInput = document.getElementById('add-pt-name');
+      const ageInput = document.getElementById('add-pt-age');
+
+      const name = nameInput.value.trim();
+      if (!name) {
+        alert('Please enter a patient name.');
+        nameInput.focus();
+        return;
+      }
+
+      const ageVal = ageInput.value.trim();
+      const age = ageVal !== '' ? parseInt(ageVal, 10) : 65;
+
+      const newPt = {
+        id: 'pt_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5),
+        name,
+        age: isNaN(age) ? 65 : age,
+        medicines: [],
+        lastCheck: 'Today',
+        status: 'Healthy'
+      };
+
+      caregiverPatients.push(newPt);
+      currentAssignPatientId = newPt.id;
+      saveCaregiverPatients();
+
+      // Reset fields
+      nameInput.value = '';
+      ageInput.value = '';
+
+      renderDashboard();
+    }
+
+    function removePatient(index) {
+      if (index >= 0 && index < caregiverPatients.length) {
+        caregiverPatients.splice(index, 1);
+        saveCaregiverPatients();
+        renderDashboard();
+      }
+    }
+
+    function evaluatePatientInteractions() {
+      const detected = [];
+      if (patientMeds.length >= 2) {
+        for (let i = 0; i < patientMeds.length; i++) {
+          for (let j = i + 1; j < patientMeds.length; j++) {
+            const medA = patientMeds[i].name;
+            const medB = patientMeds[j].name;
+            const key = [medA.toLowerCase(), medB.toLowerCase()].sort().join('|||');
+            const level = interactionsMap[key];
+            if (level) {
+              detected.push({ medA, medB, level });
+            }
+          }
+        }
+      }
+
+      const order = { Major: 1, Moderate: 2, Minor: 3 };
+      detected.sort((a, b) => (order[a.level] || 99) - (order[b.level] || 99));
+      return detected;
+    }
+
+    function inspectInteraction(medA, medB) {
+      openInteractionModal();
+      chooseMedicine('a', medA);
+      chooseMedicine('b', medB);
+    }
+
+    function renderInteractionsPanel(containerId, interactions) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+
+      if (patientMeds.length < 2) {
+        if (patientMeds.length === 1) {
+          container.innerHTML = `
+            <div class="dash-ix-header">
+              <div class="dash-ix-heading">Drug-Drug Interactions</div>
+            </div>
+            <div style="font-size:13.5px; color:#6b7280; padding:12px 16px; background:#f9fafb; border-radius:10px; border:1px solid #e5e7eb;">
+              ℹ️ You have 1 medication listed. Add another medication to automatically scan for potential drug interactions.
+            </div>
+          `;
+        } else {
+          container.innerHTML = '';
+        }
+        return;
+      }
+
+      let html = `
+        <div class="dash-ix-header">
+          <div class="dash-ix-heading">
+            ${interactions.length > 0 ? '⚠️ Detected Drug Interactions' : '🛡️ Drug Interaction Analysis'}
+            <span style="font-size:12px; font-weight:600; padding:2px 8px; border-radius:12px; background:${interactions.length > 0 ? '#fee2e2; color:#b91c1c' : '#dcfce7; color:#15803d'}">
+              ${interactions.length} detected
+            </span>
+          </div>
+        </div>
+      `;
+
+      if (interactions.length === 0) {
+        html += `
+          <div class="dash-ix-item ix-Safe">
+            <span class="dash-ix-badge">Safe</span>
+            <div class="dash-ix-content">
+              <div class="dash-ix-drugs">No Documented Interactions Found</div>
+              <div class="dash-ix-desc">
+                None of your ${patientMeds.length} currently listed medications have documented Major, Moderate, or Minor interactions with each other in the DDInter reference database.
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        interactions.forEach(ix => {
+          let desc = '';
+          if (ix.level === 'Major') {
+            desc = `High Risk: Concurrent administration of ${ix.medA} and ${ix.medB} may significantly heighten adverse effects or substantially alter drug bioavailability. Clinical monitoring or therapy modification is strongly advised.`;
+          } else if (ix.level === 'Moderate') {
+            desc = `Moderate Risk: Concomitant use of ${ix.medA} and ${ix.medB} can alter drug efficacy or cause side effects. Use with caution under medical supervision.`;
+          } else {
+            desc = `Minor Risk: An interaction is identified between ${ix.medA} and ${ix.medB}. Usually has limited clinical consequence, though patient monitoring is encouraged.`;
+          }
+
+          html += `
+            <div class="dash-ix-item ix-${ix.level}">
+              <span class="dash-ix-badge">${ix.level}</span>
+              <div class="dash-ix-content">
+                <div class="dash-ix-drugs">${ix.medA} + ${ix.medB}</div>
+                <div class="dash-ix-desc">${desc}</div>
+                <button type="button" class="dash-ix-btn" onclick="inspectInteraction('${ix.medA.replace(/'/g, "\\'")}', '${ix.medB.replace(/'/g, "\\'")}')">
+                  Open in Interaction Checker →
+                </button>
+              </div>
+            </div>
+          `;
+        });
+      }
+
+      container.innerHTML = html;
+    }
+
+    function renderPatientTables() {
+      const homeEmpty = document.getElementById('patient-home-empty');
+      const homeTable = document.getElementById('patient-home-table');
+      const homeTbody = document.getElementById('patient-home-tbody');
+
+      const medEmpty = document.getElementById('med-page-empty');
+      const medTable = document.getElementById('med-page-table');
+      const medTbody = document.getElementById('med-page-tbody');
+
+      if (patientMeds.length === 0) {
+        if (homeEmpty) homeEmpty.style.display = 'block';
+        if (homeTable) homeTable.style.display = 'none';
+        if (medEmpty) medEmpty.style.display = 'block';
+        if (medTable) medTable.style.display = 'none';
+        return;
+      }
+
+      if (homeEmpty) homeEmpty.style.display = 'none';
+      if (homeTable) homeTable.style.display = 'table';
+      if (medEmpty) medEmpty.style.display = 'none';
+      if (medTable) medTable.style.display = 'table';
+
+      let homeRows = '';
+      patientMeds.forEach((m, idx) => {
+        const isLow = m.stock <= 10;
+        const fillClass = isLow ? 'low' : 'ok';
+        const badgeClass = isLow ? 'low-stock' : 'ok';
+        const badgeText = isLow ? 'Low Stock' : 'In Stock';
+        const pct = Math.min(100, Math.max(5, (m.stock / 50) * 100));
+
+        homeRows += `
+          <tr>
+            <td><strong>${m.name}</strong></td>
+            <td>${m.dosage}</td>
+            <td>${m.frequency}</td>
+            <td>
+              <div class="stock-cell-wrap" onclick="openEditStockModal('patient', ${idx})" title="Click to edit stock count">
+                <div class="stock-bar-wrap">
+                  <div class="stock-bar"><div class="stock-bar-fill ${fillClass}" style="width:${pct}%"></div></div>
+                  <span class="stock-text">${m.stock} left</span>
+                </div>
+                <button type="button" class="stock-inline-edit-icon" title="Edit stock">✏️</button>
+              </div>
+            </td>
+            <td><span class="status-badge ${badgeClass}">${badgeText}</span></td>
+          </tr>
+        `;
+      });
+      if (homeTbody) homeTbody.innerHTML = homeRows;
+
+      let medRows = '';
+      patientMeds.forEach((m, idx) => {
+        const isLow = m.stock <= 10;
+        const fillClass = isLow ? 'low' : 'ok';
+        const badgeClass = isLow ? 'low-stock' : 'ok';
+        const badgeText = isLow ? 'Low Stock' : 'In Stock';
+        const pct = Math.min(100, Math.max(5, (m.stock / 50) * 100));
+
+        medRows += `
+          <tr>
+            <td><strong>${m.name}</strong></td>
+            <td>${m.dosage}</td>
+            <td>${m.frequency}</td>
+            <td>
+              <div class="stock-cell-wrap" onclick="openEditStockModal('patient', ${idx})" title="Click to edit stock count">
+                <div class="stock-bar-wrap">
+                  <div class="stock-bar"><div class="stock-bar-fill ${fillClass}" style="width:${pct}%"></div></div>
+                  <span class="stock-text">${m.stock} left</span>
+                </div>
+                <button type="button" class="stock-inline-edit-icon" title="Edit stock">✏️</button>
+              </div>
+            </td>
+            <td><span class="status-badge ${badgeClass}">${badgeText}</span></td>
+            <td style="text-align:right; white-space:nowrap;">
+              <button type="button" class="edit-stock-btn" onclick="openEditStockModal('patient', ${idx})" title="Edit medicine stock">✏️ Edit Stock</button>
+              <button type="button" class="dash-remove-btn" onclick="removeMedicine(${idx})" title="Remove medicine">✕</button>
+            </td>
+          </tr>
+        `;
+      });
+      if (medTbody) medTbody.innerHTML = medRows;
+    }
+
+    function renderCaregiverTables() {
+      const cgHomeEmpty = document.getElementById('caregiver-home-empty');
+      const cgHomeTable = document.getElementById('caregiver-home-table');
+      const cgHomeTbody = document.getElementById('caregiver-home-tbody');
+
+      const ptEmpty = document.getElementById('pt-page-empty');
+      const ptTable = document.getElementById('pt-page-table');
+      const ptTbody = document.getElementById('pt-page-tbody');
+
+      if (caregiverPatients.length === 0) {
+        if (cgHomeEmpty) cgHomeEmpty.style.display = 'block';
+        if (cgHomeTable) cgHomeTable.style.display = 'none';
+        if (ptEmpty) ptEmpty.style.display = 'block';
+        if (ptTable) ptTable.style.display = 'none';
+        return;
+      }
+
+      if (cgHomeEmpty) cgHomeEmpty.style.display = 'none';
+      if (cgHomeTable) cgHomeTable.style.display = 'table';
+      if (ptEmpty) ptEmpty.style.display = 'none';
+      if (ptTable) ptTable.style.display = 'table';
+
+      let homeRows = '';
+      caregiverPatients.forEach((p) => {
+        const medCount = Array.isArray(p.medicines) ? p.medicines.length : (typeof p.medicines === 'number' ? p.medicines : 0);
+        homeRows += `
+          <tr>
+            <td><strong>${p.name}</strong> (${p.age} yrs)</td>
+            <td><a href="javascript:void(0)" onclick="goToAssignPatient('${p.id}')" style="color:#2563eb; font-weight:600; text-decoration:none;">${medCount} med${medCount !== 1 ? 's' : ''} →</a></td>
+            <td>${p.lastCheck}</td>
+            <td><span class="status-badge ok">${p.status}</span></td>
+          </tr>
+        `;
+      });
+      if (cgHomeTbody) cgHomeTbody.innerHTML = homeRows;
+
+      let ptRows = '';
+      caregiverPatients.forEach((p, idx) => {
+        const medCount = Array.isArray(p.medicines) ? p.medicines.length : (typeof p.medicines === 'number' ? p.medicines : 0);
+        ptRows += `
+          <tr>
+            <td><strong>${p.name}</strong> (${p.age} yrs)</td>
+            <td><a href="javascript:void(0)" onclick="goToAssignPatient('${p.id}')" style="color:#2563eb; font-weight:600; text-decoration:none;">${medCount} med${medCount !== 1 ? 's' : ''} →</a></td>
+            <td>${p.lastCheck}</td>
+            <td><span class="status-badge ok">${p.status}</span></td>
+            <td style="text-align:right">
+              <button type="button" class="dash-add-btn" style="padding:4px 10px; font-size:11px; margin-right:8px;" onclick="goToAssignPatient('${p.id}')">Assign Meds</button>
+              <button type="button" class="dash-remove-btn" onclick="removePatient(${idx})" title="Remove patient">✕</button>
+            </td>
+          </tr>
+        `;
+      });
+      if (ptTbody) ptTbody.innerHTML = ptRows;
+    }
+
+    let currentAssignPatientId = null;
+
+    function goToAssignPatient(patientId) {
+      currentAssignPatientId = patientId;
+      dashNavTo('assign_meds');
+    }
+
+    function renderAssignMedsPage() {
+      const noPtsEl = document.getElementById('assign-meds-no-patients');
+      const contentEl = document.getElementById('assign-meds-content');
+      if (!noPtsEl || !contentEl) return;
+
+      if (!caregiverPatients || caregiverPatients.length === 0) {
+        noPtsEl.style.display = 'block';
+        contentEl.style.display = 'none';
+        currentAssignPatientId = null;
+        return;
+      }
+
+      noPtsEl.style.display = 'none';
+      contentEl.style.display = 'block';
+
+      // Ensure valid currentAssignPatientId
+      const patientExists = caregiverPatients.some(p => p.id === currentAssignPatientId);
+      if (!currentAssignPatientId || !patientExists) {
+        currentAssignPatientId = caregiverPatients[0].id;
+      }
+
+      // Populate patient selector dropdown
+      const select = document.getElementById('assign-patient-select');
+      if (select) {
+        select.innerHTML = '';
+        caregiverPatients.forEach(p => {
+          const opt = document.createElement('option');
+          opt.value = p.id;
+          const count = Array.isArray(p.medicines) ? p.medicines.length : 0;
+          opt.textContent = `${p.name} (${p.age} yrs - ${count} med${count !== 1 ? 's' : ''})`;
+          if (p.id === currentAssignPatientId) opt.selected = true;
+          select.appendChild(opt);
+        });
+      }
+
+      renderSelectedPatientMeds();
+    }
+
+    function onAssignPatientSelectChange() {
+      const select = document.getElementById('assign-patient-select');
+      if (select) {
+        currentAssignPatientId = select.value;
+        renderSelectedPatientMeds();
+      }
+    }
+
+    function renderSelectedPatientMeds() {
+      const pt = caregiverPatients.find(p => p.id === currentAssignPatientId);
+      if (!pt) return;
+
+      const summary = document.getElementById('assign-patient-summary');
+      if (summary) {
+        summary.innerHTML = `Managing medications for <strong>${pt.name}</strong> (${pt.age} yrs old)`;
+      }
+
+      const emptyEl = document.getElementById('assign-patient-meds-empty');
+      const emptyText = document.getElementById('assign-patient-meds-empty-text');
+      const tableEl = document.getElementById('assign-patient-meds-table');
+      const tbodyEl = document.getElementById('assign-patient-meds-tbody');
+      const meds = Array.isArray(pt.medicines) ? pt.medicines : [];
+
+      if (meds.length === 0) {
+        if (emptyEl) emptyEl.style.display = 'block';
+        if (emptyText) emptyText.innerHTML = `No medications assigned to <strong>${pt.name}</strong> yet. Use the form above to assign medications.`;
+        if (tableEl) tableEl.style.display = 'none';
+      } else {
+        if (emptyEl) emptyEl.style.display = 'none';
+        if (tableEl) tableEl.style.display = 'table';
+
+        let rows = '';
+        meds.forEach((m, idx) => {
+          const isLow = m.stock <= 10;
+          const fillClass = isLow ? 'low' : 'ok';
+          const badgeClass = isLow ? 'low-stock' : 'ok';
+          const badgeText = isLow ? 'Low Stock' : 'In Stock';
+          const pct = Math.min(100, Math.max(5, (m.stock / 50) * 100));
+
+          rows += `
+            <tr>
+              <td><strong>${m.name}</strong></td>
+              <td>${m.dosage}</td>
+              <td>${m.frequency}</td>
+              <td>
+                <div class="stock-cell-wrap" onclick="openEditStockModal('caregiver', ${idx})" title="Click to edit stock count">
+                  <div class="stock-bar-wrap">
+                    <div class="stock-bar"><div class="stock-bar-fill ${fillClass}" style="width:${pct}%"></div></div>
+                    <span class="stock-text">${m.stock} left</span>
+                  </div>
+                  <button type="button" class="stock-inline-edit-icon" title="Edit stock">✏️</button>
+                </div>
+              </td>
+              <td><span class="status-badge ${badgeClass}">${badgeText}</span></td>
+              <td style="text-align:right; white-space:nowrap;">
+                <button type="button" class="edit-stock-btn" onclick="openEditStockModal('caregiver', ${idx})" title="Edit medicine stock">✏️ Edit Stock</button>
+                <button type="button" class="dash-remove-btn" onclick="removeAssignedMedicine(${idx})" title="Remove assigned medicine">✕</button>
+              </td>
+            </tr>
+          `;
+        });
+        if (tbodyEl) tbodyEl.innerHTML = rows;
+      }
+
+      // Check interactions among this patient's assigned medicines
+      const ptInteractions = [];
+      if (meds.length >= 2) {
+        for (let i = 0; i < meds.length; i++) {
+          for (let j = i + 1; j < meds.length; j++) {
+            const key = [meds[i].name.toLowerCase(), meds[j].name.toLowerCase()].sort().join('|||');
+            const level = interactionsMap[key];
+            if (level) {
+              ptInteractions.push({ medA: meds[i].name, medB: meds[j].name, level });
+            }
+          }
+        }
+      }
+      const order = { Major: 1, Moderate: 2, Minor: 3 };
+      ptInteractions.sort((a, b) => (order[a.level] || 99) - (order[b.level] || 99));
+
+      renderPatientAssignInteractions(pt.name, meds.length, ptInteractions);
+    }
+
+    function renderPatientAssignInteractions(patientName, medCount, interactions) {
+      const container = document.getElementById('assign-patient-interactions');
+      if (!container) return;
+
+      if (medCount < 2) {
+        if (medCount === 1) {
+          container.innerHTML = `
+            <div class="dash-ix-header">
+              <div class="dash-ix-heading">Drug Interaction Analysis</div>
+            </div>
+            <div style="font-size:13.5px; color:#6b7280; padding:12px 16px; background:#f9fafb; border-radius:10px; border:1px solid #e5e7eb;">
+              ℹ️ 1 medication assigned to ${patientName}. Assign at least 2 medications to automatically scan for interactions.
+            </div>
+          `;
+        } else {
+          container.innerHTML = '';
+        }
+        return;
+      }
+
+      let html = `
+        <div class="dash-ix-header">
+          <div class="dash-ix-heading">
+            ${interactions.length > 0 ? `⚠️ Detected Drug Interactions for ${patientName}` : `🛡️ Drug Interaction Analysis for ${patientName}`}
+            <span style="font-size:12px; font-weight:600; padding:2px 8px; border-radius:12px; background:${interactions.length > 0 ? '#fee2e2; color:#b91c1c' : '#dcfce7; color:#15803d'}">
+              ${interactions.length} detected
+            </span>
+          </div>
+        </div>
+      `;
+
+      if (interactions.length === 0) {
+        html += `
+          <div class="dash-ix-item ix-Safe">
+            <span class="dash-ix-badge">Safe</span>
+            <div class="dash-ix-content">
+              <div class="dash-ix-drugs">No Documented Interactions Found</div>
+              <div class="dash-ix-desc">
+                None of ${patientName}'s ${medCount} assigned medications have documented Major, Moderate, or Minor interactions with each other.
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        interactions.forEach(ix => {
+          let desc = '';
+          if (ix.level === 'Major') {
+            desc = `High Risk: Concurrent administration of ${ix.medA} and ${ix.medB} may significantly heighten adverse effects or substantially alter drug bioavailability.`;
+          } else if (ix.level === 'Moderate') {
+            desc = `Moderate Risk: Concomitant use of ${ix.medA} and ${ix.medB} can alter drug efficacy or cause side effects.`;
+          } else {
+            desc = `Minor Risk: An interaction is identified between ${ix.medA} and ${ix.medB}. Usually has limited clinical consequence.`;
+          }
+
+          html += `
+            <div class="dash-ix-item ix-${ix.level}">
+              <span class="dash-ix-badge">${ix.level}</span>
+              <div class="dash-ix-content">
+                <div class="dash-ix-drugs">${ix.medA} + ${ix.medB}</div>
+                <div class="dash-ix-desc">${desc}</div>
+                <button type="button" class="dash-ix-btn" onclick="openInteractionModal('${ix.medA.replace(/'/g, "\\'")}', '${ix.medB.replace(/'/g, "\\'")}')">
+                  Open in Interaction Checker →
+                </button>
+              </div>
+            </div>
+          `;
+        });
+      }
+
+      container.innerHTML = html;
+    }
+
+    function assignMedicineToPatient() {
+      const pt = caregiverPatients.find(p => p.id === currentAssignPatientId);
+      if (!pt) {
+        alert('Please select a patient first.');
+        return;
+      }
+
+      const select = document.getElementById('assign-med-select');
+      const input = document.getElementById('assign-med-input');
+      const dosageInput = document.getElementById('assign-med-dosage');
+      const freqSelect = document.getElementById('assign-med-freq');
+      const stockInput = document.getElementById('assign-med-stock');
+
+      let name = (select ? select.value.trim() : '') || (input ? input.value.trim() : '');
+      const validDrug = drugsList.find(d => d.toLowerCase() === name.toLowerCase());
+      if (validDrug) {
+        name = validDrug;
+      }
+
+      if (!name || !validDrug) {
+        alert('Please search and select a valid medication from the supported list.');
+        if (input) input.focus();
+        return;
+      }
+
+      if (!Array.isArray(pt.medicines)) pt.medicines = [];
+
+      const exists = pt.medicines.some(m => m.name.toLowerCase() === name.toLowerCase());
+      if (exists) {
+        alert(`"${name}" is already assigned to ${pt.name}.`);
+        return;
+      }
+
+      const dosage = dosageInput.value.trim() || 'Standard';
+      const frequency = freqSelect.value || '1x daily';
+      const stockVal = stockInput.value.trim();
+      const stock = stockVal !== '' ? parseInt(stockVal, 10) : 30;
+
+      pt.medicines.push({
+        name,
+        dosage,
+        frequency,
+        stock: isNaN(stock) ? 30 : stock
+      });
+      pt.lastCheck = 'Today';
+
+      saveCaregiverPatients();
+
+      // Reset fields
+      if (input) input.value = '';
+      if (select) select.value = '';
+      dosageInput.value = '';
+      stockInput.value = '';
+      closeAllComboboxes();
+
+      renderDashboard();
+      renderAssignMedsPage();
+    }
+
+    function removeAssignedMedicine(index) {
+      const pt = caregiverPatients.find(p => p.id === currentAssignPatientId);
+      if (!pt || !Array.isArray(pt.medicines)) return;
+
+      if (index >= 0 && index < pt.medicines.length) {
+        pt.medicines.splice(index, 1);
+        saveCaregiverPatients();
+        renderDashboard();
+        renderAssignMedsPage();
+      }
+    }
+
+    function renderSidebarInteractionAlerts(interactions) {
+      // Update nav badge on Interaction Check button in dash-sidebar
+      const navBtn = document.querySelector('.dash-nav-item[data-page="interaction"]');
+      if (navBtn) {
+        const existingBadge = navBtn.querySelector('.dash-nav-badge');
+        if (existingBadge) existingBadge.remove();
+
+        if (currentRole === 'patient') {
+          if (interactions.length > 0) {
+            const badge = document.createElement('span');
+            badge.className = 'dash-nav-badge badge-danger';
+            badge.textContent = `⚠️ ${interactions.length}`;
+            navBtn.appendChild(badge);
+          } else if (patientMeds.length >= 2) {
+            const badge = document.createElement('span');
+            badge.className = 'dash-nav-badge badge-safe';
+            badge.textContent = '✓ Safe';
+            navBtn.appendChild(badge);
+          }
+        }
+      }
+
+      // Update sidebar widget in dash-sidebar
+      const widget = document.getElementById('dash-sidebar-interaction-widget');
+      if (!widget) return;
+
+      if (currentRole === 'patient') {
+        if (interactions.length > 0) {
+          const topIx = interactions[0];
+          widget.innerHTML = `
+            <div class="dash-sidebar-widget-card widget-danger" onclick="dashNavTo('interaction')">
+              <div class="dash-sidebar-widget-header">
+                <span>⚠️</span>
+                <strong>${interactions.length} Interaction${interactions.length > 1 ? 's' : ''}</strong>
+              </div>
+              <div class="dash-sidebar-widget-text">
+                ${topIx.medA} + ${topIx.medB} (${topIx.level})
+                ${interactions.length > 1 ? `<br><span style="opacity:0.8">+${interactions.length - 1} other pair</span>` : ''}
+              </div>
+              <div class="dash-sidebar-widget-link">Open Interaction Check →</div>
+            </div>
+          `;
+          widget.style.display = 'block';
+        } else if (patientMeds.length >= 2) {
+          widget.innerHTML = `
+            <div class="dash-sidebar-widget-card widget-safe" onclick="dashNavTo('interaction')">
+              <div class="dash-sidebar-widget-header">
+                <span>🛡️</span>
+                <strong>All Clear</strong>
+              </div>
+              <div class="dash-sidebar-widget-text">${patientMeds.length} medications checked. No interactions detected.</div>
+            </div>
+          `;
+          widget.style.display = 'block';
+        } else {
+          widget.innerHTML = '';
+          widget.style.display = 'none';
+        }
+      } else {
+        widget.innerHTML = '';
+        widget.style.display = 'none';
+      }
+    }
+
+    function renderModalSidebar(interactions) {
+      const section = document.getElementById('ic-sidebar-patient-section');
+      if (!section) return;
+
+      if (currentRole !== 'patient') {
+        section.innerHTML = `
+          <div style="font-size:11.5px; color:#6b7280; line-height:1.4;">
+            Caregiver mode. Use the dropdowns to check drug interactions for any medications.
+          </div>
+        `;
+        return;
+      }
+
+      if (patientMeds.length === 0) {
+        section.innerHTML = `
+          <div class="ic-sidebar-section-title">My Medications</div>
+          <div style="font-size:11.5px; color:#9ca3af; line-height:1.4;">
+            No medications added yet. Add medications in My Medicines to enable automatic interaction checking.
+          </div>
+        `;
+        return;
+      }
+
+      let html = `
+        <div>
+          <div class="ic-sidebar-section-title">My Medications (${patientMeds.length})</div>
+          <div class="ic-sidebar-med-chip-list">
+      `;
+
+      patientMeds.forEach(m => {
+        html += `
+          <div class="ic-sidebar-med-chip" onclick="quickSelectChip('${m.name.replace(/'/g, "\\'")}')" title="Click to inspect ${m.name}">
+            <span>💊 ${m.name}</span>
+            <span style="font-size:10px; color:#9ca3af;">Use</span>
+          </div>
+        `;
+      });
+
+      html += `
+          </div>
+        </div>
+        <div>
+          <div class="ic-sidebar-section-title">Interaction Status</div>
+      `;
+
+      if (interactions.length > 0) {
+        interactions.forEach(ix => {
+          html += `
+            <div class="ic-sidebar-alert-card alert-${ix.level}" onclick="inspectInteraction('${ix.medA.replace(/'/g, "\\'")}', '${ix.medB.replace(/'/g, "\\'")}')" title="Click to view full analysis">
+              <span class="ic-sidebar-alert-badge">${ix.level} Risk</span>
+              <div class="ic-sidebar-alert-pair">${ix.medA} + ${ix.medB}</div>
+              <div class="ic-sidebar-alert-hint">Click to inspect ↗</div>
+            </div>
+          `;
+        });
+      } else if (patientMeds.length >= 2) {
+        html += `
+          <div class="ic-sidebar-alert-card alert-Safe">
+            <span class="ic-sidebar-alert-badge">Safe</span>
+            <div class="ic-sidebar-alert-pair">No Interactions</div>
+            <div class="ic-sidebar-alert-hint">All ${patientMeds.length} medications are clear.</div>
+          </div>
+        `;
+      } else {
+        html += `
+          <div style="font-size:11px; color:#9ca3af;">
+            Add at least 2 medications to monitor interactions.
+          </div>
+        `;
+      }
+
+      html += `</div>`;
+      section.innerHTML = html;
+    }
+
+    function quickSelectChip(drugName) {
+      if (!selectedMedA || (selectedMedA && selectedMedB)) {
+        selectedMedA = null;
+        selectedMedB = null;
+        chooseMedicine('a', drugName);
+      } else {
+        chooseMedicine('b', drugName);
+      }
+    }
+
+    function renderDashboard() {
+      const isPatient = (currentRole === 'patient');
+
+      const labelFirst = document.getElementById('stat-label-first');
+      if (labelFirst) {
+        labelFirst.textContent = isPatient ? 'MEDICINES' : 'PATIENTS';
+      }
+
+      if (isPatient) {
+        const interactions = evaluatePatientInteractions();
+        const lowStockMeds = patientMeds.filter(m => m.stock <= 10);
+
+        document.getElementById('stat-patients').textContent = patientMeds.length;
+        document.getElementById('stat-low-stock').textContent = lowStockMeds.length;
+        document.getElementById('stat-checks').textContent = interactions.length;
+
+        const alertBanner = document.getElementById('dash-alert-banner');
+        const alertText = document.getElementById('dash-alert-text');
+        if (lowStockMeds.length > 0) {
+          alertBanner.classList.remove('hidden');
+          alertText.innerHTML = `⚠️ Low stock: <strong>${lowStockMeds.length}</strong> medicine${lowStockMeds.length > 1 ? 's' : ''} (${lowStockMeds.map(m => m.name).join(', ')}) running low`;
+        } else {
+          alertBanner.classList.add('hidden');
+        }
+
+        renderPatientTables();
+        renderInteractionsPanel('dash-home-interactions', interactions);
+        renderInteractionsPanel('dash-med-interactions', interactions);
+        renderInteractionsPanel('dash-interaction-page-results', interactions);
+        renderSidebarInteractionAlerts(interactions);
+        renderModalSidebar(interactions);
+
+      } else {
+        let totalAssignedMeds = 0;
+        let totalLowStock = 0;
+        let totalInteractions = 0;
+
+        caregiverPatients.forEach(p => {
+          if (Array.isArray(p.medicines)) {
+            totalAssignedMeds += p.medicines.length;
+            totalLowStock += p.medicines.filter(m => m.stock <= 10).length;
+            if (p.medicines.length >= 2) {
+              for (let i = 0; i < p.medicines.length; i++) {
+                for (let j = i + 1; j < p.medicines.length; j++) {
+                  const key = [p.medicines[i].name.toLowerCase(), p.medicines[j].name.toLowerCase()].sort().join('|||');
+                  if (interactionsMap[key]) totalInteractions++;
+                }
+              }
+            }
+          }
+        });
+
+        document.getElementById('stat-patients').textContent = caregiverPatients.length;
+        document.getElementById('stat-low-stock').textContent = totalLowStock;
+        document.getElementById('stat-checks').textContent = totalInteractions;
+
+        const alertBanner = document.getElementById('dash-alert-banner');
+        const alertText = document.getElementById('dash-alert-text');
+        if (totalLowStock > 0) {
+          alertBanner.classList.remove('hidden');
+          alertText.innerHTML = `⚠️ Low stock: <strong>${totalLowStock}</strong> medication${totalLowStock > 1 ? 's' : ''} running low across your patients`;
+        } else {
+          alertBanner.classList.add('hidden');
+        }
+
+        renderCaregiverTables();
+        renderAssignMedsPage();
+        renderSidebarInteractionAlerts([]);
+        renderModalSidebar([]);
+      }
+    }
+
+    function openDashboard(role, userName, email) {
+      currentRole = role;
+      if (email) {
+        currentUser.email = email.trim().toLowerCase();
+        currentUser.role = role;
+        currentUser.name = userName;
+      }
+      const overlay = document.getElementById('dashboard-overlay');
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+
+      // Set user name
+      document.getElementById('dash-user-pill').textContent = userName + ' ▾';
+
+      // Greeting based on time of day
+      const hour = new Date().getHours();
+      let greeting = 'Good morning';
+      if (hour >= 12 && hour < 18) greeting = 'Good afternoon';
+      else if (hour >= 18) greeting = 'Good evening';
+      document.getElementById('dash-greeting').textContent = `${greeting}, ${userName}`;
+
+      // Build nav
+      const navItems = role === 'caregiver' ? caregiverNav : patientNav;
+      const navEl = document.getElementById('dash-nav');
+      navEl.innerHTML = '';
+      navItems.forEach(item => {
+        const btn = document.createElement('button');
+        btn.className = 'dash-nav-item' + (item.id === 'home' ? ' active' : '');
+        btn.setAttribute('data-page', item.id);
+        btn.innerHTML = `<span class="dash-nav-dot"></span><span>${item.label}</span>`;
+        btn.onclick = () => dashNavTo(item.id);
+        navEl.appendChild(btn);
+      });
+
+      // Show correct home table
+      document.getElementById('dash-home-patient-table').style.display = role === 'patient' ? '' : 'none';
+      document.getElementById('dash-home-caregiver-table').style.display = role === 'caregiver' ? '' : 'none';
+
+      // View medicines button behavior
+      document.getElementById('dash-view-meds-btn').onclick = () => {
+        dashNavTo(role === 'caregiver' ? 'assign_meds' : 'medicines');
+      };
+
+      // Populate medicine options and load account-scoped data
+      populateMedicineSelect();
+      loadSavedData();
+      renderDashboard();
+
+      activeDashPage = 'home';
+      dashNavTo('home');
+    }
+
+    function dashNavTo(pageId) {
+      activeDashPage = pageId;
+      document.querySelectorAll('.dash-nav-item').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-page') === pageId);
+      });
+      document.querySelectorAll('.dash-page').forEach(p => p.classList.remove('active'));
+      const page = document.getElementById('dash-page-' + pageId);
+      if (page) page.classList.add('active');
+
+      const titles = {
+        home: 'Home',
+        medicines: 'My Medicines',
+        patients: 'Patients',
+        assign_meds: 'Assign Medicines',
+        interaction: 'Interaction Check',
+        history: 'History'
+      };
+      document.getElementById('dash-topbar-title').textContent = titles[pageId] || 'Home';
+
+      if (pageId === 'medicines') {
+        populateMedicineSelect();
+      }
+      if (pageId === 'assign_meds') {
+        populateMedicineSelect();
+        renderAssignMedsPage();
+      }
+      if (pageId === 'interaction' && currentRole === 'patient') {
+        const interactions = evaluatePatientInteractions();
+        renderInteractionsPanel('dash-interaction-page-results', interactions);
+      }
+    }
+
+    function dashLogout() {
+      document.getElementById('dashboard-overlay').classList.remove('open');
+      document.body.style.overflow = '';
+
+      // Reset state and clear memory so data never bleeds to next account
+      currentUser = { email: '', role: 'patient', name: '' };
+      patientMeds = [];
+      caregiverPatients = [];
+      caregiverMeds = [];
+
+      const emailInput = document.getElementById('email');
+      if (emailInput) emailInput.value = '';
+      const pwdInput = document.getElementById('password');
+      if (pwdInput) pwdInput.value = '';
+
+      // Reset combobox and form inputs
+      ['add', 'assign'].forEach(t => {
+        const inp = document.getElementById(`${t}-med-input`);
+        const sel = document.getElementById(`${t}-med-select`);
+        const clr = document.getElementById(`${t}-med-clear`);
+        const dos = document.getElementById(`${t}-med-dosage`);
+        const stk = document.getElementById(`${t}-med-stock`);
+        if (inp) inp.value = '';
+        if (sel) sel.value = '';
+        if (clr) clr.style.display = 'none';
+        if (dos) dos.value = '';
+        if (stk) stk.value = '';
+      });
+      closeAllComboboxes();
+      closeEditStockModal();
+
+      show('screen-role');
+    }
+
+    /* ── Edit Medicine Stock Modal Functions ──────────── */
+    let editingStockContext = { target: null, index: -1 };
+
+    function openEditStockModal(target, index) {
+      editingStockContext = { target, index };
+      let med = null;
+      let patientName = '';
+
+      if (target === 'patient') {
+        if (!patientMeds || !patientMeds[index]) return;
+        med = patientMeds[index];
+        patientName = (currentUser && currentUser.name) ? currentUser.name : 'You';
+      } else if (target === 'caregiver') {
+        const pt = caregiverPatients.find(p => p.id === currentAssignPatientId);
+        if (!pt || !Array.isArray(pt.medicines) || !pt.medicines[index]) return;
+        med = pt.medicines[index];
+        patientName = pt.name;
+      }
+
+      if (!med) return;
+
+      const modal = document.getElementById('modal-edit-stock');
+      const titleEl = document.getElementById('edit-stock-title');
+      const subtitleEl = document.getElementById('edit-stock-subtitle');
+      const nameEl = document.getElementById('edit-stock-med-name');
+      const regimenEl = document.getElementById('edit-stock-med-regimen');
+      const currentBadgeEl = document.getElementById('edit-stock-current-badge');
+      const inputEl = document.getElementById('edit-stock-input');
+
+      if (titleEl) titleEl.textContent = 'Update Stock';
+      if (subtitleEl) {
+        subtitleEl.textContent = target === 'caregiver'
+          ? `Adjust medication inventory for ${patientName}`
+          : 'Adjust remaining units in your inventory';
+      }
+      if (nameEl) nameEl.textContent = med.name;
+      if (regimenEl) regimenEl.textContent = `${med.dosage} • ${med.frequency}`;
+
+      const isLow = (med.stock <= 10);
+      if (currentBadgeEl) {
+        currentBadgeEl.className = `status-badge ${isLow ? 'low-stock' : 'ok'}`;
+        currentBadgeEl.textContent = `${isLow ? 'Low Stock' : 'In Stock'} (${med.stock} left)`;
+      }
+
+      if (inputEl) {
+        inputEl.value = med.stock;
+      }
+      onStockInputChange();
+
+      if (modal) {
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      setTimeout(() => {
+        if (inputEl) {
+          inputEl.focus();
+          inputEl.select();
+        }
+      }, 50);
+    }
+
+    function closeEditStockModal() {
+      const modal = document.getElementById('modal-edit-stock');
+      if (modal) modal.classList.remove('open');
+      document.body.style.overflow = '';
+      editingStockContext = { target: null, index: -1 };
+    }
+
+    function handleEditStockBackdropClick(e) {
+      if (e.target.id === 'modal-edit-stock') {
+        closeEditStockModal();
+      }
+    }
+
+    function onStockInputChange() {
+      const inputEl = document.getElementById('edit-stock-input');
+      const previewBadge = document.getElementById('edit-stock-preview-badge');
+      if (!inputEl || !previewBadge) return;
+
+      const val = parseInt(inputEl.value, 10);
+      const stock = isNaN(val) ? 0 : Math.max(0, val);
+      const isLow = stock <= 10;
+
+      previewBadge.className = `status-badge ${isLow ? 'low-stock' : 'ok'}`;
+      previewBadge.textContent = `${isLow ? 'Low Stock' : 'In Stock'} (${stock} units)`;
+    }
+
+    function stepStock(delta) {
+      const inputEl = document.getElementById('edit-stock-input');
+      if (!inputEl) return;
+      let val = parseInt(inputEl.value, 10);
+      if (isNaN(val)) val = 0;
+      val = Math.max(0, val + delta);
+      inputEl.value = val;
+      onStockInputChange();
+    }
+
+    function setStockPreset(val) {
+      const inputEl = document.getElementById('edit-stock-input');
+      if (!inputEl) return;
+      inputEl.value = Math.max(0, val);
+      onStockInputChange();
+    }
+
+    function addStockPreset(delta) {
+      stepStock(delta);
+    }
+
+    function saveStockModalChanges() {
+      const { target, index } = editingStockContext;
+      const inputEl = document.getElementById('edit-stock-input');
+      if (!inputEl) return;
+
+      const val = parseInt(inputEl.value, 10);
+      if (isNaN(val) || val < 0) {
+        alert('Please enter a valid non-negative number for stock.');
+        inputEl.focus();
+        return;
+      }
+      const newStock = val;
+
+      if (target === 'patient') {
+        if (patientMeds[index]) {
+          patientMeds[index].stock = newStock;
+          savePatientMeds();
+          renderDashboard();
+        }
+      } else if (target === 'caregiver') {
+        const pt = caregiverPatients.find(p => p.id === currentAssignPatientId);
+        if (pt && Array.isArray(pt.medicines) && pt.medicines[index]) {
+          pt.medicines[index].stock = newStock;
+          saveCaregiverPatients();
+          renderDashboard();
+          renderSelectedPatientMeds();
+        }
+      }
+
+      closeEditStockModal();
+    }
+
+    /* ── Interaction Check Modal Functions ─────────────── */
+    function openInteractionModal(medA, medB) {
+      const modal = document.getElementById('modal-interaction');
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+
+      populateOptions('a', '');
+      populateOptions('b', '');
+
+      const isPatient = (currentRole === 'patient');
+      const interactions = isPatient ? evaluatePatientInteractions() : [];
+      renderModalSidebar(interactions);
+
+      if (medA && medB) {
+        chooseMedicine('a', medA);
+        chooseMedicine('b', medB);
+      } else if (isPatient && interactions.length > 0) {
+        // Automatically reflect the first detected interaction between user's inputted medicines
+        chooseMedicine('a', interactions[0].medA);
+        chooseMedicine('b', interactions[0].medB);
+      } else if (isPatient && patientMeds.length >= 2) {
+        chooseMedicine('a', patientMeds[0].name);
+        chooseMedicine('b', patientMeds[1].name);
+      } else if (isPatient && patientMeds.length === 1) {
+        chooseMedicine('a', patientMeds[0].name);
+      }
+    }
+
+    function closeInteractionModal() {
+      const modal = document.getElementById('modal-interaction');
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+      closeAllDropdowns();
+    }
+
+    function handleBackdropClick(e) {
+      if (e.target.id === 'modal-interaction') {
+        closeInteractionModal();
+      }
+    }
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        closeAllComboboxes();
+        closeEditStockModal();
+        if (activeDropdown) {
+          closeAllDropdowns();
+        } else {
+          closeInteractionModal();
+        }
+      }
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.ic-form-group')) {
+        closeAllDropdowns();
+      }
+      if (!e.target.closest('.med-combobox-wrapper')) {
+        closeAllComboboxes();
+      }
+    });
+
+    /* ── Dropdown Select Logic ─────────────────────────── */
+    function toggleDropdown(field, e) {
+      if (e) e.stopPropagation();
+      const menu = document.getElementById(`menu-${field}`);
+      const trigger = document.getElementById(`trigger-${field}`);
+      const isCurrentlyOpen = menu.classList.contains('show');
+
+      closeAllDropdowns();
+
+      if (!isCurrentlyOpen) {
+        menu.classList.add('show');
+        trigger.classList.add('active');
+        activeDropdown = field;
+        const searchInput = document.getElementById(`search-${field}`);
+        searchInput.value = '';
+        populateOptions(field, '');
+        setTimeout(() => searchInput.focus(), 50);
+      }
+    }
+
+    function closeAllDropdowns() {
+      document.querySelectorAll('.cs-dropdown-menu').forEach(m => m.classList.remove('show'));
+      document.querySelectorAll('.cs-trigger').forEach(t => t.classList.remove('active'));
+      activeDropdown = null;
+    }
+
+    function handleSearch(field) {
+      const query = document.getElementById(`search-${field}`).value.trim().toLowerCase();
+      populateOptions(field, query);
+    }
+
+    function populateOptions(field, query) {
+      const listEl = document.getElementById(`list-${field}`);
+      listEl.innerHTML = '';
+
+      const otherSelected = field === 'a' ? selectedMedB : selectedMedA;
+      const currentSelected = field === 'a' ? selectedMedA : selectedMedB;
+
+      // Filter drugs
+      let filtered = drugsList;
+      if (query) {
+        filtered = drugsList.filter(d => d.toLowerCase().includes(query));
+      }
+
+      if (filtered.length === 0) {
+        const noRes = document.createElement('li');
+        noRes.className = 'cs-no-results';
+        noRes.textContent = `No supported medicine found matching "${query}"`;
+        listEl.appendChild(noRes);
+        return;
+      }
+
+      // Render top 100 for fast performance
+      const displayCount = Math.min(filtered.length, 100);
+      for (let i = 0; i < displayCount; i++) {
+        const drug = filtered[i];
+        const li = document.createElement('li');
+        li.className = 'cs-option';
+
+        const isAlreadyChosen = otherSelected && (drug.toLowerCase() === otherSelected.toLowerCase());
+        const isCurrent = currentSelected && (drug.toLowerCase() === currentSelected.toLowerCase());
+
+        if (isCurrent) {
+          li.classList.add('selected');
+        }
+
+        if (isAlreadyChosen) {
+          li.classList.add('disabled');
+          li.innerHTML = `<span>${drug}</span><span class="cs-badge-disabled">Selected in Medicine ${field === 'a' ? 'B' : 'A'}</span>`;
+          li.onclick = (e) => {
+            e.stopPropagation();
+            showSameMedAlert();
+          };
+        } else {
+          li.innerHTML = `<span>${drug}</span>`;
+          li.onclick = (e) => {
+            e.stopPropagation();
+            chooseMedicine(field, drug);
+          };
+        }
+
+        listEl.appendChild(li);
+      }
+    }
+
+    function chooseMedicine(field, drugName) {
+      hideSameMedAlert();
+
+      if (field === 'a') {
+        if (selectedMedB && selectedMedB.toLowerCase() === drugName.toLowerCase()) {
+          showSameMedAlert();
+          return;
+        }
+        selectedMedA = drugName;
+        const textA = document.getElementById('text-a');
+        textA.textContent = drugName;
+        textA.classList.remove('placeholder');
+      } else {
+        if (selectedMedA && selectedMedA.toLowerCase() === drugName.toLowerCase()) {
+          showSameMedAlert();
+          return;
+        }
+        selectedMedB = drugName;
+        const textB = document.getElementById('text-b');
+        textB.textContent = drugName;
+        textB.classList.remove('placeholder');
+      }
+
+      closeAllDropdowns();
+      evaluateInteraction();
+    }
+
+    function showSameMedAlert() {
+      const alertEl = document.getElementById('ic-same-med-alert');
+      alertEl.classList.add('show');
+    }
+
+    function hideSameMedAlert() {
+      const alertEl = document.getElementById('ic-same-med-alert');
+      alertEl.classList.remove('show');
+    }
+
+    function evaluateInteraction() {
+      const resultBox = document.getElementById('ic-result-box');
+      const badge = document.getElementById('ic-badge');
+      const title = document.getElementById('ic-result-title');
+      const desc = document.getElementById('ic-result-desc');
+
+      // Both must be chosen and different
+      if (!selectedMedA || !selectedMedB) {
+        resultBox.className = 'ic-result-box';
+        return;
+      }
+
+      if (selectedMedA.toLowerCase() === selectedMedB.toLowerCase()) {
+        showSameMedAlert();
+        resultBox.className = 'ic-result-box';
+        return;
+      }
+
+      hideSameMedAlert();
+
+      // Check pairs in database
+      const key = [selectedMedA.toLowerCase(), selectedMedB.toLowerCase()].sort().join('|||');
+      const level = interactionsMap[key];
+
+      resultBox.className = 'ic-result-box show';
+
+      if (level === 'Major') {
+        resultBox.classList.add('level-Major');
+        badge.textContent = 'Major Interaction';
+        title.textContent = `High Risk: ${selectedMedA} + ${selectedMedB}`;
+        desc.textContent = `A Major drug interaction was documented between ${selectedMedA} and ${selectedMedB}. Concurrent administration may significantly heighten adverse effects or substantially alter drug bioavailability. Clinical monitoring or therapy modification is strongly advised.`;
+      } else if (level === 'Moderate') {
+        resultBox.classList.add('level-Moderate');
+        badge.textContent = 'Moderate Interaction';
+        title.textContent = `Moderate Interaction: ${selectedMedA} + ${selectedMedB}`;
+        desc.textContent = `A Moderate drug interaction exists between ${selectedMedA} and ${selectedMedB}. Concomitant use can potentially alter drug efficacy or cause side effects. Use with caution and follow medical guidance.`;
+      } else if (level === 'Minor') {
+        resultBox.classList.add('level-Minor');
+        badge.textContent = 'Minor Interaction';
+        title.textContent = `Minor Interaction: ${selectedMedA} + ${selectedMedB}`;
+        desc.textContent = `A Minor interaction is identified between ${selectedMedA} and ${selectedMedB}. The interaction usually has limited clinical consequence, though patient monitoring is encouraged.`;
+      } else {
+        resultBox.classList.add('level-None');
+        badge.textContent = 'No Documented Interaction';
+        title.textContent = `No Direct Interaction Found`;
+        desc.textContent = `No documented Major, Moderate, or Minor interactions were identified between ${selectedMedA} and ${selectedMedB} in the supported DDInter reference database.`;
+      }
+    }
+
+    function resetMedicines() {
+      selectedMedA = null;
+      selectedMedB = null;
+
+      const textA = document.getElementById('text-a');
+      textA.textContent = 'Select medicine';
+      textA.classList.add('placeholder');
+
+      const textB = document.getElementById('text-b');
+      textB.textContent = 'Select medicine';
+      textB.classList.add('placeholder');
+
+      hideSameMedAlert();
+      const resultBox = document.getElementById('ic-result-box');
+      resultBox.className = 'ic-result-box';
+      closeAllDropdowns();
+    }
+  </script>
+
+</body>
+
+</html>
