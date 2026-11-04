@@ -1,0 +1,7 @@
+{
+  "saved_pairs": 526,
+  "run_kind": "Initial offline import; this is not the final saved coverage.",
+  "current_coverage_report": "source_coverage.json",
+  "reference_pairs": 7545,
+  "failures": []
+}

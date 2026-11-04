@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "task": "multi_label_guidance_selection",
+  "labels": [
+    "label_review",
+    "label_monitoring",
+    "label_timing"
+  ],
+  "input_columns": [
+    "severity",
+    "mechanism_tags"
+  ],
+  "excluded_inputs": [
+    "drug_a",
+    "drug_b",
+    "pair_id",
+    "source_urls",
+    "management_source",
+    "label_review",
+    "label_monitoring",
+    "label_timing"
+  ],
+  "training_csv_sha256": "8ba313dc514ae63e83a7b9eb141c6e809c3b2dcb2df92e7f3f6e08619d7b6124",
+  "catalog_sha256": "9570bd41b7558f8a5c500fe2612eabcccf054fa8f4b704c44b24af70788e9296",
+  "split_manifest_sha256": "be144c195e91ee98beaec25c86e142199cb47df2d76be5c100989cef877b240b",
+  "labeled_rows": 300,
+  "split_rows": {
+    "train": 192,
+    "validation": 48,
+    "test": 60
+  },
+  "reference_pairs": 7545,
+  "model_selection": {
+    "classified": {
+      "selected_C": 0.1,
+      "validation_macro_f1": 0.7007407407407408,
+      "candidates": [
+        {
+          "C": 0.1,
+          "validation_macro_f1": 0.7007407407407408
+        },
+        {
+          "C": 1.0,
+          "validation_macro_f1": 0.690952380952381
+        },
+        {
+          "C": 10.0,
+          "validation_macro_f1": 0.7007407407407408
+        }
+      ]
+    },
+    "severity_only": {
+      "selected_C": 0.1,
+      "validation_macro_f1": 0.5447525447525448,
+      "candidates": [
+        {
+          "C": 0.1,
+          "validation_macro_f1": 0.5447525447525448
+        },
+        {
+          "C": 1.0,
+          "validation_macro_f1": 0.5447525447525448
+        },
+        {
+          "C": 10.0,
+          "validation_macro_f1": 0.5447525447525448
+        }
+      ]
+    }
+  },
+  "seed": 42,
+  "versions": {
+    "numpy": "2.1.3",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.6.1",
+    "joblib": "1.6.0"
+  },
+  "python_version": "3.12.14",
+  "limitations": "Same previously inspected research test set; not a fresh external evaluation. AI-assisted labels, no clinical validation. Wider reference coverage does not establish accuracy on unseen pairs."
+}

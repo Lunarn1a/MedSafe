@@ -1,0 +1,39 @@
+{
+  "task": "multi_label_guidance_selection",
+  "input_columns": [
+    "severity",
+    "mechanism"
+  ],
+  "excluded_inputs": [
+    "management_source",
+    "drug_a",
+    "drug_b",
+    "source_url"
+  ],
+  "labels": [
+    "label_review",
+    "label_monitoring",
+    "label_timing"
+  ],
+  "selected_C": 0.1,
+  "seed": 42,
+  "training_csv_sha256": "8ba313dc514ae63e83a7b9eb141c6e809c3b2dcb2df92e7f3f6e08619d7b6124",
+  "reviewed_rows": 300,
+  "split_rows": {
+    "train": 192,
+    "validation": 48,
+    "test": 60
+  },
+  "source_versions": [
+    "DDInter 2.0; accessed 2026-10-30"
+  ],
+  "python_version": "3.13.18",
+  "versions": {
+    "numpy": "2.1.3",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.6.1",
+    "joblib": "1.6.0"
+  },
+  "annotation_guide": "MedSafe guidance labels v1; see notebook Step 3",
+  "limitations": "Research prototype; annotation agreement is not clinical validation. Requires a sourced mechanism and documented severity."
+}

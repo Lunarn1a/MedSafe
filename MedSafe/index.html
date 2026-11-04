@@ -1302,10 +1302,10 @@
       color: #166534;
     }
 
-    .dash-ix-item.ix-Safe {
-      background: #f0fdf4;
-      border: 1.5px solid #bbf7d0;
-      color: #166534;
+    .dash-ix-item.ix-Unknown {
+      background: #f8fafc;
+      border: 1.5px solid #cbd5e1;
+      color: #475569;
     }
 
     /* Sidebar interaction badge in dash-nav */
@@ -1332,8 +1332,8 @@
       color: #ffffff;
     }
 
-    .dash-nav-badge.badge-safe {
-      background: #10b981;
+    .dash-nav-badge.badge-unknown {
+      background: #64748b;
       color: #ffffff;
     }
 
@@ -1363,10 +1363,10 @@
       color: #9f1239;
     }
 
-    .dash-sidebar-widget-card.widget-safe {
-      background: #f0fdf4;
-      border-color: #bbf7d0;
-      color: #166534;
+    .dash-sidebar-widget-card.widget-unknown {
+      background: #f8fafc;
+      border-color: #cbd5e1;
+      color: #475569;
     }
 
     .dash-sidebar-widget-header {
@@ -1470,10 +1470,10 @@
       color: #166534;
     }
 
-    .ic-sidebar-alert-card.alert-Safe {
-      background: #f0fdf4;
-      border-color: #bbf7d0;
-      color: #166534;
+    .ic-sidebar-alert-card.alert-Unknown {
+      background: #f8fafc;
+      border-color: #cbd5e1;
+      color: #475569;
     }
 
     .ic-sidebar-alert-badge {
@@ -1499,8 +1499,8 @@
       background: #16a34a;
     }
 
-    .alert-Safe .ic-sidebar-alert-badge {
-      background: #16a34a;
+    .alert-Unknown .ic-sidebar-alert-badge {
+      background: #64748b;
     }
 
     .ic-sidebar-alert-pair {
@@ -1537,8 +1537,8 @@
       background: #16a34a;
     }
 
-    .ix-Safe .dash-ix-badge {
-      background: #16a34a;
+    .ix-Unknown .dash-ix-badge {
+      background: #64748b;
     }
 
     .dash-ix-content {
@@ -2091,6 +2091,124 @@
         flex-direction: column;
       }
     }
+    .ic-model-suggestions {
+      margin-top: 18px;
+      padding: 16px;
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      background: #fff;
+      color: #334155;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .ic-model-suggestions h2 { margin: 0 0 12px; font-size: 16px; color: #0f172a; }
+    .ic-model-badge { display: inline-block; font-size: 10px; padding: 2px 7px; border-radius: 8px; background: #e0e7ff; color: #3730a3; }
+    .ic-model-suggestions ul { padding-left: 20px; margin: 12px 0; }
+    .ic-model-suggestions li + li { margin-top: 7px; }
+    .ic-model-mechanism { margin: 0; }
+    .ic-model-note { margin: 0 0 8px; font-size: 12px; color: #475569; }
+    .ic-model-suggestions a { color: #1d4ed8; text-decoration: underline; }
+    .ic-model-suggestions h3 { font-size: 15px; margin: 18px 0 8px; }
+    .ic-model-suggestions h4 { font-size: 14px; margin: 0 0 8px; }
+    .ic-model-suggestions p { line-height: 1.6; }
+    .ic-model-suggestions details { margin: 12px 0; font-size: 13px; }
+    .ic-model-suggestions summary { cursor: pointer; color: #334155; font-weight: 600; }
+    .ic-guidance-cards { display: grid; gap: 12px; margin: 12px 0 18px; }
+    .ic-guidance-card { background: white; border: 1px solid #dbe2ea; border-radius: 10px; padding: 16px; }
+    .ic-guidance-card p { margin: 8px 0; }
+    .ic-guidance-toggle { display: flex; align-items: center; gap: 8px; margin: 14px 0; }
+    .ic-guidance-toggle input { width: auto; }
+    .ic-model-badge[hidden] { display: none; }
+
+/* Full-page application shell; tables own their horizontal scrolling. */
+body { display: block; background: #fff; }
+.card {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  border-radius: 0;
+  box-shadow: none;
+}
+.panel-left { flex: 0 0 42%; padding: clamp(32px, 6vw, 96px); }
+.panel-left h1 { font-size: clamp(26px, 3vw, 44px); }
+.panel-left p { max-width: 400px; font-size: 16px; }
+.panel-right { min-width: 0; padding: 48px 32px; }
+.screen { max-width: 420px; }
+.dashboard-overlay { inset: 0; padding: 0; align-items: stretch; }
+.dash-card {
+  width: 100%;
+  max-width: none;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+}
+.dash-sidebar { width: 248px; padding: 32px 20px; overflow-y: auto; }
+.dash-main {
+  min-width: 0;
+  min-height: 0;
+  padding: 32px clamp(24px, 3vw, 64px) 48px;
+  max-height: none;
+}
+.dash-topbar { gap: 16px; flex-wrap: wrap; padding-bottom: 24px; border-bottom: 1px solid #e5e7eb; }
+.dash-user-pill { max-width: 100%; overflow-wrap: anywhere; }
+.dash-table-scroll { max-width: 100%; overflow-x: auto; border-radius: 12px; }
+.dash-table-scroll:focus-visible { outline: 2px solid #334155; outline-offset: 2px; }
+.dash-table { min-width: 720px; }
+.dash-table td:first-child { overflow-wrap: anywhere; }
+.dash-ix-content { min-width: 0; overflow-wrap: anywhere; }
+.dash-add-field { min-width: 0; }
+.dash-add-field input, .dash-add-field select { max-width: 100%; }
+.dash-alert-banner { flex-wrap: wrap; gap: 12px; }
+#dash-page-interaction > div:first-child { flex-wrap: wrap; gap: 16px; }
+
+/* The interaction checker is a full-page view too. Other dialogs stay compact. */
+#modal-interaction { padding: 0; }
+.interaction-card {
+  width: 100%;
+  max-width: none;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+  max-height: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+.ic-sidebar { width: 248px; overflow-y: auto; }
+.ic-main { min-width: 0; min-height: 0; max-height: none; padding: 36px clamp(24px, 4vw, 72px) 48px; }
+.ic-result-title, .ic-model-suggestions { overflow-wrap: anywhere; }
+
+@media (max-width: 800px) {
+  .card { width: 100%; }
+  .panel-left { flex: none; padding: 32px 24px; }
+  .logo-circle { width: 48px; height: 48px; margin-bottom: 16px; }
+  .panel-right { padding: 32px 24px; }
+  .dash-card { flex-direction: column; }
+  .dash-sidebar {
+    width: 100%; padding: 16px; flex-direction: row; flex-wrap: wrap;
+    gap: 14px; flex-shrink: 0; max-height: 40dvh;
+  }
+  .dash-brand { margin: 0; }
+  .dash-sidebar-footer { display: block; padding: 0; margin: 0 0 0 auto; }
+  .dash-nav { order: 3; flex: 1 0 100%; gap: 6px; }
+  .dash-nav-item { padding: 9px 12px; font-size: 13px; }
+  .dash-sidebar-interaction-widget { display: none !important; }
+  .dash-main { padding: 24px 16px 36px; }
+  .dash-topbar { margin-bottom: 20px; padding-bottom: 18px; }
+  .dash-topbar-title { font-size: 22px; }
+  .dash-add-row .med-combobox-wrapper { flex-basis: 100% !important; min-width: 0 !important; }
+  .dash-ix-item { flex-wrap: wrap; }
+  .dash-ix-content { flex-basis: 100%; }
+  .interaction-card { max-height: none; }
+  .ic-sidebar { width: 100%; padding: 16px; flex-shrink: 0; }
+  .ic-sidebar-patient-section, .ic-nav { display: none; }
+  .ic-sidebar-footer { display: block; padding: 0; margin: 0; }
+  .ic-main { padding: 28px 16px 36px; }
+  .ic-heading { padding-right: 32px; }
+}
+
   </style>
 </head>
 
@@ -2212,7 +2330,7 @@
                 to add the medications you are currently taking.</div>
               <button class="dash-add-btn" onclick="dashNavTo('medicines')">+ Add Medicine</button>
             </div>
-            <table class="dash-table" id="patient-home-table" style="display:none">
+            <div class="dash-table-scroll" tabindex="0" role="region" aria-label="Scrollable records table"><table class="dash-table" id="patient-home-table" style="display:none">
               <thead>
                 <tr>
                   <th>Medicine</th>
@@ -2223,7 +2341,7 @@
                 </tr>
               </thead>
               <tbody id="patient-home-tbody"></tbody>
-            </table>
+            </table></div>
             <!-- Interaction Alerts (auto-computed) -->
             <div class="dash-interactions-panel" id="dash-home-interactions"></div>
           </div>
@@ -2237,7 +2355,7 @@
                 create a patient profile.</div>
               <button class="dash-add-btn" onclick="dashNavTo('patients')">+ Add Patient</button>
             </div>
-            <table class="dash-table" id="caregiver-home-table" style="display:none">
+            <div class="dash-table-scroll" tabindex="0" role="region" aria-label="Scrollable records table"><table class="dash-table" id="caregiver-home-table" style="display:none">
               <thead>
                 <tr>
                   <th>Patient</th>
@@ -2247,7 +2365,7 @@
                 </tr>
               </thead>
               <tbody id="caregiver-home-tbody"></tbody>
-            </table>
+            </table></div>
           </div>
         </div>
 
@@ -2299,7 +2417,7 @@
             <div class="dash-empty-text">No medicines added yet. Use the form above to add the medications you are
               currently taking.</div>
           </div>
-          <table class="dash-table" id="med-page-table" style="display:none">
+          <div class="dash-table-scroll" tabindex="0" role="region" aria-label="Scrollable records table"><table class="dash-table" id="med-page-table" style="display:none">
             <thead>
               <tr>
                 <th>Medicine</th>
@@ -2311,7 +2429,7 @@
               </tr>
             </thead>
             <tbody id="med-page-tbody"></tbody>
-          </table>
+          </table></div>
           <!-- Interaction Alerts on Medicines page -->
           <div class="dash-interactions-panel" id="dash-med-interactions"></div>
         </div>
@@ -2334,7 +2452,7 @@
             <div class="dash-empty-icon">👥</div>
             <div class="dash-empty-text">No patients added yet. Use the form above to create a patient profile.</div>
           </div>
-          <table class="dash-table" id="pt-page-table" style="display:none">
+          <div class="dash-table-scroll" tabindex="0" role="region" aria-label="Scrollable records table"><table class="dash-table" id="pt-page-table" style="display:none">
             <thead>
               <tr>
                 <th>Patient</th>
@@ -2345,7 +2463,7 @@
               </tr>
             </thead>
             <tbody id="pt-page-tbody"></tbody>
-          </table>
+          </table></div>
         </div>
 
         <!-- Page: Assign Medicines (caregiver only) -->
@@ -2427,7 +2545,7 @@
                 yet. Use the form above to assign medications.</div>
             </div>
 
-            <table class="dash-table" id="assign-patient-meds-table" style="display:none;">
+            <div class="dash-table-scroll" tabindex="0" role="region" aria-label="Scrollable records table"><table class="dash-table" id="assign-patient-meds-table" style="display:none;">
               <thead>
                 <tr>
                   <th>Medicine</th>
@@ -2439,7 +2557,7 @@
                 </tr>
               </thead>
               <tbody id="assign-patient-meds-tbody"></tbody>
-            </table>
+            </table></div>
 
             <!-- Patient Interaction Check Panel -->
             <div class="dash-interactions-panel" id="assign-patient-interactions"></div>
@@ -2564,6 +2682,7 @@
           </div>
           <div id="ic-result-title" class="ic-result-title">Analysis Complete</div>
           <p id="ic-result-desc" class="ic-result-desc">Detailed interaction findings will appear here.</p>
+          <section id="ic-model-suggestions" class="ic-model-suggestions" hidden aria-live="polite" aria-atomic="true"></section>
           <div class="ic-action-row">
             <button class="ic-reset-btn" onclick="resetMedicines()">Clear Selection</button>
           </div>
@@ -3123,9 +3242,7 @@
     }
 
     function inspectInteraction(medA, medB) {
-      openInteractionModal();
-      chooseMedicine('a', medA);
-      chooseMedicine('b', medB);
+      openInteractionModal(medA, medB);
     }
 
     function renderInteractionsPanel(containerId, interactions) {
@@ -3161,12 +3278,12 @@
 
       if (interactions.length === 0) {
         html += `
-          <div class="dash-ix-item ix-Safe">
-            <span class="dash-ix-badge">Safe</span>
+          <div class="dash-ix-item ix-Unknown">
+            <span class="dash-ix-badge">No information found</span>
             <div class="dash-ix-content">
-              <div class="dash-ix-drugs">No Documented Interactions Found</div>
+              <div class="dash-ix-drugs">Not enough information</div>
               <div class="dash-ix-desc">
-                None of your ${patientMeds.length} currently listed medications have documented Major, Moderate, or Minor interactions with each other in the DDInter reference database.
+                MedSafe has no information about pairs among your ${patientMeds.length} medicines. This does not mean they are safe to take together. Ask your doctor or pharmacist.
               </div>
             </div>
           </div>
@@ -3175,11 +3292,11 @@
         interactions.forEach(ix => {
           let desc = '';
           if (ix.level === 'Major') {
-            desc = `High Risk: Concurrent administration of ${ix.medA} and ${ix.medB} may significantly heighten adverse effects or substantially alter drug bioavailability. Clinical monitoring or therapy modification is strongly advised.`;
+            desc = `Taking ${ix.medA} and ${ix.medB} together may cause serious side effects or change how they work. Ask your doctor or pharmacist to check this medicine pair.`;
           } else if (ix.level === 'Moderate') {
-            desc = `Moderate Risk: Concomitant use of ${ix.medA} and ${ix.medB} can alter drug efficacy or cause side effects. Use with caution under medical supervision.`;
+            desc = `Taking ${ix.medA} and ${ix.medB} together may change how well they work or cause side effects. Ask your doctor or pharmacist what to watch for.`;
           } else {
-            desc = `Minor Risk: An interaction is identified between ${ix.medA} and ${ix.medB}. Usually has limited clinical consequence, though patient monitoring is encouraged.`;
+            desc = `The source lists a smaller effect when ${ix.medA} and ${ix.medB} are used together. Ask your doctor or pharmacist whether it matters for you.`;
           }
 
           html += `
@@ -3499,12 +3616,12 @@
 
       if (interactions.length === 0) {
         html += `
-          <div class="dash-ix-item ix-Safe">
-            <span class="dash-ix-badge">Safe</span>
+          <div class="dash-ix-item ix-Unknown">
+            <span class="dash-ix-badge">No information found</span>
             <div class="dash-ix-content">
-              <div class="dash-ix-drugs">No Documented Interactions Found</div>
+              <div class="dash-ix-drugs">Not enough information</div>
               <div class="dash-ix-desc">
-                None of ${patientName}'s ${medCount} assigned medications have documented Major, Moderate, or Minor interactions with each other.
+                MedSafe has no information about pairs among ${patientName}'s ${medCount} medicines. This does not mean they are safe to take together. Ask a doctor or pharmacist.
               </div>
             </div>
           </div>
@@ -3513,11 +3630,11 @@
         interactions.forEach(ix => {
           let desc = '';
           if (ix.level === 'Major') {
-            desc = `High Risk: Concurrent administration of ${ix.medA} and ${ix.medB} may significantly heighten adverse effects or substantially alter drug bioavailability.`;
+            desc = `Taking ${ix.medA} and ${ix.medB} together may cause serious side effects or change how they work. Ask your doctor or pharmacist to check this medicine pair.`;
           } else if (ix.level === 'Moderate') {
-            desc = `Moderate Risk: Concomitant use of ${ix.medA} and ${ix.medB} can alter drug efficacy or cause side effects.`;
+            desc = `Taking ${ix.medA} and ${ix.medB} together may change how well they work or cause side effects. Ask your doctor or pharmacist what to watch for.`;
           } else {
-            desc = `Minor Risk: An interaction is identified between ${ix.medA} and ${ix.medB}. Usually has limited clinical consequence.`;
+            desc = `The source lists a smaller effect when ${ix.medA} and ${ix.medB} are used together. Ask your doctor or pharmacist whether it matters for you.`;
           }
 
           html += `
@@ -3624,8 +3741,8 @@
             navBtn.appendChild(badge);
           } else if (patientMeds.length >= 2) {
             const badge = document.createElement('span');
-            badge.className = 'dash-nav-badge badge-safe';
-            badge.textContent = '✓ Safe';
+            badge.className = 'dash-nav-badge badge-unknown';
+            badge.textContent = 'No information found';
             navBtn.appendChild(badge);
           }
         }
@@ -3654,12 +3771,12 @@
           widget.style.display = 'block';
         } else if (patientMeds.length >= 2) {
           widget.innerHTML = `
-            <div class="dash-sidebar-widget-card widget-safe" onclick="dashNavTo('interaction')">
+            <div class="dash-sidebar-widget-card widget-unknown" onclick="dashNavTo('interaction')">
               <div class="dash-sidebar-widget-header">
                 <span>🛡️</span>
-                <strong>All Clear</strong>
+                <strong>No information found</strong>
               </div>
-              <div class="dash-sidebar-widget-text">${patientMeds.length} medications checked. No interactions detected.</div>
+              <div class="dash-sidebar-widget-text">${patientMeds.length} medicines checked. MedSafe has no information about these pairs. Ask your doctor or pharmacist about taking them together.</div>
             </div>
           `;
           widget.style.display = 'block';
@@ -3730,10 +3847,10 @@
         });
       } else if (patientMeds.length >= 2) {
         html += `
-          <div class="ic-sidebar-alert-card alert-Safe">
-            <span class="ic-sidebar-alert-badge">Safe</span>
-            <div class="ic-sidebar-alert-pair">No Interactions</div>
-            <div class="ic-sidebar-alert-hint">All ${patientMeds.length} medications are clear.</div>
+          <div class="ic-sidebar-alert-card alert-Unknown">
+            <span class="ic-sidebar-alert-badge">No information found</span>
+            <div class="ic-sidebar-alert-pair">Not enough information</div>
+            <div class="ic-sidebar-alert-hint">We cannot tell whether these ${patientMeds.length} medicines are safe together from the information we have.</div>
           </div>
         `;
       } else {
@@ -4091,6 +4208,7 @@
 
     /* ── Interaction Check Modal Functions ─────────────── */
     function openInteractionModal(medA, medB) {
+      resetMedicines();
       const modal = document.getElementById('modal-interaction');
       modal.classList.add('open');
       document.body.style.overflow = 'hidden';
@@ -4118,6 +4236,7 @@
     }
 
     function closeInteractionModal() {
+      window.MedSafeSuggestions?.clear();
       const modal = document.getElementById('modal-interaction');
       modal.classList.remove('open');
       document.body.style.overflow = '';
@@ -4274,6 +4393,7 @@
     }
 
     function evaluateInteraction() {
+      window.MedSafeSuggestions?.clear();
       const resultBox = document.getElementById('ic-result-box');
       const badge = document.getElementById('ic-badge');
       const title = document.getElementById('ic-result-title');
@@ -4303,26 +4423,28 @@
         resultBox.classList.add('level-Major');
         badge.textContent = 'Major Interaction';
         title.textContent = `High Risk: ${selectedMedA} + ${selectedMedB}`;
-        desc.textContent = `A Major drug interaction was documented between ${selectedMedA} and ${selectedMedB}. Concurrent administration may significantly heighten adverse effects or substantially alter drug bioavailability. Clinical monitoring or therapy modification is strongly advised.`;
+        desc.textContent = `Taking ${selectedMedA} and ${selectedMedB} together may cause serious side effects or change how they work. Ask your doctor or pharmacist to check this medicine pair.`;
       } else if (level === 'Moderate') {
         resultBox.classList.add('level-Moderate');
         badge.textContent = 'Moderate Interaction';
         title.textContent = `Moderate Interaction: ${selectedMedA} + ${selectedMedB}`;
-        desc.textContent = `A Moderate drug interaction exists between ${selectedMedA} and ${selectedMedB}. Concomitant use can potentially alter drug efficacy or cause side effects. Use with caution and follow medical guidance.`;
+        desc.textContent = `Taking ${selectedMedA} and ${selectedMedB} together may change how well they work or cause side effects. Ask your doctor or pharmacist what to watch for.`;
       } else if (level === 'Minor') {
         resultBox.classList.add('level-Minor');
         badge.textContent = 'Minor Interaction';
         title.textContent = `Minor Interaction: ${selectedMedA} + ${selectedMedB}`;
-        desc.textContent = `A Minor interaction is identified between ${selectedMedA} and ${selectedMedB}. The interaction usually has limited clinical consequence, though patient monitoring is encouraged.`;
+        desc.textContent = `The source lists a smaller effect when ${selectedMedA} and ${selectedMedB} are used together. Ask your doctor or pharmacist whether it matters for you.`;
       } else {
         resultBox.classList.add('level-None');
-        badge.textContent = 'No Documented Interaction';
-        title.textContent = `No Direct Interaction Found`;
-        desc.textContent = `No documented Major, Moderate, or Minor interactions were identified between ${selectedMedA} and ${selectedMedB} in the supported DDInter reference database.`;
+        badge.textContent = 'No information found';
+        title.textContent = 'Not enough information';
+        desc.textContent = `MedSafe has no information about ${selectedMedA} + ${selectedMedB}. This does not mean they are safe to take together.`;
       }
+      window.MedSafeSuggestions?.update({ drugA: selectedMedA, drugB: selectedMedB, level: level || null });
     }
 
     function resetMedicines() {
+      window.MedSafeSuggestions?.clear();
       selectedMedA = null;
       selectedMedB = null;
 
@@ -4341,6 +4463,7 @@
     }
   </script>
 
+  <script src="model-suggestions.js"></script>
 </body>
 
 </html>

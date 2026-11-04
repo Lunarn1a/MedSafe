@@ -1,0 +1,4432 @@
+[
+  {
+    "pair_id": "abametapir (topical)|||dexamethasone",
+    "group_id": "source_family_18404c9b9d3e7d87",
+    "split": "train"
+  },
+  {
+    "pair_id": "abametapir (topical)|||esomeprazole",
+    "group_id": "source_family_18404c9b9d3e7d87",
+    "split": "train"
+  },
+  {
+    "pair_id": "abametapir (topical)|||glyburide",
+    "group_id": "source_family_18404c9b9d3e7d87",
+    "split": "train"
+  },
+  {
+    "pair_id": "abametapir (topical)|||hydrocortisone",
+    "group_id": "source_family_18404c9b9d3e7d87",
+    "split": "train"
+  },
+  {
+    "pair_id": "abametapir (topical)|||lansoprazole",
+    "group_id": "source_family_18404c9b9d3e7d87",
+    "split": "train"
+  },
+  {
+    "pair_id": "abametapir (topical)|||linagliptin",
+    "group_id": "source_family_18404c9b9d3e7d87",
+    "split": "train"
+  },
+  {
+    "pair_id": "abametapir (topical)|||omeprazole",
+    "group_id": "source_family_18404c9b9d3e7d87",
+    "split": "train"
+  },
+  {
+    "pair_id": "abametapir (topical)|||pantoprazole",
+    "group_id": "source_family_18404c9b9d3e7d87",
+    "split": "train"
+  },
+  {
+    "pair_id": "abametapir (topical)|||pioglitazone",
+    "group_id": "source_family_18404c9b9d3e7d87",
+    "split": "train"
+  },
+  {
+    "pair_id": "abametapir (topical)|||prednisone",
+    "group_id": "source_family_18404c9b9d3e7d87",
+    "split": "train"
+  },
+  {
+    "pair_id": "abametapir (topical)|||rabeprazole",
+    "group_id": "source_family_18404c9b9d3e7d87",
+    "split": "train"
+  },
+  {
+    "pair_id": "abametapir (topical)|||repaglinide",
+    "group_id": "source_family_18404c9b9d3e7d87",
+    "split": "train"
+  },
+  {
+    "pair_id": "abametapir (topical)|||saxagliptin",
+    "group_id": "source_family_18404c9b9d3e7d87",
+    "split": "train"
+  },
+  {
+    "pair_id": "abarelix|||famotidine",
+    "group_id": "source_family_c8a4751931106cc9",
+    "split": "train"
+  },
+  {
+    "pair_id": "abemaciclib|||dexamethasone",
+    "group_id": "source_family_500c1e3b7d16d9a1",
+    "split": "train"
+  },
+  {
+    "pair_id": "abemaciclib|||metformin",
+    "group_id": "source_family_387fb435fdab0e20",
+    "split": "train"
+  },
+  {
+    "pair_id": "abiraterone|||famotidine",
+    "group_id": "source_family_c8a4751931106cc9",
+    "split": "train"
+  },
+  {
+    "pair_id": "abiraterone|||loperamide",
+    "group_id": "source_family_7306e64f6cb4316b",
+    "split": "train"
+  },
+  {
+    "pair_id": "abiraterone|||pioglitazone",
+    "group_id": "source_family_0d5662fb47edf3bb",
+    "split": "train"
+  },
+  {
+    "pair_id": "abiraterone|||repaglinide",
+    "group_id": "source_family_7f3c5c11a430ef72",
+    "split": "train"
+  },
+  {
+    "pair_id": "acalabrutinib|||calcium carbonate",
+    "group_id": "source_family_d3da2e4cd5337e14",
+    "split": "train"
+  },
+  {
+    "pair_id": "acalabrutinib|||esomeprazole",
+    "group_id": "source_family_d3da2e4cd5337e14",
+    "split": "train"
+  },
+  {
+    "pair_id": "acalabrutinib|||famotidine",
+    "group_id": "source_family_d3da2e4cd5337e14",
+    "split": "train"
+  },
+  {
+    "pair_id": "acalabrutinib|||lansoprazole",
+    "group_id": "source_family_d3da2e4cd5337e14",
+    "split": "train"
+  },
+  {
+    "pair_id": "acalabrutinib|||omeprazole",
+    "group_id": "source_family_d3da2e4cd5337e14",
+    "split": "train"
+  },
+  {
+    "pair_id": "acalabrutinib|||pantoprazole",
+    "group_id": "source_family_d3da2e4cd5337e14",
+    "split": "train"
+  },
+  {
+    "pair_id": "acalabrutinib|||rabeprazole",
+    "group_id": "source_family_d3da2e4cd5337e14",
+    "split": "train"
+  },
+  {
+    "pair_id": "acalabrutinib|||ranitidine",
+    "group_id": "source_family_d3da2e4cd5337e14",
+    "split": "train"
+  },
+  {
+    "pair_id": "acarbose|||dexamethasone",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "acarbose|||hydrocortisone",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "acarbose|||metformin",
+    "group_id": "source_family_44edba3f01bbdfa9",
+    "split": "train"
+  },
+  {
+    "pair_id": "acarbose|||prednisone",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "acebutolol|||dexamethasone",
+    "group_id": "source_family_d491697bd7271a18",
+    "split": "train"
+  },
+  {
+    "pair_id": "acebutolol|||glimepiride",
+    "group_id": "source_family_781b28328e18a9e0",
+    "split": "train"
+  },
+  {
+    "pair_id": "acebutolol|||glipizide",
+    "group_id": "source_family_781b28328e18a9e0",
+    "split": "train"
+  },
+  {
+    "pair_id": "acebutolol|||glyburide",
+    "group_id": "source_family_781b28328e18a9e0",
+    "split": "train"
+  },
+  {
+    "pair_id": "acebutolol|||hydrocortisone",
+    "group_id": "source_family_d491697bd7271a18",
+    "split": "train"
+  },
+  {
+    "pair_id": "acebutolol|||prednisone",
+    "group_id": "source_family_d491697bd7271a18",
+    "split": "train"
+  },
+  {
+    "pair_id": "acebutolol|||repaglinide",
+    "group_id": "source_family_781b28328e18a9e0",
+    "split": "train"
+  },
+  {
+    "pair_id": "acebutolol|||sucralfate",
+    "group_id": "source_family_6e2fae085be05f08",
+    "split": "train"
+  },
+  {
+    "pair_id": "acetaminophen|||metoclopramide",
+    "group_id": "source_family_91f0dfcfa67cc257",
+    "split": "train"
+  },
+  {
+    "pair_id": "acetazolamide|||glimepiride",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "acetazolamide|||glipizide",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "acetazolamide|||glyburide",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "acetazolamide|||linagliptin",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "acetazolamide|||metformin",
+    "group_id": "source_family_361943f590ea25b1",
+    "split": "train"
+  },
+  {
+    "pair_id": "acetazolamide|||pioglitazone",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "acetazolamide|||repaglinide",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "acetazolamide|||saxagliptin",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "acetohexamide|||dexamethasone",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "acetohexamide|||famotidine",
+    "group_id": "source_family_2126bdbee46bd985",
+    "split": "train"
+  },
+  {
+    "pair_id": "acetohexamide|||hydrocortisone",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "acetohexamide|||linagliptin",
+    "group_id": "source_family_871c8806a951e71c",
+    "split": "train"
+  },
+  {
+    "pair_id": "acetohexamide|||prednisone",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "acetohexamide|||ranitidine",
+    "group_id": "source_family_2126bdbee46bd985",
+    "split": "train"
+  },
+  {
+    "pair_id": "acetohexamide|||saxagliptin",
+    "group_id": "source_family_871c8806a951e71c",
+    "split": "train"
+  },
+  {
+    "pair_id": "acetylsalicylic acid|||dexamethasone",
+    "group_id": "source_family_40bcdcc9708e202a",
+    "split": "train"
+  },
+  {
+    "pair_id": "acetylsalicylic acid|||glimepiride",
+    "group_id": "source_family_e8644e77b34bd96a",
+    "split": "train"
+  },
+  {
+    "pair_id": "acetylsalicylic acid|||glipizide",
+    "group_id": "source_family_e8644e77b34bd96a",
+    "split": "train"
+  },
+  {
+    "pair_id": "acetylsalicylic acid|||glyburide",
+    "group_id": "source_family_e8644e77b34bd96a",
+    "split": "train"
+  },
+  {
+    "pair_id": "acetylsalicylic acid|||hydrocortisone",
+    "group_id": "source_family_40bcdcc9708e202a",
+    "split": "train"
+  },
+  {
+    "pair_id": "acetylsalicylic acid|||metoclopramide",
+    "group_id": "source_family_91f0dfcfa67cc257",
+    "split": "train"
+  },
+  {
+    "pair_id": "acetylsalicylic acid|||prednisone",
+    "group_id": "source_family_40bcdcc9708e202a",
+    "split": "train"
+  },
+  {
+    "pair_id": "acetylsalicylic acid|||repaglinide",
+    "group_id": "source_family_e8644e77b34bd96a",
+    "split": "train"
+  },
+  {
+    "pair_id": "acitretin|||glimepiride",
+    "group_id": "source_family_f8fb30a259adaf32",
+    "split": "train"
+  },
+  {
+    "pair_id": "acitretin|||glipizide",
+    "group_id": "source_family_f8fb30a259adaf32",
+    "split": "train"
+  },
+  {
+    "pair_id": "acitretin|||glyburide",
+    "group_id": "source_family_f8fb30a259adaf32",
+    "split": "train"
+  },
+  {
+    "pair_id": "acrivastine|||loperamide",
+    "group_id": "source_family_ba95a4a1fd02694c",
+    "split": "train"
+  },
+  {
+    "pair_id": "adalimumab|||dexamethasone",
+    "group_id": "source_family_6b9931a6ad21ce65",
+    "split": "train"
+  },
+  {
+    "pair_id": "adalimumab|||hydrocortisone",
+    "group_id": "source_family_6b9931a6ad21ce65",
+    "split": "train"
+  },
+  {
+    "pair_id": "adalimumab|||prednisone",
+    "group_id": "source_family_6b9931a6ad21ce65",
+    "split": "train"
+  },
+  {
+    "pair_id": "afatinib|||dexamethasone",
+    "group_id": "source_family_cedd205b08700cf3",
+    "split": "train"
+  },
+  {
+    "pair_id": "albiglutide|||dexamethasone",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "albiglutide|||glimepiride",
+    "group_id": "source_family_6f422111bfbf17d3",
+    "split": "train"
+  },
+  {
+    "pair_id": "albiglutide|||glipizide",
+    "group_id": "source_family_6f422111bfbf17d3",
+    "split": "train"
+  },
+  {
+    "pair_id": "albiglutide|||glyburide",
+    "group_id": "source_family_6f422111bfbf17d3",
+    "split": "train"
+  },
+  {
+    "pair_id": "albiglutide|||hydrocortisone",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "albiglutide|||prednisone",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "albiglutide|||repaglinide",
+    "group_id": "source_family_6f422111bfbf17d3",
+    "split": "train"
+  },
+  {
+    "pair_id": "alclometasone (topical)|||glimepiride",
+    "group_id": "source_family_9bd43b15d207ddbe",
+    "split": "train"
+  },
+  {
+    "pair_id": "alclometasone (topical)|||glipizide",
+    "group_id": "source_family_9bd43b15d207ddbe",
+    "split": "train"
+  },
+  {
+    "pair_id": "alclometasone (topical)|||glyburide",
+    "group_id": "source_family_9bd43b15d207ddbe",
+    "split": "train"
+  },
+  {
+    "pair_id": "alclometasone (topical)|||linagliptin",
+    "group_id": "source_family_9bd43b15d207ddbe",
+    "split": "train"
+  },
+  {
+    "pair_id": "alclometasone (topical)|||metformin",
+    "group_id": "source_family_9bd43b15d207ddbe",
+    "split": "train"
+  },
+  {
+    "pair_id": "alclometasone (topical)|||pioglitazone",
+    "group_id": "source_family_9bd43b15d207ddbe",
+    "split": "train"
+  },
+  {
+    "pair_id": "alclometasone (topical)|||repaglinide",
+    "group_id": "source_family_9bd43b15d207ddbe",
+    "split": "train"
+  },
+  {
+    "pair_id": "alclometasone (topical)|||saxagliptin",
+    "group_id": "source_family_9bd43b15d207ddbe",
+    "split": "train"
+  },
+  {
+    "pair_id": "aldesleukin|||dexamethasone",
+    "group_id": "source_family_97ac4125591d413c",
+    "split": "train"
+  },
+  {
+    "pair_id": "aldesleukin|||hydrocortisone",
+    "group_id": "source_family_97ac4125591d413c",
+    "split": "train"
+  },
+  {
+    "pair_id": "aldesleukin|||prednisone",
+    "group_id": "source_family_97ac4125591d413c",
+    "split": "train"
+  },
+  {
+    "pair_id": "alefacept|||dexamethasone",
+    "group_id": "source_family_0417c5f42f5c2ac6",
+    "split": "train"
+  },
+  {
+    "pair_id": "alefacept|||hydrocortisone",
+    "group_id": "source_family_0417c5f42f5c2ac6",
+    "split": "train"
+  },
+  {
+    "pair_id": "alefacept|||prednisone",
+    "group_id": "source_family_0417c5f42f5c2ac6",
+    "split": "train"
+  },
+  {
+    "pair_id": "alemtuzumab|||dexamethasone",
+    "group_id": "source_family_9d90bd260b90ab25",
+    "split": "train"
+  },
+  {
+    "pair_id": "alemtuzumab|||hydrocortisone",
+    "group_id": "source_family_9d90bd260b90ab25",
+    "split": "train"
+  },
+  {
+    "pair_id": "alemtuzumab|||prednisone",
+    "group_id": "source_family_9d90bd260b90ab25",
+    "split": "train"
+  },
+  {
+    "pair_id": "alendronic acid|||calcium carbonate",
+    "group_id": "source_family_777adfe29f789cf6",
+    "split": "train"
+  },
+  {
+    "pair_id": "alendronic acid|||calcium citrate",
+    "group_id": "source_family_777adfe29f789cf6",
+    "split": "train"
+  },
+  {
+    "pair_id": "alendronic acid|||iron",
+    "group_id": "source_family_777adfe29f789cf6",
+    "split": "train"
+  },
+  {
+    "pair_id": "alendronic acid|||sucralfate",
+    "group_id": "source_family_777adfe29f789cf6",
+    "split": "train"
+  },
+  {
+    "pair_id": "alendronic acid|||zinc sulfate",
+    "group_id": "source_family_777adfe29f789cf6",
+    "split": "train"
+  },
+  {
+    "pair_id": "alfentanil|||dexamethasone",
+    "group_id": "source_family_c5d2bd2db9781a4a",
+    "split": "train"
+  },
+  {
+    "pair_id": "alfuzosin|||famotidine",
+    "group_id": "source_family_c8a4751931106cc9",
+    "split": "train"
+  },
+  {
+    "pair_id": "alimemazine|||famotidine",
+    "group_id": "source_family_c8a4751931106cc9",
+    "split": "train"
+  },
+  {
+    "pair_id": "alimemazine|||glimepiride",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "alimemazine|||glipizide",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "alimemazine|||glyburide",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "alimemazine|||linagliptin",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "alimemazine|||metformin",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "alimemazine|||pioglitazone",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "alimemazine|||repaglinide",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "alimemazine|||saxagliptin",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "aliskiren|||dexamethasone",
+    "group_id": "source_family_d491697bd7271a18",
+    "split": "train"
+  },
+  {
+    "pair_id": "aliskiren|||hydrocortisone",
+    "group_id": "source_family_d491697bd7271a18",
+    "split": "train"
+  },
+  {
+    "pair_id": "aliskiren|||prednisone",
+    "group_id": "source_family_d491697bd7271a18",
+    "split": "train"
+  },
+  {
+    "pair_id": "aloe vera leaf|||glimepiride",
+    "group_id": "source_family_ee1da2e3663677d7",
+    "split": "train"
+  },
+  {
+    "pair_id": "aloe vera leaf|||glipizide",
+    "group_id": "source_family_ee1da2e3663677d7",
+    "split": "train"
+  },
+  {
+    "pair_id": "aloe vera leaf|||glyburide",
+    "group_id": "source_family_ee1da2e3663677d7",
+    "split": "train"
+  },
+  {
+    "pair_id": "aloe vera leaf|||linagliptin",
+    "group_id": "source_family_ee1da2e3663677d7",
+    "split": "train"
+  },
+  {
+    "pair_id": "aloe vera leaf|||metformin",
+    "group_id": "source_family_ee1da2e3663677d7",
+    "split": "train"
+  },
+  {
+    "pair_id": "aloe vera leaf|||pioglitazone",
+    "group_id": "source_family_ee1da2e3663677d7",
+    "split": "train"
+  },
+  {
+    "pair_id": "aloe vera leaf|||repaglinide",
+    "group_id": "source_family_ee1da2e3663677d7",
+    "split": "train"
+  },
+  {
+    "pair_id": "aloe vera leaf|||saxagliptin",
+    "group_id": "source_family_ee1da2e3663677d7",
+    "split": "train"
+  },
+  {
+    "pair_id": "alogliptin|||dexamethasone",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "alogliptin|||glimepiride",
+    "group_id": "source_family_871c8806a951e71c",
+    "split": "train"
+  },
+  {
+    "pair_id": "alogliptin|||glipizide",
+    "group_id": "source_family_871c8806a951e71c",
+    "split": "train"
+  },
+  {
+    "pair_id": "alogliptin|||glyburide",
+    "group_id": "source_family_871c8806a951e71c",
+    "split": "train"
+  },
+  {
+    "pair_id": "alogliptin|||hydrocortisone",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "alogliptin|||prednisone",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "alogliptin|||repaglinide",
+    "group_id": "source_family_871c8806a951e71c",
+    "split": "train"
+  },
+  {
+    "pair_id": "alpelisib|||dexamethasone",
+    "group_id": "source_family_9c04be378daea94d",
+    "split": "train"
+  },
+  {
+    "pair_id": "alpelisib|||glimepiride",
+    "group_id": "source_family_937fd2d50ad1d8f3",
+    "split": "train"
+  },
+  {
+    "pair_id": "alpelisib|||glipizide",
+    "group_id": "source_family_937fd2d50ad1d8f3",
+    "split": "train"
+  },
+  {
+    "pair_id": "alpelisib|||glyburide",
+    "group_id": "source_family_937fd2d50ad1d8f3",
+    "split": "train"
+  },
+  {
+    "pair_id": "alpelisib|||linagliptin",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "alpelisib|||metformin",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "alpelisib|||pantoprazole",
+    "group_id": "source_family_937fd2d50ad1d8f3",
+    "split": "train"
+  },
+  {
+    "pair_id": "alpelisib|||pioglitazone",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "alpelisib|||repaglinide",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "alpelisib|||saxagliptin",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "alprazolam|||metoclopramide",
+    "group_id": "source_family_5c4df652962b970d",
+    "split": "train"
+  },
+  {
+    "pair_id": "aluminum hydroxide|||calcium citrate",
+    "group_id": "source_family_bcce2543420e2fd2",
+    "split": "train"
+  },
+  {
+    "pair_id": "aluminum hydroxide|||dexamethasone",
+    "group_id": "source_family_3b206a67c9829eea",
+    "split": "train"
+  },
+  {
+    "pair_id": "aluminum hydroxide|||hydrocortisone",
+    "group_id": "source_family_3b206a67c9829eea",
+    "split": "train"
+  },
+  {
+    "pair_id": "aluminum hydroxide|||iron",
+    "group_id": "source_family_2fc03b66bfb79b92",
+    "split": "train"
+  },
+  {
+    "pair_id": "aluminum hydroxide|||prednisone",
+    "group_id": "source_family_3b206a67c9829eea",
+    "split": "train"
+  },
+  {
+    "pair_id": "aluminum hydroxide|||sucralfate",
+    "group_id": "source_family_ec0ad6ca64834775",
+    "split": "train"
+  },
+  {
+    "pair_id": "amantadine|||metoclopramide",
+    "group_id": "source_family_942677e0f4b521e5",
+    "split": "train"
+  },
+  {
+    "pair_id": "ambenonium|||dexamethasone",
+    "group_id": "source_family_be0ca792e9853e23",
+    "split": "train"
+  },
+  {
+    "pair_id": "ambenonium|||hydrocortisone",
+    "group_id": "source_family_be0ca792e9853e23",
+    "split": "train"
+  },
+  {
+    "pair_id": "ambenonium|||prednisone",
+    "group_id": "source_family_be0ca792e9853e23",
+    "split": "train"
+  },
+  {
+    "pair_id": "amcinonide|||glimepiride",
+    "group_id": "source_family_9bd43b15d207ddbe",
+    "split": "train"
+  },
+  {
+    "pair_id": "amcinonide|||glipizide",
+    "group_id": "source_family_9bd43b15d207ddbe",
+    "split": "train"
+  },
+  {
+    "pair_id": "amcinonide|||glyburide",
+    "group_id": "source_family_9bd43b15d207ddbe",
+    "split": "train"
+  },
+  {
+    "pair_id": "amcinonide|||linagliptin",
+    "group_id": "source_family_9bd43b15d207ddbe",
+    "split": "train"
+  },
+  {
+    "pair_id": "amcinonide|||metformin",
+    "group_id": "source_family_9bd43b15d207ddbe",
+    "split": "train"
+  },
+  {
+    "pair_id": "amcinonide|||pioglitazone",
+    "group_id": "source_family_9bd43b15d207ddbe",
+    "split": "train"
+  },
+  {
+    "pair_id": "amcinonide|||repaglinide",
+    "group_id": "source_family_9bd43b15d207ddbe",
+    "split": "train"
+  },
+  {
+    "pair_id": "amcinonide|||saxagliptin",
+    "group_id": "source_family_9bd43b15d207ddbe",
+    "split": "train"
+  },
+  {
+    "pair_id": "amifampridine|||dexamethasone",
+    "group_id": "source_family_d4746ec1d2c771a1",
+    "split": "train"
+  },
+  {
+    "pair_id": "amifampridine|||hydrocortisone",
+    "group_id": "source_family_d4746ec1d2c771a1",
+    "split": "train"
+  },
+  {
+    "pair_id": "amifampridine|||metoclopramide",
+    "group_id": "source_family_d4746ec1d2c771a1",
+    "split": "train"
+  },
+  {
+    "pair_id": "amifampridine|||prednisone",
+    "group_id": "source_family_d4746ec1d2c771a1",
+    "split": "train"
+  },
+  {
+    "pair_id": "amiloride|||dexamethasone",
+    "group_id": "source_family_d491697bd7271a18",
+    "split": "train"
+  },
+  {
+    "pair_id": "amiloride|||hydrocortisone",
+    "group_id": "source_family_d491697bd7271a18",
+    "split": "train"
+  },
+  {
+    "pair_id": "amiloride|||metformin",
+    "group_id": "source_family_045b20826d301eb3",
+    "split": "train"
+  },
+  {
+    "pair_id": "amiloride|||prednisone",
+    "group_id": "source_family_d491697bd7271a18",
+    "split": "train"
+  },
+  {
+    "pair_id": "aminoglutethimide|||dexamethasone",
+    "group_id": "source_family_f744b2704098baec",
+    "split": "train"
+  },
+  {
+    "pair_id": "aminoglutethimide|||glimepiride",
+    "group_id": "source_family_0a09a100152df416",
+    "split": "train"
+  },
+  {
+    "pair_id": "aminoglutethimide|||glipizide",
+    "group_id": "source_family_0a09a100152df416",
+    "split": "train"
+  },
+  {
+    "pair_id": "aminoglutethimide|||glyburide",
+    "group_id": "source_family_0a09a100152df416",
+    "split": "train"
+  },
+  {
+    "pair_id": "aminoglutethimide|||pioglitazone",
+    "group_id": "source_family_0a09a100152df416",
+    "split": "train"
+  },
+  {
+    "pair_id": "aminolevulinic acid (topical)|||glimepiride",
+    "group_id": "source_family_e01fae6efd4537e9",
+    "split": "train"
+  },
+  {
+    "pair_id": "aminolevulinic acid (topical)|||glipizide",
+    "group_id": "source_family_e01fae6efd4537e9",
+    "split": "train"
+  },
+  {
+    "pair_id": "aminolevulinic acid (topical)|||glyburide",
+    "group_id": "source_family_e01fae6efd4537e9",
+    "split": "train"
+  },
+  {
+    "pair_id": "aminolevulinic acid|||glimepiride",
+    "group_id": "source_family_d6eb6ba3cb9cf578",
+    "split": "train"
+  },
+  {
+    "pair_id": "aminolevulinic acid|||glipizide",
+    "group_id": "source_family_d6eb6ba3cb9cf578",
+    "split": "train"
+  },
+  {
+    "pair_id": "aminolevulinic acid|||glyburide",
+    "group_id": "source_family_d6eb6ba3cb9cf578",
+    "split": "train"
+  },
+  {
+    "pair_id": "aminophylline|||dexamethasone",
+    "group_id": "source_family_16a2090fecbbbd52",
+    "split": "train"
+  },
+  {
+    "pair_id": "aminophylline|||hydrocortisone",
+    "group_id": "source_family_16a2090fecbbbd52",
+    "split": "train"
+  },
+  {
+    "pair_id": "aminophylline|||lansoprazole",
+    "group_id": "source_family_c2664a099fdbe42f",
+    "split": "train"
+  },
+  {
+    "pair_id": "amiodarone|||famotidine",
+    "group_id": "source_family_c8a4751931106cc9",
+    "split": "train"
+  },
+  {
+    "pair_id": "amiodarone|||loperamide",
+    "group_id": "source_family_639b940f9e7b4a07",
+    "split": "train"
+  },
+  {
+    "pair_id": "amiodarone|||repaglinide",
+    "group_id": "source_family_7f3c5c11a430ef72",
+    "split": "train"
+  },
+  {
+    "pair_id": "amisulpride|||famotidine",
+    "group_id": "source_family_c8a4751931106cc9",
+    "split": "train"
+  },
+  {
+    "pair_id": "amisulpride|||hydrocortisone",
+    "group_id": "source_family_a99636c0bc2021e2",
+    "split": "train"
+  },
+  {
+    "pair_id": "amitriptyline|||famotidine",
+    "group_id": "source_family_c8a4751931106cc9",
+    "split": "train"
+  },
+  {
+    "pair_id": "amitriptyline|||glimepiride",
+    "group_id": "source_family_2f6512a5f711e4e5",
+    "split": "train"
+  },
+  {
+    "pair_id": "amitriptyline|||glipizide",
+    "group_id": "source_family_2f6512a5f711e4e5",
+    "split": "train"
+  },
+  {
+    "pair_id": "amitriptyline|||glyburide",
+    "group_id": "source_family_2f6512a5f711e4e5",
+    "split": "train"
+  },
+  {
+    "pair_id": "amitriptyline|||loperamide",
+    "group_id": "source_family_ba95a4a1fd02694c",
+    "split": "train"
+  },
+  {
+    "pair_id": "amitriptyline|||metoclopramide",
+    "group_id": "source_family_5c4df652962b970d",
+    "split": "train"
+  },
+  {
+    "pair_id": "amlodipine|||dexamethasone",
+    "group_id": "source_family_d491697bd7271a18",
+    "split": "train"
+  },
+  {
+    "pair_id": "amlodipine|||hydrocortisone",
+    "group_id": "source_family_d491697bd7271a18",
+    "split": "train"
+  },
+  {
+    "pair_id": "amlodipine|||prednisone",
+    "group_id": "source_family_d491697bd7271a18",
+    "split": "train"
+  },
+  {
+    "pair_id": "amobarbital|||dexamethasone",
+    "group_id": "source_family_652c1f6feeeb98cc",
+    "split": "train"
+  },
+  {
+    "pair_id": "amobarbital|||hydrocortisone",
+    "group_id": "source_family_652c1f6feeeb98cc",
+    "split": "train"
+  },
+  {
+    "pair_id": "amobarbital|||metoclopramide",
+    "group_id": "source_family_5c4df652962b970d",
+    "split": "train"
+  },
+  {
+    "pair_id": "amobarbital|||prednisone",
+    "group_id": "source_family_652c1f6feeeb98cc",
+    "split": "train"
+  },
+  {
+    "pair_id": "amoxapine|||famotidine",
+    "group_id": "source_family_c8a4751931106cc9",
+    "split": "train"
+  },
+  {
+    "pair_id": "amoxapine|||glimepiride",
+    "group_id": "source_family_2f6512a5f711e4e5",
+    "split": "train"
+  },
+  {
+    "pair_id": "amoxapine|||glipizide",
+    "group_id": "source_family_2f6512a5f711e4e5",
+    "split": "train"
+  },
+  {
+    "pair_id": "amoxapine|||glyburide",
+    "group_id": "source_family_2f6512a5f711e4e5",
+    "split": "train"
+  },
+  {
+    "pair_id": "amoxapine|||loperamide",
+    "group_id": "source_family_ba95a4a1fd02694c",
+    "split": "train"
+  },
+  {
+    "pair_id": "amphetamine|||calcium carbonate",
+    "group_id": "source_family_75d71efc6718b808",
+    "split": "train"
+  },
+  {
+    "pair_id": "ampicillin|||lansoprazole",
+    "group_id": "source_family_7911a3ff9a2250f7",
+    "split": "train"
+  },
+  {
+    "pair_id": "amprenavir|||calcium carbonate",
+    "group_id": "source_family_fe24cbd22a2bca7d",
+    "split": "train"
+  },
+  {
+    "pair_id": "amprenavir|||dexamethasone",
+    "group_id": "source_family_1a00cd16f7f6f05f",
+    "split": "train"
+  },
+  {
+    "pair_id": "amprenavir|||glimepiride",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "amprenavir|||glipizide",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "amprenavir|||glyburide",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "amprenavir|||linagliptin",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "amprenavir|||loperamide",
+    "group_id": "source_family_7306e64f6cb4316b",
+    "split": "train"
+  },
+  {
+    "pair_id": "amprenavir|||metformin",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "amprenavir|||pioglitazone",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "amprenavir|||repaglinide",
+    "group_id": "source_family_8ecb8dab935062cd",
+    "split": "train"
+  },
+  {
+    "pair_id": "anagrelide|||famotidine",
+    "group_id": "source_family_c8a4751931106cc9",
+    "split": "train"
+  },
+  {
+    "pair_id": "anagrelide|||omeprazole",
+    "group_id": "source_family_9443ee5c8be62a21",
+    "split": "train"
+  },
+  {
+    "pair_id": "anakinra|||dexamethasone",
+    "group_id": "source_family_bda33665adf53482",
+    "split": "train"
+  },
+  {
+    "pair_id": "anakinra|||hydrocortisone",
+    "group_id": "source_family_bda33665adf53482",
+    "split": "train"
+  },
+  {
+    "pair_id": "anakinra|||prednisone",
+    "group_id": "source_family_bda33665adf53482",
+    "split": "train"
+  },
+  {
+    "pair_id": "anisindione|||dexamethasone",
+    "group_id": "source_family_5d44b8949c311fc1",
+    "split": "train"
+  },
+  {
+    "pair_id": "anisindione|||glyburide",
+    "group_id": "source_family_5e7ac44b53fc8364",
+    "split": "train"
+  },
+  {
+    "pair_id": "anisindione|||hydrocortisone",
+    "group_id": "source_family_5d44b8949c311fc1",
+    "split": "train"
+  },
+  {
+    "pair_id": "anisindione|||metformin",
+    "group_id": "source_family_223c75c90e4b7360",
+    "split": "train"
+  },
+  {
+    "pair_id": "anisindione|||prednisone",
+    "group_id": "source_family_5d44b8949c311fc1",
+    "split": "train"
+  },
+  {
+    "pair_id": "anisindione|||sucralfate",
+    "group_id": "source_family_1befd44599471772",
+    "split": "train"
+  },
+  {
+    "pair_id": "anthrax vaccine|||dexamethasone",
+    "group_id": "source_family_32368bf2dc365ae8",
+    "split": "train"
+  },
+  {
+    "pair_id": "anthrax vaccine|||hydrocortisone",
+    "group_id": "source_family_32368bf2dc365ae8",
+    "split": "train"
+  },
+  {
+    "pair_id": "anthrax vaccine|||prednisone",
+    "group_id": "source_family_32368bf2dc365ae8",
+    "split": "train"
+  },
+  {
+    "pair_id": "apalutamide|||esomeprazole",
+    "group_id": "source_family_b79c8d632430101f",
+    "split": "train"
+  },
+  {
+    "pair_id": "apalutamide|||famotidine",
+    "group_id": "source_family_c8a4751931106cc9",
+    "split": "train"
+  },
+  {
+    "pair_id": "apalutamide|||glimepiride",
+    "group_id": "source_family_b79c8d632430101f",
+    "split": "train"
+  },
+  {
+    "pair_id": "apalutamide|||glipizide",
+    "group_id": "source_family_b79c8d632430101f",
+    "split": "train"
+  },
+  {
+    "pair_id": "apalutamide|||glyburide",
+    "group_id": "source_family_b79c8d632430101f",
+    "split": "train"
+  },
+  {
+    "pair_id": "apalutamide|||hydrocortisone",
+    "group_id": "source_family_b79c8d632430101f",
+    "split": "train"
+  },
+  {
+    "pair_id": "apalutamide|||lansoprazole",
+    "group_id": "source_family_b79c8d632430101f",
+    "split": "train"
+  },
+  {
+    "pair_id": "apalutamide|||loperamide",
+    "group_id": "source_family_b79c8d632430101f",
+    "split": "train"
+  },
+  {
+    "pair_id": "apalutamide|||omeprazole",
+    "group_id": "source_family_b79c8d632430101f",
+    "split": "train"
+  },
+  {
+    "pair_id": "apalutamide|||pantoprazole",
+    "group_id": "source_family_b79c8d632430101f",
+    "split": "train"
+  },
+  {
+    "pair_id": "apalutamide|||rabeprazole",
+    "group_id": "source_family_b79c8d632430101f",
+    "split": "train"
+  },
+  {
+    "pair_id": "apixaban|||dexamethasone",
+    "group_id": "source_family_2c71f7e97d2bfce4",
+    "split": "train"
+  },
+  {
+    "pair_id": "apomorphine|||famotidine",
+    "group_id": "source_family_c8a4751931106cc9",
+    "split": "train"
+  },
+  {
+    "pair_id": "apomorphine|||metoclopramide",
+    "group_id": "source_family_fd2680b79c49c9d1",
+    "split": "train"
+  },
+  {
+    "pair_id": "apraclonidine|||loperamide",
+    "group_id": "source_family_2d98942559eac511",
+    "split": "train"
+  },
+  {
+    "pair_id": "apraclonidine|||metoclopramide",
+    "group_id": "source_family_2d98942559eac511",
+    "split": "train"
+  },
+  {
+    "pair_id": "aprepitant|||dexamethasone",
+    "group_id": "source_family_01eb86d4ab11520b",
+    "split": "train"
+  },
+  {
+    "pair_id": "aprepitant|||glimepiride",
+    "group_id": "source_family_e829ffab852eb4ed",
+    "split": "train"
+  },
+  {
+    "pair_id": "aprepitant|||glipizide",
+    "group_id": "source_family_e829ffab852eb4ed",
+    "split": "train"
+  },
+  {
+    "pair_id": "aprepitant|||glyburide",
+    "group_id": "source_family_e829ffab852eb4ed",
+    "split": "train"
+  },
+  {
+    "pair_id": "aprepitant|||hydrocortisone",
+    "group_id": "source_family_477f8213c0f89912",
+    "split": "train"
+  },
+  {
+    "pair_id": "aprepitant|||lansoprazole",
+    "group_id": "source_family_477f8213c0f89912",
+    "split": "train"
+  },
+  {
+    "pair_id": "aprepitant|||pioglitazone",
+    "group_id": "source_family_477f8213c0f89912",
+    "split": "train"
+  },
+  {
+    "pair_id": "aprepitant|||prednisone",
+    "group_id": "source_family_477f8213c0f89912",
+    "split": "train"
+  },
+  {
+    "pair_id": "aprepitant|||rabeprazole",
+    "group_id": "source_family_477f8213c0f89912",
+    "split": "train"
+  },
+  {
+    "pair_id": "aprepitant|||repaglinide",
+    "group_id": "source_family_7f3c5c11a430ef72",
+    "split": "train"
+  },
+  {
+    "pair_id": "arformoterol|||famotidine",
+    "group_id": "source_family_c8a4751931106cc9",
+    "split": "train"
+  },
+  {
+    "pair_id": "aripiprazole|||dexamethasone",
+    "group_id": "source_family_7f3c5c11a430ef72",
+    "split": "train"
+  },
+  {
+    "pair_id": "aripiprazole|||famotidine",
+    "group_id": "source_family_c8a4751931106cc9",
+    "split": "train"
+  },
+  {
+    "pair_id": "aripiprazole|||glimepiride",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "aripiprazole|||glipizide",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "aripiprazole|||glyburide",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "aripiprazole|||linagliptin",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "aripiprazole|||loperamide",
+    "group_id": "source_family_ba95a4a1fd02694c",
+    "split": "train"
+  },
+  {
+    "pair_id": "aripiprazole|||metformin",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "aripiprazole|||pioglitazone",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "aripiprazole|||repaglinide",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "aripiprazole|||saxagliptin",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "armodafinil|||dexamethasone",
+    "group_id": "source_family_1c01a3a6174b988c",
+    "split": "train"
+  },
+  {
+    "pair_id": "armodafinil|||esomeprazole",
+    "group_id": "source_family_ada75d3810285e7c",
+    "split": "train"
+  },
+  {
+    "pair_id": "armodafinil|||hydrocortisone",
+    "group_id": "source_family_7ae320cbd4d77dbd",
+    "split": "train"
+  },
+  {
+    "pair_id": "armodafinil|||omeprazole",
+    "group_id": "source_family_ada75d3810285e7c",
+    "split": "train"
+  },
+  {
+    "pair_id": "armodafinil|||pantoprazole",
+    "group_id": "source_family_ada75d3810285e7c",
+    "split": "train"
+  },
+  {
+    "pair_id": "armodafinil|||pioglitazone",
+    "group_id": "source_family_7ae320cbd4d77dbd",
+    "split": "train"
+  },
+  {
+    "pair_id": "armodafinil|||prednisone",
+    "group_id": "source_family_7ae320cbd4d77dbd",
+    "split": "train"
+  },
+  {
+    "pair_id": "armodafinil|||rabeprazole",
+    "group_id": "source_family_ada75d3810285e7c",
+    "split": "train"
+  },
+  {
+    "pair_id": "armodafinil|||saxagliptin",
+    "group_id": "source_family_7ae320cbd4d77dbd",
+    "split": "train"
+  },
+  {
+    "pair_id": "arsenic trioxide|||famotidine",
+    "group_id": "source_family_c8a4751931106cc9",
+    "split": "train"
+  },
+  {
+    "pair_id": "arsenic trioxide|||hydrocortisone",
+    "group_id": "source_family_d3ac27f98dd6d32b",
+    "split": "train"
+  },
+  {
+    "pair_id": "ascorbic acid|||sucralfate",
+    "group_id": "source_family_b7a0d2ba9dae8c36",
+    "split": "train"
+  },
+  {
+    "pair_id": "asenapine|||famotidine",
+    "group_id": "source_family_c8a4751931106cc9",
+    "split": "train"
+  },
+  {
+    "pair_id": "asenapine|||glimepiride",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "asenapine|||glipizide",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "asenapine|||glyburide",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "asenapine|||linagliptin",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "asenapine|||metformin",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "asenapine|||pioglitazone",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "asenapine|||repaglinide",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "asenapine|||saxagliptin",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "asparaginase erwinia chrysanthemi|||dexamethasone",
+    "group_id": "source_family_926310b96bf3faa6",
+    "split": "train"
+  },
+  {
+    "pair_id": "asparaginase erwinia chrysanthemi|||glimepiride",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "asparaginase erwinia chrysanthemi|||glipizide",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "asparaginase erwinia chrysanthemi|||glyburide",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "asparaginase erwinia chrysanthemi|||hydrocortisone",
+    "group_id": "source_family_926310b96bf3faa6",
+    "split": "train"
+  },
+  {
+    "pair_id": "asparaginase erwinia chrysanthemi|||linagliptin",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "asparaginase erwinia chrysanthemi|||metformin",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "asparaginase erwinia chrysanthemi|||pioglitazone",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "asparaginase erwinia chrysanthemi|||prednisone",
+    "group_id": "source_family_926310b96bf3faa6",
+    "split": "train"
+  },
+  {
+    "pair_id": "asparaginase erwinia chrysanthemi|||repaglinide",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "asparaginase erwinia chrysanthemi|||saxagliptin",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "asparaginase escherichia coli|||dexamethasone",
+    "group_id": "source_family_926310b96bf3faa6",
+    "split": "train"
+  },
+  {
+    "pair_id": "asparaginase escherichia coli|||glimepiride",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "asparaginase escherichia coli|||glipizide",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "asparaginase escherichia coli|||glyburide",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "asparaginase escherichia coli|||hydrocortisone",
+    "group_id": "source_family_926310b96bf3faa6",
+    "split": "train"
+  },
+  {
+    "pair_id": "asparaginase escherichia coli|||linagliptin",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "asparaginase escherichia coli|||metformin",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "asparaginase escherichia coli|||pioglitazone",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "asparaginase escherichia coli|||prednisone",
+    "group_id": "source_family_926310b96bf3faa6",
+    "split": "train"
+  },
+  {
+    "pair_id": "asparaginase escherichia coli|||repaglinide",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "asparaginase escherichia coli|||saxagliptin",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "atazanavir|||calcium carbonate",
+    "group_id": "source_family_fe24cbd22a2bca7d",
+    "split": "train"
+  },
+  {
+    "pair_id": "atorvastatin|||esomeprazole",
+    "group_id": "source_family_a030d1ae4955d526",
+    "split": "train"
+  },
+  {
+    "pair_id": "atorvastatin|||lansoprazole",
+    "group_id": "source_family_a030d1ae4955d526",
+    "split": "train"
+  },
+  {
+    "pair_id": "atorvastatin|||omeprazole",
+    "group_id": "source_family_a030d1ae4955d526",
+    "split": "train"
+  },
+  {
+    "pair_id": "atorvastatin|||pantoprazole",
+    "group_id": "source_family_a030d1ae4955d526",
+    "split": "train"
+  },
+  {
+    "pair_id": "avapritinib|||dexamethasone",
+    "group_id": "source_family_4a0b31f903b08db2",
+    "split": "train"
+  },
+  {
+    "pair_id": "azilsartan medoxomil|||dexamethasone",
+    "group_id": "source_family_d491697bd7271a18",
+    "split": "train"
+  },
+  {
+    "pair_id": "azilsartan medoxomil|||prednisone",
+    "group_id": "source_family_d491697bd7271a18",
+    "split": "train"
+  },
+  {
+    "pair_id": "balsalazide|||repaglinide",
+    "group_id": "source_family_e8644e77b34bd96a",
+    "split": "train"
+  },
+  {
+    "pair_id": "bempedoic acid|||prednisone",
+    "group_id": "source_family_4a7afdc6a0c17aca",
+    "split": "train"
+  },
+  {
+    "pair_id": "benzhydrocodone|||metoclopramide",
+    "group_id": "source_family_5c4df652962b970d",
+    "split": "train"
+  },
+  {
+    "pair_id": "bepridil|||loperamide",
+    "group_id": "source_family_639b940f9e7b4a07",
+    "split": "train"
+  },
+  {
+    "pair_id": "betaxolol|||dexamethasone",
+    "group_id": "source_family_d491697bd7271a18",
+    "split": "train"
+  },
+  {
+    "pair_id": "bictegravir|||iron",
+    "group_id": "source_family_ff886ffbf9e93292",
+    "split": "train"
+  },
+  {
+    "pair_id": "bifidobacterium longum infantis|||prednisone",
+    "group_id": "source_family_93a42f43426ded47",
+    "split": "train"
+  },
+  {
+    "pair_id": "brigatinib|||loperamide",
+    "group_id": "source_family_544413cf77102764",
+    "split": "train"
+  },
+  {
+    "pair_id": "calaspargase pegol|||saxagliptin",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "calcium carbonate|||dabrafenib",
+    "group_id": "source_family_bfaccf343efd4797",
+    "split": "train"
+  },
+  {
+    "pair_id": "calcium carbonate|||dolutegravir",
+    "group_id": "source_family_e09f32771ec7b7ad",
+    "split": "train"
+  },
+  {
+    "pair_id": "calcium carbonate|||methenamine",
+    "group_id": "source_family_996227c7f0dc8eb4",
+    "split": "train"
+  },
+  {
+    "pair_id": "calcium carbonate|||prednisone",
+    "group_id": "source_family_3b206a67c9829eea",
+    "split": "train"
+  },
+  {
+    "pair_id": "calcium carbonate|||quinapril",
+    "group_id": "source_family_c38921674c99e7f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "calcium carbonate|||strontium chloride sr-89",
+    "group_id": "source_family_9359bf11c68305b6",
+    "split": "train"
+  },
+  {
+    "pair_id": "calcium carbonate|||sucralfate",
+    "group_id": "source_family_ec0ad6ca64834775",
+    "split": "train"
+  },
+  {
+    "pair_id": "calcium carbonate|||tipranavir",
+    "group_id": "source_family_5aaed5e71c154c8b",
+    "split": "train"
+  },
+  {
+    "pair_id": "calcium citrate|||strontium chloride sr-89",
+    "group_id": "source_family_9359bf11c68305b6",
+    "split": "train"
+  },
+  {
+    "pair_id": "carvedilol|||dexamethasone",
+    "group_id": "source_family_d491697bd7271a18",
+    "split": "train"
+  },
+  {
+    "pair_id": "carvedilol|||glipizide",
+    "group_id": "source_family_781b28328e18a9e0",
+    "split": "train"
+  },
+  {
+    "pair_id": "cefditoren|||pantoprazole",
+    "group_id": "source_family_3a050af026b88718",
+    "split": "train"
+  },
+  {
+    "pair_id": "celecoxib|||metformin",
+    "group_id": "source_family_34f31283915c66cb",
+    "split": "train"
+  },
+  {
+    "pair_id": "chenodeoxycholic acid|||sucralfate",
+    "group_id": "source_family_0db22d07676b71d1",
+    "split": "train"
+  },
+  {
+    "pair_id": "chloramphenicol|||glimepiride",
+    "group_id": "source_family_3bc74e7aba2a423c",
+    "split": "train"
+  },
+  {
+    "pair_id": "chloramphenicol|||glipizide",
+    "group_id": "source_family_c813acb06ae51ebf",
+    "split": "train"
+  },
+  {
+    "pair_id": "chloramphenicol|||glyburide",
+    "group_id": "source_family_c813acb06ae51ebf",
+    "split": "train"
+  },
+  {
+    "pair_id": "choline salicylate|||dexamethasone",
+    "group_id": "source_family_40bcdcc9708e202a",
+    "split": "train"
+  },
+  {
+    "pair_id": "choline salicylate|||prednisone",
+    "group_id": "source_family_40bcdcc9708e202a",
+    "split": "train"
+  },
+  {
+    "pair_id": "chromium picolinate|||linagliptin",
+    "group_id": "source_family_19e0058ab78e21a8",
+    "split": "train"
+  },
+  {
+    "pair_id": "cimetidine|||metformin",
+    "group_id": "source_family_6d24fca608442b0a",
+    "split": "train"
+  },
+  {
+    "pair_id": "cisatracurium|||ranitidine",
+    "group_id": "source_family_2dfe1e19b71a3295",
+    "split": "train"
+  },
+  {
+    "pair_id": "clarithromycin|||glimepiride",
+    "group_id": "source_family_d4b3b08fbade75a6",
+    "split": "train"
+  },
+  {
+    "pair_id": "clarithromycin|||glipizide",
+    "group_id": "source_family_d4b3b08fbade75a6",
+    "split": "train"
+  },
+  {
+    "pair_id": "clarithromycin|||glyburide",
+    "group_id": "source_family_d4b3b08fbade75a6",
+    "split": "train"
+  },
+  {
+    "pair_id": "clocortolone (topical)|||linagliptin",
+    "group_id": "source_family_9bd43b15d207ddbe",
+    "split": "train"
+  },
+  {
+    "pair_id": "clocortolone (topical)|||saxagliptin",
+    "group_id": "source_family_9bd43b15d207ddbe",
+    "split": "train"
+  },
+  {
+    "pair_id": "clopidogrel|||esomeprazole",
+    "group_id": "source_family_c95e37a4c8b0da82",
+    "split": "train"
+  },
+  {
+    "pair_id": "clopidogrel|||loperamide",
+    "group_id": "source_family_7306e64f6cb4316b",
+    "split": "train"
+  },
+  {
+    "pair_id": "clopidogrel|||omeprazole",
+    "group_id": "source_family_c95e37a4c8b0da82",
+    "split": "train"
+  },
+  {
+    "pair_id": "clostridium tetani toxoid antigen (formaldehyde inactivated)|||hydrocortisone",
+    "group_id": "source_family_32368bf2dc365ae8",
+    "split": "train"
+  },
+  {
+    "pair_id": "clostridium tetani toxoid antigen (formaldehyde inactivated)|||prednisone",
+    "group_id": "source_family_32368bf2dc365ae8",
+    "split": "train"
+  },
+  {
+    "pair_id": "cyclosporine|||repaglinide",
+    "group_id": "source_family_854d8c3ec82e5768",
+    "split": "train"
+  },
+  {
+    "pair_id": "dabrafenib|||saxagliptin",
+    "group_id": "source_family_56cad760d6df513b",
+    "split": "train"
+  },
+  {
+    "pair_id": "dacomitinib|||lansoprazole",
+    "group_id": "source_family_72447ca5b793455c",
+    "split": "train"
+  },
+  {
+    "pair_id": "dapagliflozin|||prednisone",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "deferasirox|||sucralfate",
+    "group_id": "source_family_9843421eb1800777",
+    "split": "train"
+  },
+  {
+    "pair_id": "delavirdine|||famotidine",
+    "group_id": "source_family_cda662863a7a7fd2",
+    "split": "train"
+  },
+  {
+    "pair_id": "desmopressin|||hydrocortisone",
+    "group_id": "source_family_d2e5f0db9f5696bc",
+    "split": "train"
+  },
+  {
+    "pair_id": "desonide (topical)|||metformin",
+    "group_id": "source_family_9bd43b15d207ddbe",
+    "split": "train"
+  },
+  {
+    "pair_id": "desoximetasone (topical)|||glimepiride",
+    "group_id": "source_family_9bd43b15d207ddbe",
+    "split": "train"
+  },
+  {
+    "pair_id": "desoximetasone (topical)|||pioglitazone",
+    "group_id": "source_family_9bd43b15d207ddbe",
+    "split": "train"
+  },
+  {
+    "pair_id": "dexamethasone (topical)|||linagliptin",
+    "group_id": "source_family_9bd43b15d207ddbe",
+    "split": "train"
+  },
+  {
+    "pair_id": "dexamethasone (topical)|||repaglinide",
+    "group_id": "source_family_9bd43b15d207ddbe",
+    "split": "train"
+  },
+  {
+    "pair_id": "dexamethasone|||dofetilide",
+    "group_id": "source_family_d240e30b0c0e47b6",
+    "split": "train"
+  },
+  {
+    "pair_id": "dexamethasone|||encorafenib",
+    "group_id": "source_family_99a1753bd10c0fef",
+    "split": "train"
+  },
+  {
+    "pair_id": "dexamethasone|||fentanyl",
+    "group_id": "source_family_126ae0af90bd6b05",
+    "split": "train"
+  },
+  {
+    "pair_id": "dexamethasone|||fingolimod",
+    "group_id": "source_family_30a7cb6bd52c3a53",
+    "split": "train"
+  },
+  {
+    "pair_id": "dexamethasone|||fosamprenavir",
+    "group_id": "source_family_1a00cd16f7f6f05f",
+    "split": "train"
+  },
+  {
+    "pair_id": "dexamethasone|||hydrocodone",
+    "group_id": "source_family_126ae0af90bd6b05",
+    "split": "train"
+  },
+  {
+    "pair_id": "dexamethasone|||iopamidol",
+    "group_id": "source_family_65eaa96a1c81c171",
+    "split": "train"
+  },
+  {
+    "pair_id": "dexamethasone|||isavuconazonium",
+    "group_id": "source_family_0302421d257f21ab",
+    "split": "train"
+  },
+  {
+    "pair_id": "dexamethasone|||isoniazid",
+    "group_id": "source_family_16b470451fb66611",
+    "split": "train"
+  },
+  {
+    "pair_id": "dexamethasone|||lefamulin",
+    "group_id": "source_family_2c71f7e97d2bfce4",
+    "split": "train"
+  },
+  {
+    "pair_id": "dexamethasone|||lurbinectedin",
+    "group_id": "source_family_feabfff2c8211797",
+    "split": "train"
+  },
+  {
+    "pair_id": "dexamethasone|||moxifloxacin",
+    "group_id": "source_family_0a5f159fb2e2be25",
+    "split": "train"
+  },
+  {
+    "pair_id": "dexamethasone|||nebivolol",
+    "group_id": "source_family_d491697bd7271a18",
+    "split": "train"
+  },
+  {
+    "pair_id": "dexamethasone|||nelfinavir",
+    "group_id": "source_family_1a00cd16f7f6f05f",
+    "split": "train"
+  },
+  {
+    "pair_id": "dexamethasone|||nilotinib",
+    "group_id": "source_family_f692479a1b746b3c",
+    "split": "train"
+  },
+  {
+    "pair_id": "dexamethasone|||pfizer-biontech covid-19 vaccine",
+    "group_id": "source_family_32368bf2dc365ae8",
+    "split": "train"
+  },
+  {
+    "pair_id": "dexamethasone|||phenyl salicylate",
+    "group_id": "source_family_d178b33f49e68532",
+    "split": "train"
+  },
+  {
+    "pair_id": "dexamethasone|||salicylic acid (sodium)",
+    "group_id": "source_family_40bcdcc9708e202a",
+    "split": "train"
+  },
+  {
+    "pair_id": "dexamethasone|||selumetinib",
+    "group_id": "source_family_dd8e159af81acd8d",
+    "split": "train"
+  },
+  {
+    "pair_id": "dexamethasone|||simeprevir",
+    "group_id": "source_family_1e0613d440ae9c5b",
+    "split": "train"
+  },
+  {
+    "pair_id": "dexamethasone|||siponimod",
+    "group_id": "source_family_5617cc5f257ad7ff",
+    "split": "train"
+  },
+  {
+    "pair_id": "dexamethasone|||trimethaphan",
+    "group_id": "source_family_d491697bd7271a18",
+    "split": "train"
+  },
+  {
+    "pair_id": "dexamethasone|||varicella zoster vaccine (recombinant)",
+    "group_id": "source_family_5baf963548ad7b46",
+    "split": "train"
+  },
+  {
+    "pair_id": "dexamethasone|||venetoclax",
+    "group_id": "source_family_1e0613d440ae9c5b",
+    "split": "train"
+  },
+  {
+    "pair_id": "dexamethasone|||zanubrutinib",
+    "group_id": "source_family_1e0613d440ae9c5b",
+    "split": "train"
+  },
+  {
+    "pair_id": "diatrizoate|||metformin",
+    "group_id": "source_family_c230acb96a17f6b6",
+    "split": "train"
+  },
+  {
+    "pair_id": "diltiazem|||hydrocortisone",
+    "group_id": "source_family_d491697bd7271a18",
+    "split": "train"
+  },
+  {
+    "pair_id": "diltiazem|||repaglinide",
+    "group_id": "source_family_7f3c5c11a430ef72",
+    "split": "train"
+  },
+  {
+    "pair_id": "dinutuximab|||prednisone",
+    "group_id": "source_family_629f559d49c20bd2",
+    "split": "train"
+  },
+  {
+    "pair_id": "dolutegravir|||metformin",
+    "group_id": "source_family_1a8d4421a9f9626a",
+    "split": "train"
+  },
+  {
+    "pair_id": "doxacurium|||prednisone",
+    "group_id": "source_family_02d0c2737e9b8515",
+    "split": "train"
+  },
+  {
+    "pair_id": "doxazosin|||prednisone",
+    "group_id": "source_family_d491697bd7271a18",
+    "split": "train"
+  },
+  {
+    "pair_id": "eliglustat|||ranitidine",
+    "group_id": "source_family_9fc05de69c67f273",
+    "split": "train"
+  },
+  {
+    "pair_id": "enalapril|||linagliptin",
+    "group_id": "source_family_9675ec5372fd982e",
+    "split": "train"
+  },
+  {
+    "pair_id": "enasidenib|||glyburide",
+    "group_id": "source_family_cfdc43a1a91f0b6f",
+    "split": "train"
+  },
+  {
+    "pair_id": "enasidenib|||repaglinide",
+    "group_id": "source_family_cfdc43a1a91f0b6f",
+    "split": "train"
+  },
+  {
+    "pair_id": "encorafenib|||glyburide",
+    "group_id": "source_family_272304bb76d3cceb",
+    "split": "train"
+  },
+  {
+    "pair_id": "encorafenib|||metformin",
+    "group_id": "source_family_272304bb76d3cceb",
+    "split": "train"
+  },
+  {
+    "pair_id": "erdafitinib|||linagliptin",
+    "group_id": "source_family_8664fd784454cae5",
+    "split": "train"
+  },
+  {
+    "pair_id": "erdafitinib|||loperamide",
+    "group_id": "source_family_8664fd784454cae5",
+    "split": "train"
+  },
+  {
+    "pair_id": "erdafitinib|||saxagliptin",
+    "group_id": "source_family_8664fd784454cae5",
+    "split": "train"
+  },
+  {
+    "pair_id": "erlotinib|||famotidine",
+    "group_id": "source_family_4a903db8b22365ce",
+    "split": "train"
+  },
+  {
+    "pair_id": "erlotinib|||ranitidine",
+    "group_id": "source_family_4a903db8b22365ce",
+    "split": "train"
+  },
+  {
+    "pair_id": "escitalopram|||lansoprazole",
+    "group_id": "source_family_c2bb06672d46de1d",
+    "split": "train"
+  },
+  {
+    "pair_id": "esomeprazole|||methotrexate",
+    "group_id": "source_family_fe75ed5b98eb427e",
+    "split": "train"
+  },
+  {
+    "pair_id": "esomeprazole|||nelfinavir",
+    "group_id": "source_family_786ead6bef65a159",
+    "split": "train"
+  },
+  {
+    "pair_id": "esomeprazole|||obeticholic acid",
+    "group_id": "source_family_d6b5185c22381a6c",
+    "split": "train"
+  },
+  {
+    "pair_id": "esomeprazole|||rifampicin",
+    "group_id": "source_family_4431832ae55210dd",
+    "split": "train"
+  },
+  {
+    "pair_id": "esomeprazole|||selpercatinib",
+    "group_id": "source_family_c986efdbf74a9233",
+    "split": "train"
+  },
+  {
+    "pair_id": "esomeprazole|||simvastatin",
+    "group_id": "source_family_a030d1ae4955d526",
+    "split": "train"
+  },
+  {
+    "pair_id": "esomeprazole|||tacrolimus",
+    "group_id": "source_family_5b1b3d7da26ff2ed",
+    "split": "train"
+  },
+  {
+    "pair_id": "esterified estrogens|||metformin",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "ethanol|||metformin",
+    "group_id": "source_family_9de6944b290def97",
+    "split": "train"
+  },
+  {
+    "pair_id": "etidronic acid|||iron",
+    "group_id": "source_family_777adfe29f789cf6",
+    "split": "train"
+  },
+  {
+    "pair_id": "etodolac|||metformin",
+    "group_id": "source_family_34f31283915c66cb",
+    "split": "train"
+  },
+  {
+    "pair_id": "famotidine|||ibuprofen",
+    "group_id": "source_family_45a61b9b7c0641b1",
+    "split": "train"
+  },
+  {
+    "pair_id": "famotidine|||pazopanib",
+    "group_id": "source_family_d0faa9ce119547e3",
+    "split": "train"
+  },
+  {
+    "pair_id": "famotidine|||pemetrexed",
+    "group_id": "source_family_26ba9b042d9aeda7",
+    "split": "train"
+  },
+  {
+    "pair_id": "famotidine|||tolmetin",
+    "group_id": "source_family_45a61b9b7c0641b1",
+    "split": "train"
+  },
+  {
+    "pair_id": "famotidine|||velpatasvir",
+    "group_id": "source_family_770c927735f7ed53",
+    "split": "train"
+  },
+  {
+    "pair_id": "fingolimod|||hydrocortisone",
+    "group_id": "source_family_30a7cb6bd52c3a53",
+    "split": "train"
+  },
+  {
+    "pair_id": "fingolimod|||prednisone",
+    "group_id": "source_family_30a7cb6bd52c3a53",
+    "split": "train"
+  },
+  {
+    "pair_id": "flurandrenolide (topical)|||glimepiride",
+    "group_id": "source_family_9bd43b15d207ddbe",
+    "split": "train"
+  },
+  {
+    "pair_id": "flurandrenolide (topical)|||linagliptin",
+    "group_id": "source_family_9bd43b15d207ddbe",
+    "split": "train"
+  },
+  {
+    "pair_id": "flurbiprofen|||metformin",
+    "group_id": "source_family_34f31283915c66cb",
+    "split": "train"
+  },
+  {
+    "pair_id": "fluvoxamine|||glimepiride",
+    "group_id": "source_family_a21c0be3f35c07a2",
+    "split": "train"
+  },
+  {
+    "pair_id": "fluvoxamine|||metoclopramide",
+    "group_id": "source_family_aed6d3ed3c848d91",
+    "split": "train"
+  },
+  {
+    "pair_id": "glimepiride|||itraconazole",
+    "group_id": "source_family_28b865b4f62a15c6",
+    "split": "train"
+  },
+  {
+    "pair_id": "glimepiride|||letermovir",
+    "group_id": "source_family_dad370908b39611f",
+    "split": "train"
+  },
+  {
+    "pair_id": "glimepiride|||mesalazine",
+    "group_id": "source_family_e8644e77b34bd96a",
+    "split": "train"
+  },
+  {
+    "pair_id": "glimepiride|||methyldopa",
+    "group_id": "source_family_5774497c639038ee",
+    "split": "train"
+  },
+  {
+    "pair_id": "glimepiride|||nalmefene",
+    "group_id": "source_family_3bc74e7aba2a423c",
+    "split": "train"
+  },
+  {
+    "pair_id": "glimepiride|||nitazoxanide",
+    "group_id": "source_family_8c73bc6431a89169",
+    "split": "train"
+  },
+  {
+    "pair_id": "glimepiride|||pindolol",
+    "group_id": "source_family_781b28328e18a9e0",
+    "split": "train"
+  },
+  {
+    "pair_id": "glimepiride|||saquinavir",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "glimepiride|||selegiline",
+    "group_id": "source_family_e8644e77b34bd96a",
+    "split": "train"
+  },
+  {
+    "pair_id": "glimepiride|||sulfisoxazole",
+    "group_id": "source_family_e8644e77b34bd96a",
+    "split": "train"
+  },
+  {
+    "pair_id": "glimepiride|||triamcinolone (topical)",
+    "group_id": "source_family_9bd43b15d207ddbe",
+    "split": "train"
+  },
+  {
+    "pair_id": "glimepiride|||warfarin",
+    "group_id": "source_family_3bc74e7aba2a423c",
+    "split": "train"
+  },
+  {
+    "pair_id": "glipizide|||lactic acid",
+    "group_id": "source_family_55cd687ffc956e10",
+    "split": "train"
+  },
+  {
+    "pair_id": "glipizide|||metoprolol",
+    "group_id": "source_family_781b28328e18a9e0",
+    "split": "train"
+  },
+  {
+    "pair_id": "glipizide|||nitazoxanide",
+    "group_id": "source_family_8c73bc6431a89169",
+    "split": "train"
+  },
+  {
+    "pair_id": "glipizide|||potassium citrate",
+    "group_id": "source_family_55cd687ffc956e10",
+    "split": "train"
+  },
+  {
+    "pair_id": "glipizide|||probenecid",
+    "group_id": "source_family_e8644e77b34bd96a",
+    "split": "train"
+  },
+  {
+    "pair_id": "glipizide|||sodium acetate",
+    "group_id": "source_family_55cd687ffc956e10",
+    "split": "train"
+  },
+  {
+    "pair_id": "glipizide|||sodium citrate",
+    "group_id": "source_family_55cd687ffc956e10",
+    "split": "train"
+  },
+  {
+    "pair_id": "glipizide|||somapacitan",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "glipizide|||tromethamine",
+    "group_id": "source_family_55cd687ffc956e10",
+    "split": "train"
+  },
+  {
+    "pair_id": "glyburide|||lactic acid",
+    "group_id": "source_family_55cd687ffc956e10",
+    "split": "train"
+  },
+  {
+    "pair_id": "glyburide|||methyldopa",
+    "group_id": "source_family_5774497c639038ee",
+    "split": "train"
+  },
+  {
+    "pair_id": "glyburide|||nabumetone",
+    "group_id": "source_family_e8644e77b34bd96a",
+    "split": "train"
+  },
+  {
+    "pair_id": "glyburide|||nebivolol",
+    "group_id": "source_family_781b28328e18a9e0",
+    "split": "train"
+  },
+  {
+    "pair_id": "glyburide|||nitazoxanide",
+    "group_id": "source_family_8c73bc6431a89169",
+    "split": "train"
+  },
+  {
+    "pair_id": "glyburide|||potassium citrate",
+    "group_id": "source_family_55cd687ffc956e10",
+    "split": "train"
+  },
+  {
+    "pair_id": "glyburide|||sodium acetate",
+    "group_id": "source_family_55cd687ffc956e10",
+    "split": "train"
+  },
+  {
+    "pair_id": "glyburide|||sodium citrate",
+    "group_id": "source_family_55cd687ffc956e10",
+    "split": "train"
+  },
+  {
+    "pair_id": "glyburide|||teriflunomide",
+    "group_id": "source_family_cfdc43a1a91f0b6f",
+    "split": "train"
+  },
+  {
+    "pair_id": "glyburide|||tromethamine",
+    "group_id": "source_family_55cd687ffc956e10",
+    "split": "train"
+  },
+  {
+    "pair_id": "grepafloxacin|||hydrocortisone",
+    "group_id": "source_family_0a5f159fb2e2be25",
+    "split": "train"
+  },
+  {
+    "pair_id": "guanethidine|||prednisone",
+    "group_id": "source_family_d491697bd7271a18",
+    "split": "train"
+  },
+  {
+    "pair_id": "hepatitis b vaccine (recombinant)|||prednisone",
+    "group_id": "source_family_32368bf2dc365ae8",
+    "split": "train"
+  },
+  {
+    "pair_id": "hydralazine|||prednisone",
+    "group_id": "source_family_d491697bd7271a18",
+    "split": "train"
+  },
+  {
+    "pair_id": "hydrocortisone (topical)|||repaglinide",
+    "group_id": "source_family_9bd43b15d207ddbe",
+    "split": "train"
+  },
+  {
+    "pair_id": "hydrocortisone|||iopamidol",
+    "group_id": "source_family_65eaa96a1c81c171",
+    "split": "train"
+  },
+  {
+    "pair_id": "hydrocortisone|||isoniazid",
+    "group_id": "source_family_16b470451fb66611",
+    "split": "train"
+  },
+  {
+    "pair_id": "hydrocortisone|||lusutrombopag",
+    "group_id": "source_family_b91d600ad4538911",
+    "split": "train"
+  },
+  {
+    "pair_id": "hydrocortisone|||magnesium oxide",
+    "group_id": "source_family_3b206a67c9829eea",
+    "split": "train"
+  },
+  {
+    "pair_id": "hydrocortisone|||measles virus vaccine live attenuated",
+    "group_id": "source_family_5baf963548ad7b46",
+    "split": "train"
+  },
+  {
+    "pair_id": "hydrocortisone|||metoprolol",
+    "group_id": "source_family_d491697bd7271a18",
+    "split": "train"
+  },
+  {
+    "pair_id": "hydrocortisone|||mineral oil",
+    "group_id": "source_family_eb637160a1a05de5",
+    "split": "train"
+  },
+  {
+    "pair_id": "hydrocortisone|||minoxidil",
+    "group_id": "source_family_d491697bd7271a18",
+    "split": "train"
+  },
+  {
+    "pair_id": "hydrocortisone|||moxifloxacin",
+    "group_id": "source_family_0a5f159fb2e2be25",
+    "split": "train"
+  },
+  {
+    "pair_id": "hydrocortisone|||phenyl salicylate",
+    "group_id": "source_family_d178b33f49e68532",
+    "split": "train"
+  },
+  {
+    "pair_id": "hydrocortisone|||pipecuronium",
+    "group_id": "source_family_02d0c2737e9b8515",
+    "split": "train"
+  },
+  {
+    "pair_id": "hydrocortisone|||rotavirus vaccine",
+    "group_id": "source_family_5baf963548ad7b46",
+    "split": "train"
+  },
+  {
+    "pair_id": "hydrocortisone|||siponimod",
+    "group_id": "source_family_02d459094e91c68f",
+    "split": "train"
+  },
+  {
+    "pair_id": "hydrocortisone|||smallpox (vaccinia) vaccine, live",
+    "group_id": "source_family_e4b26795d64b6fc2",
+    "split": "train"
+  },
+  {
+    "pair_id": "ibuprofen|||ranitidine",
+    "group_id": "source_family_45a61b9b7c0641b1",
+    "split": "train"
+  },
+  {
+    "pair_id": "idelalisib|||loperamide",
+    "group_id": "source_family_7306e64f6cb4316b",
+    "split": "train"
+  },
+  {
+    "pair_id": "idelalisib|||repaglinide",
+    "group_id": "source_family_7f3c5c11a430ef72",
+    "split": "train"
+  },
+  {
+    "pair_id": "indapamide|||pioglitazone",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "insulin human|||linagliptin",
+    "group_id": "source_family_871c8806a951e71c",
+    "split": "train"
+  },
+  {
+    "pair_id": "iodipamide|||metformin",
+    "group_id": "source_family_c230acb96a17f6b6",
+    "split": "train"
+  },
+  {
+    "pair_id": "iodixanol|||metformin",
+    "group_id": "source_family_c230acb96a17f6b6",
+    "split": "train"
+  },
+  {
+    "pair_id": "iohexol|||metformin",
+    "group_id": "source_family_c230acb96a17f6b6",
+    "split": "train"
+  },
+  {
+    "pair_id": "iopamidol|||metformin",
+    "group_id": "source_family_c230acb96a17f6b6",
+    "split": "train"
+  },
+  {
+    "pair_id": "iopromide|||metformin",
+    "group_id": "source_family_c230acb96a17f6b6",
+    "split": "train"
+  },
+  {
+    "pair_id": "iothalamic acid|||metformin",
+    "group_id": "source_family_c230acb96a17f6b6",
+    "split": "train"
+  },
+  {
+    "pair_id": "ioversol|||metformin",
+    "group_id": "source_family_c230acb96a17f6b6",
+    "split": "train"
+  },
+  {
+    "pair_id": "ioxilan|||metformin",
+    "group_id": "source_family_c230acb96a17f6b6",
+    "split": "train"
+  },
+  {
+    "pair_id": "iron protein succinylate|||lansoprazole",
+    "group_id": "source_family_48023b7165ad5fb0",
+    "split": "train"
+  },
+  {
+    "pair_id": "iron|||oxytetracycline",
+    "group_id": "source_family_6bb0def52df2728f",
+    "split": "train"
+  },
+  {
+    "pair_id": "isavuconazonium|||metformin",
+    "group_id": "source_family_4910ba8b5e2c0e08",
+    "split": "train"
+  },
+  {
+    "pair_id": "isoniazid|||prednisone",
+    "group_id": "source_family_16b470451fb66611",
+    "split": "train"
+  },
+  {
+    "pair_id": "itraconazole|||omeprazole",
+    "group_id": "source_family_d5f92f0e30c3f00a",
+    "split": "train"
+  },
+  {
+    "pair_id": "ketoconazole|||omeprazole",
+    "group_id": "source_family_d5f92f0e30c3f00a",
+    "split": "train"
+  },
+  {
+    "pair_id": "lansoprazole|||methotrexate",
+    "group_id": "source_family_fe75ed5b98eb427e",
+    "split": "train"
+  },
+  {
+    "pair_id": "lansoprazole|||nelfinavir",
+    "group_id": "source_family_786ead6bef65a159",
+    "split": "train"
+  },
+  {
+    "pair_id": "lansoprazole|||simvastatin",
+    "group_id": "source_family_a030d1ae4955d526",
+    "split": "train"
+  },
+  {
+    "pair_id": "lansoprazole|||tacrolimus",
+    "group_id": "source_family_5b1b3d7da26ff2ed",
+    "split": "train"
+  },
+  {
+    "pair_id": "lasmiditan|||linagliptin",
+    "group_id": "source_family_2c0fc45ca2f986a9",
+    "split": "train"
+  },
+  {
+    "pair_id": "lasmiditan|||loperamide",
+    "group_id": "source_family_2c0fc45ca2f986a9",
+    "split": "train"
+  },
+  {
+    "pair_id": "lasmiditan|||saxagliptin",
+    "group_id": "source_family_2c0fc45ca2f986a9",
+    "split": "train"
+  },
+  {
+    "pair_id": "linagliptin|||prednicarbate (topical)",
+    "group_id": "source_family_9bd43b15d207ddbe",
+    "split": "train"
+  },
+  {
+    "pair_id": "linagliptin|||saquinavir",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "linagliptin|||tucatinib",
+    "group_id": "source_family_35335b84e962d2dd",
+    "split": "train"
+  },
+  {
+    "pair_id": "liotrix|||sucralfate",
+    "group_id": "source_family_d4af28ebfce29485",
+    "split": "train"
+  },
+  {
+    "pair_id": "loperamide|||meperidine",
+    "group_id": "source_family_1bb2b0b2f48c73f0",
+    "split": "train"
+  },
+  {
+    "pair_id": "loperamide|||saquinavir",
+    "group_id": "source_family_478a7d9b671bcd08",
+    "split": "train"
+  },
+  {
+    "pair_id": "loperamide|||telithromycin",
+    "group_id": "source_family_7306e64f6cb4316b",
+    "split": "train"
+  },
+  {
+    "pair_id": "loperamide|||tolvaptan",
+    "group_id": "source_family_1ed2f194adbae90b",
+    "split": "train"
+  },
+  {
+    "pair_id": "lorcaserin|||metoclopramide",
+    "group_id": "source_family_57df46f320f79c12",
+    "split": "train"
+  },
+  {
+    "pair_id": "lorlatinib|||pantoprazole",
+    "group_id": "source_family_9f3dc43d93aa9920",
+    "split": "train"
+  },
+  {
+    "pair_id": "lovastatin|||omeprazole",
+    "group_id": "source_family_a030d1ae4955d526",
+    "split": "train"
+  },
+  {
+    "pair_id": "lovastatin|||pantoprazole",
+    "group_id": "source_family_a030d1ae4955d526",
+    "split": "train"
+  },
+  {
+    "pair_id": "meclofenamic acid|||ranitidine",
+    "group_id": "source_family_45a61b9b7c0641b1",
+    "split": "train"
+  },
+  {
+    "pair_id": "metformin|||morphine",
+    "group_id": "source_family_630510f16cff5bda",
+    "split": "train"
+  },
+  {
+    "pair_id": "metformin|||ospemifene",
+    "group_id": "source_family_e47ad6978d9fea36",
+    "split": "train"
+  },
+  {
+    "pair_id": "metformin|||pemetrexed",
+    "group_id": "source_family_26ba9b042d9aeda7",
+    "split": "train"
+  },
+  {
+    "pair_id": "metformin|||ribociclib",
+    "group_id": "source_family_e3949a11fa83d94b",
+    "split": "train"
+  },
+  {
+    "pair_id": "metformin|||risdiplam",
+    "group_id": "source_family_a89b94bcee8b3e7a",
+    "split": "train"
+  },
+  {
+    "pair_id": "metformin|||rucaparib",
+    "group_id": "source_family_29beca05251c4af4",
+    "split": "train"
+  },
+  {
+    "pair_id": "metformin|||tafenoquine",
+    "group_id": "source_family_3beeda2b23063edf",
+    "split": "train"
+  },
+  {
+    "pair_id": "metformin|||terbutaline",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "metformin|||thiethylperazine",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "metformin|||triamterene",
+    "group_id": "source_family_630510f16cff5bda",
+    "split": "train"
+  },
+  {
+    "pair_id": "methotrexate|||omeprazole",
+    "group_id": "source_family_fe75ed5b98eb427e",
+    "split": "train"
+  },
+  {
+    "pair_id": "methotrexate|||pantoprazole",
+    "group_id": "source_family_fe75ed5b98eb427e",
+    "split": "train"
+  },
+  {
+    "pair_id": "methotrexate|||rabeprazole",
+    "group_id": "source_family_fe75ed5b98eb427e",
+    "split": "train"
+  },
+  {
+    "pair_id": "metoclopramide|||milnacipran",
+    "group_id": "source_family_aed6d3ed3c848d91",
+    "split": "train"
+  },
+  {
+    "pair_id": "metoclopramide|||sibutramine",
+    "group_id": "source_family_aed6d3ed3c848d91",
+    "split": "train"
+  },
+  {
+    "pair_id": "metoclopramide|||sodium oxybate",
+    "group_id": "source_family_5443cb3fa4f2cc8e",
+    "split": "train"
+  },
+  {
+    "pair_id": "midostaurin|||pioglitazone",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "mivacurium|||ranitidine",
+    "group_id": "source_family_2dfe1e19b71a3295",
+    "split": "train"
+  },
+  {
+    "pair_id": "nabumetone|||ranitidine",
+    "group_id": "source_family_45a61b9b7c0641b1",
+    "split": "train"
+  },
+  {
+    "pair_id": "nebivolol|||sucralfate",
+    "group_id": "source_family_6e2fae085be05f08",
+    "split": "train"
+  },
+  {
+    "pair_id": "nelfinavir|||pioglitazone",
+    "group_id": "source_family_8090d857916bf61f",
+    "split": "train"
+  },
+  {
+    "pair_id": "nifedipine|||omeprazole",
+    "group_id": "source_family_45560fcb71480668",
+    "split": "train"
+  },
+  {
+    "pair_id": "nisoldipine|||omeprazole",
+    "group_id": "source_family_45560fcb71480668",
+    "split": "train"
+  },
+  {
+    "pair_id": "nisoldipine|||prednisone",
+    "group_id": "source_family_d491697bd7271a18",
+    "split": "train"
+  },
+  {
+    "pair_id": "omeprazole|||simvastatin",
+    "group_id": "source_family_a030d1ae4955d526",
+    "split": "train"
+  },
+  {
+    "pair_id": "omeprazole|||tacrolimus",
+    "group_id": "source_family_5b1b3d7da26ff2ed",
+    "split": "train"
+  },
+  {
+    "pair_id": "omeprazole|||trovafloxacin",
+    "group_id": "source_family_9847905d23304db8",
+    "split": "train"
+  },
+  {
+    "pair_id": "pancuronium|||ranitidine",
+    "group_id": "source_family_2dfe1e19b71a3295",
+    "split": "train"
+  },
+  {
+    "pair_id": "pantoprazole|||simvastatin",
+    "group_id": "source_family_a030d1ae4955d526",
+    "split": "train"
+  },
+  {
+    "pair_id": "pantoprazole|||somatrem",
+    "group_id": "source_family_1e95de807f72c2de",
+    "split": "train"
+  },
+  {
+    "pair_id": "pantoprazole|||velpatasvir",
+    "group_id": "source_family_1de29757651f5edc",
+    "split": "train"
+  },
+  {
+    "pair_id": "pazopanib|||ranitidine",
+    "group_id": "source_family_d0faa9ce119547e3",
+    "split": "train"
+  },
+  {
+    "pair_id": "phenyl salicylate|||prednisone",
+    "group_id": "source_family_d178b33f49e68532",
+    "split": "train"
+  },
+  {
+    "pair_id": "pindolol|||prednisone",
+    "group_id": "source_family_d491697bd7271a18",
+    "split": "train"
+  },
+  {
+    "pair_id": "pioglitazone|||promazine",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "pioglitazone|||raltegravir",
+    "group_id": "source_family_184a847d6e4c848b",
+    "split": "train"
+  },
+  {
+    "pair_id": "pipecuronium|||prednisone",
+    "group_id": "source_family_02d0c2737e9b8515",
+    "split": "train"
+  },
+  {
+    "pair_id": "potassium chloride|||telmisartan",
+    "group_id": "source_family_e76113c28253fecc",
+    "split": "train"
+  },
+  {
+    "pair_id": "potassium chloride|||trimethoprim",
+    "group_id": "source_family_2bf718cb7891c280",
+    "split": "train"
+  },
+  {
+    "pair_id": "pramipexole|||ranitidine",
+    "group_id": "source_family_439e9ee34a9498e5",
+    "split": "train"
+  },
+  {
+    "pair_id": "prazosin|||prednisone",
+    "group_id": "source_family_d491697bd7271a18",
+    "split": "train"
+  },
+  {
+    "pair_id": "prednisone|||quinapril",
+    "group_id": "source_family_d491697bd7271a18",
+    "split": "train"
+  },
+  {
+    "pair_id": "prednisone|||reserpine",
+    "group_id": "source_family_d491697bd7271a18",
+    "split": "train"
+  },
+  {
+    "pair_id": "prednisone|||trimethaphan",
+    "group_id": "source_family_d491697bd7271a18",
+    "split": "train"
+  },
+  {
+    "pair_id": "prednisone|||valsartan",
+    "group_id": "source_family_d491697bd7271a18",
+    "split": "train"
+  },
+  {
+    "pair_id": "prednisone|||yellow fever vaccine",
+    "group_id": "source_family_5baf963548ad7b46",
+    "split": "train"
+  },
+  {
+    "pair_id": "promazine|||saxagliptin",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "quetiapine|||repaglinide",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "rabeprazole|||velpatasvir",
+    "group_id": "source_family_1de29757651f5edc",
+    "split": "train"
+  },
+  {
+    "pair_id": "ranitidine|||sulindac",
+    "group_id": "source_family_45a61b9b7c0641b1",
+    "split": "train"
+  },
+  {
+    "pair_id": "ranitidine|||tolmetin",
+    "group_id": "source_family_45a61b9b7c0641b1",
+    "split": "train"
+  },
+  {
+    "pair_id": "saxagliptin|||thiethylperazine",
+    "group_id": "source_family_0017b187de3c25f8",
+    "split": "train"
+  },
+  {
+    "pair_id": "sucralfate|||thyroid, porcine",
+    "group_id": "source_family_d4af28ebfce29485",
+    "split": "train"
+  },
+  {
+    "pair_id": "abarelix|||loperamide",
+    "group_id": "source_family_381292ef8833ae02",
+    "split": "validation"
+  },
+  {
+    "pair_id": "acetohexamide|||esomeprazole",
+    "group_id": "source_family_9b331931a3c48a68",
+    "split": "validation"
+  },
+  {
+    "pair_id": "acetohexamide|||metformin",
+    "group_id": "source_family_e5adb030f58242b7",
+    "split": "validation"
+  },
+  {
+    "pair_id": "acetohexamide|||omeprazole",
+    "group_id": "source_family_9b331931a3c48a68",
+    "split": "validation"
+  },
+  {
+    "pair_id": "acetylsalicylic acid|||calcium carbonate",
+    "group_id": "source_family_a43861a255e5cc7a",
+    "split": "validation"
+  },
+  {
+    "pair_id": "activated charcoal|||glipizide",
+    "group_id": "source_family_b2a17134ba7a83f6",
+    "split": "validation"
+  },
+  {
+    "pair_id": "activated charcoal|||glyburide",
+    "group_id": "source_family_b2a17134ba7a83f6",
+    "split": "validation"
+  },
+  {
+    "pair_id": "adenosine|||famotidine",
+    "group_id": "source_family_035600613b9dd158",
+    "split": "validation"
+  },
+  {
+    "pair_id": "alfentanil|||metoclopramide",
+    "group_id": "source_family_163bb7e51852edff",
+    "split": "validation"
+  },
+  {
+    "pair_id": "alfuzosin|||loperamide",
+    "group_id": "source_family_381292ef8833ae02",
+    "split": "validation"
+  },
+  {
+    "pair_id": "alimemazine|||loperamide",
+    "group_id": "source_family_381292ef8833ae02",
+    "split": "validation"
+  },
+  {
+    "pair_id": "allopurinol|||sucralfate",
+    "group_id": "source_family_8dceec18bdce778a",
+    "split": "validation"
+  },
+  {
+    "pair_id": "alprazolam|||omeprazole",
+    "group_id": "source_family_3c4d23f14a9e5e09",
+    "split": "validation"
+  },
+  {
+    "pair_id": "aluminum hydroxide|||famotidine",
+    "group_id": "source_family_4f553e17269dabe2",
+    "split": "validation"
+  },
+  {
+    "pair_id": "aluminum hydroxide|||ranitidine",
+    "group_id": "source_family_4f553e17269dabe2",
+    "split": "validation"
+  },
+  {
+    "pair_id": "aminoglutethimide|||linagliptin",
+    "group_id": "source_family_f30f1a9876982834",
+    "split": "validation"
+  },
+  {
+    "pair_id": "amiodarone|||dexamethasone",
+    "group_id": "source_family_dcf9bcd47ffb0682",
+    "split": "validation"
+  },
+  {
+    "pair_id": "amiodarone|||saxagliptin",
+    "group_id": "source_family_d73be240d2cb385b",
+    "split": "validation"
+  },
+  {
+    "pair_id": "amisulpride|||loperamide",
+    "group_id": "source_family_381292ef8833ae02",
+    "split": "validation"
+  },
+  {
+    "pair_id": "amobarbital|||linagliptin",
+    "group_id": "source_family_f30f1a9876982834",
+    "split": "validation"
+  },
+  {
+    "pair_id": "amprenavir|||saxagliptin",
+    "group_id": "source_family_d73be240d2cb385b",
+    "split": "validation"
+  },
+  {
+    "pair_id": "anagrelide|||loperamide",
+    "group_id": "source_family_381292ef8833ae02",
+    "split": "validation"
+  },
+  {
+    "pair_id": "apalutamide|||linagliptin",
+    "group_id": "source_family_f30f1a9876982834",
+    "split": "validation"
+  },
+  {
+    "pair_id": "apomorphine|||loperamide",
+    "group_id": "source_family_381292ef8833ae02",
+    "split": "validation"
+  },
+  {
+    "pair_id": "aprepitant|||saxagliptin",
+    "group_id": "source_family_d73be240d2cb385b",
+    "split": "validation"
+  },
+  {
+    "pair_id": "armodafinil|||linagliptin",
+    "group_id": "source_family_f30f1a9876982834",
+    "split": "validation"
+  },
+  {
+    "pair_id": "arsenic trioxide|||loperamide",
+    "group_id": "source_family_381292ef8833ae02",
+    "split": "validation"
+  },
+  {
+    "pair_id": "artemether|||dexamethasone",
+    "group_id": "source_family_05f967306d8ee11f",
+    "split": "validation"
+  },
+  {
+    "pair_id": "asenapine|||loperamide",
+    "group_id": "source_family_381292ef8833ae02",
+    "split": "validation"
+  },
+  {
+    "pair_id": "bexarotene|||linagliptin",
+    "group_id": "source_family_3fd029b4641665c6",
+    "split": "validation"
+  },
+  {
+    "pair_id": "bortezomib|||pantoprazole",
+    "group_id": "source_family_a95edc56277679e1",
+    "split": "validation"
+  },
+  {
+    "pair_id": "buprenorphine|||metoclopramide",
+    "group_id": "source_family_163bb7e51852edff",
+    "split": "validation"
+  },
+  {
+    "pair_id": "butorphanol|||metoclopramide",
+    "group_id": "source_family_163bb7e51852edff",
+    "split": "validation"
+  },
+  {
+    "pair_id": "calcium carbonate|||salicylic acid (sodium)",
+    "group_id": "source_family_a43861a255e5cc7a",
+    "split": "validation"
+  },
+  {
+    "pair_id": "capmatinib|||dexamethasone",
+    "group_id": "source_family_47c3873b592a9a7e",
+    "split": "validation"
+  },
+  {
+    "pair_id": "capmatinib|||lansoprazole",
+    "group_id": "source_family_db2bbea52fe21350",
+    "split": "validation"
+  },
+  {
+    "pair_id": "capmatinib|||rabeprazole",
+    "group_id": "source_family_db2bbea52fe21350",
+    "split": "validation"
+  },
+  {
+    "pair_id": "ceritinib|||ranitidine",
+    "group_id": "source_family_fc51e7f6e18bc736",
+    "split": "validation"
+  },
+  {
+    "pair_id": "chlorpropamide|||esomeprazole",
+    "group_id": "source_family_9b331931a3c48a68",
+    "split": "validation"
+  },
+  {
+    "pair_id": "ciprofloxacin|||glimepiride",
+    "group_id": "source_family_bb206ff845ff83d5",
+    "split": "validation"
+  },
+  {
+    "pair_id": "ciprofloxacin|||repaglinide",
+    "group_id": "source_family_bb206ff845ff83d5",
+    "split": "validation"
+  },
+  {
+    "pair_id": "codeine|||metoclopramide",
+    "group_id": "source_family_163bb7e51852edff",
+    "split": "validation"
+  },
+  {
+    "pair_id": "conivaptan|||saxagliptin",
+    "group_id": "source_family_d73be240d2cb385b",
+    "split": "validation"
+  },
+  {
+    "pair_id": "crizotinib|||loperamide",
+    "group_id": "source_family_381292ef8833ae02",
+    "split": "validation"
+  },
+  {
+    "pair_id": "dasatinib|||lansoprazole",
+    "group_id": "source_family_92e89c74fcecfdef",
+    "split": "validation"
+  },
+  {
+    "pair_id": "delafloxacin|||glimepiride",
+    "group_id": "source_family_bb206ff845ff83d5",
+    "split": "validation"
+  },
+  {
+    "pair_id": "dexamethasone (ophthalmic)|||glimepiride",
+    "group_id": "source_family_5676f152697b9f5f",
+    "split": "validation"
+  },
+  {
+    "pair_id": "dexamethasone (ophthalmic)|||pioglitazone",
+    "group_id": "source_family_5676f152697b9f5f",
+    "split": "validation"
+  },
+  {
+    "pair_id": "dexamethasone|||medroxyprogesterone acetate",
+    "group_id": "source_family_60dc8def01065a6c",
+    "split": "validation"
+  },
+  {
+    "pair_id": "dexamethasone|||mifepristone",
+    "group_id": "source_family_1c0826f8842f7d9a",
+    "split": "validation"
+  },
+  {
+    "pair_id": "dextropropoxyphene|||metoclopramide",
+    "group_id": "source_family_0e6f365483a5089a",
+    "split": "validation"
+  },
+  {
+    "pair_id": "dezocine|||metoclopramide",
+    "group_id": "source_family_163bb7e51852edff",
+    "split": "validation"
+  },
+  {
+    "pair_id": "dihydrocodeine|||metoclopramide",
+    "group_id": "source_family_163bb7e51852edff",
+    "split": "validation"
+  },
+  {
+    "pair_id": "enoxacin|||glyburide",
+    "group_id": "source_family_bb206ff845ff83d5",
+    "split": "validation"
+  },
+  {
+    "pair_id": "entacapone|||iron",
+    "group_id": "source_family_206edffcb6d57616",
+    "split": "validation"
+  },
+  {
+    "pair_id": "enzalutamide|||linagliptin",
+    "group_id": "source_family_f30f1a9876982834",
+    "split": "validation"
+  },
+  {
+    "pair_id": "ethinylestradiol|||pioglitazone",
+    "group_id": "source_family_19a26579c2d7fbe1",
+    "split": "validation"
+  },
+  {
+    "pair_id": "famotidine|||gefitinib",
+    "group_id": "source_family_9b374718732f83ba",
+    "split": "validation"
+  },
+  {
+    "pair_id": "famotidine|||magnesium carbonate",
+    "group_id": "source_family_4f553e17269dabe2",
+    "split": "validation"
+  },
+  {
+    "pair_id": "famotidine|||nicotine",
+    "group_id": "source_family_5d88e951a7d063b4",
+    "split": "validation"
+  },
+  {
+    "pair_id": "famotidine|||phenytoin",
+    "group_id": "source_family_d143d5cbf5c482d6",
+    "split": "validation"
+  },
+  {
+    "pair_id": "fentanyl|||metoclopramide",
+    "group_id": "source_family_163bb7e51852edff",
+    "split": "validation"
+  },
+  {
+    "pair_id": "gemifloxacin|||glipizide",
+    "group_id": "source_family_bb206ff845ff83d5",
+    "split": "validation"
+  },
+  {
+    "pair_id": "gemifloxacin|||glyburide",
+    "group_id": "source_family_bb206ff845ff83d5",
+    "split": "validation"
+  },
+  {
+    "pair_id": "glimepiride|||lomefloxacin",
+    "group_id": "source_family_bb206ff845ff83d5",
+    "split": "validation"
+  },
+  {
+    "pair_id": "glimepiride|||moxifloxacin",
+    "group_id": "source_family_bb206ff845ff83d5",
+    "split": "validation"
+  },
+  {
+    "pair_id": "glimepiride|||ofloxacin",
+    "group_id": "source_family_bb206ff845ff83d5",
+    "split": "validation"
+  },
+  {
+    "pair_id": "glimepiride|||omeprazole",
+    "group_id": "source_family_9b331931a3c48a68",
+    "split": "validation"
+  },
+  {
+    "pair_id": "glimepiride|||phenylbutazone",
+    "group_id": "source_family_5b8c72f75548a2d5",
+    "split": "validation"
+  },
+  {
+    "pair_id": "glimepiride|||sparfloxacin",
+    "group_id": "source_family_bb206ff845ff83d5",
+    "split": "validation"
+  },
+  {
+    "pair_id": "glimepiride|||sulfinpyrazone",
+    "group_id": "source_family_5b8c72f75548a2d5",
+    "split": "validation"
+  },
+  {
+    "pair_id": "glipizide|||nalidixic acid",
+    "group_id": "source_family_bb206ff845ff83d5",
+    "split": "validation"
+  },
+  {
+    "pair_id": "glipizide|||norfloxacin",
+    "group_id": "source_family_bb206ff845ff83d5",
+    "split": "validation"
+  },
+  {
+    "pair_id": "glipizide|||ofloxacin",
+    "group_id": "source_family_bb206ff845ff83d5",
+    "split": "validation"
+  },
+  {
+    "pair_id": "glipizide|||phenylbutazone",
+    "group_id": "source_family_5b8c72f75548a2d5",
+    "split": "validation"
+  },
+  {
+    "pair_id": "glipizide|||sulfinpyrazone",
+    "group_id": "source_family_5b8c72f75548a2d5",
+    "split": "validation"
+  },
+  {
+    "pair_id": "glyburide|||grepafloxacin",
+    "group_id": "source_family_bb206ff845ff83d5",
+    "split": "validation"
+  },
+  {
+    "pair_id": "glyburide|||lomefloxacin",
+    "group_id": "source_family_bb206ff845ff83d5",
+    "split": "validation"
+  },
+  {
+    "pair_id": "glyburide|||nalidixic acid",
+    "group_id": "source_family_bb206ff845ff83d5",
+    "split": "validation"
+  },
+  {
+    "pair_id": "glyburide|||phenylbutazone",
+    "group_id": "source_family_5b8c72f75548a2d5",
+    "split": "validation"
+  },
+  {
+    "pair_id": "glyburide|||sparfloxacin",
+    "group_id": "source_family_bb206ff845ff83d5",
+    "split": "validation"
+  },
+  {
+    "pair_id": "glyburide|||sulfinpyrazone",
+    "group_id": "source_family_5b8c72f75548a2d5",
+    "split": "validation"
+  },
+  {
+    "pair_id": "glyburide|||trovafloxacin",
+    "group_id": "source_family_bb206ff845ff83d5",
+    "split": "validation"
+  },
+  {
+    "pair_id": "hydrocortisone|||larotrectinib",
+    "group_id": "source_family_a95edc56277679e1",
+    "split": "validation"
+  },
+  {
+    "pair_id": "hydrocortisone|||mifepristone",
+    "group_id": "source_family_1c0826f8842f7d9a",
+    "split": "validation"
+  },
+  {
+    "pair_id": "hydromorphone|||metoclopramide",
+    "group_id": "source_family_163bb7e51852edff",
+    "split": "validation"
+  },
+  {
+    "pair_id": "iron|||st. john's wort",
+    "group_id": "source_family_d10cf73bed499d06",
+    "split": "validation"
+  },
+  {
+    "pair_id": "isosorbide dinitrate|||omeprazole",
+    "group_id": "source_family_44c37191087da828",
+    "split": "validation"
+  },
+  {
+    "pair_id": "isosorbide mononitrate|||omeprazole",
+    "group_id": "source_family_44c37191087da828",
+    "split": "validation"
+  },
+  {
+    "pair_id": "levacetylmethadol|||metoclopramide",
+    "group_id": "source_family_163bb7e51852edff",
+    "split": "validation"
+  },
+  {
+    "pair_id": "levofloxacin|||repaglinide",
+    "group_id": "source_family_bb206ff845ff83d5",
+    "split": "validation"
+  },
+  {
+    "pair_id": "linagliptin|||lorcaserin",
+    "group_id": "source_family_6434913b7aa763ce",
+    "split": "validation"
+  },
+  {
+    "pair_id": "loperamide|||quinidine",
+    "group_id": "source_family_9c35705b65943aad",
+    "split": "validation"
+  },
+  {
+    "pair_id": "loperamide|||quinine",
+    "group_id": "source_family_9c35705b65943aad",
+    "split": "validation"
+  },
+  {
+    "pair_id": "loperamide|||sparfloxacin",
+    "group_id": "source_family_381292ef8833ae02",
+    "split": "validation"
+  },
+  {
+    "pair_id": "medroxyprogesterone acetate|||pioglitazone",
+    "group_id": "source_family_19a26579c2d7fbe1",
+    "split": "validation"
+  },
+  {
+    "pair_id": "meperidine|||metoclopramide",
+    "group_id": "source_family_163bb7e51852edff",
+    "split": "validation"
+  },
+  {
+    "pair_id": "methadone|||metoclopramide",
+    "group_id": "source_family_163bb7e51852edff",
+    "split": "validation"
+  },
+  {
+    "pair_id": "metoclopramide|||morphine",
+    "group_id": "source_family_163bb7e51852edff",
+    "split": "validation"
+  },
+  {
+    "pair_id": "metoclopramide|||morphine (liposomal)",
+    "group_id": "source_family_163bb7e51852edff",
+    "split": "validation"
+  },
+  {
+    "pair_id": "metoclopramide|||nalbuphine",
+    "group_id": "source_family_163bb7e51852edff",
+    "split": "validation"
+  },
+  {
+    "pair_id": "metoclopramide|||oliceridine",
+    "group_id": "source_family_163bb7e51852edff",
+    "split": "validation"
+  },
+  {
+    "pair_id": "metoclopramide|||opium",
+    "group_id": "source_family_163bb7e51852edff",
+    "split": "validation"
+  },
+  {
+    "pair_id": "metoclopramide|||oxycodone",
+    "group_id": "source_family_163bb7e51852edff",
+    "split": "validation"
+  },
+  {
+    "pair_id": "metoclopramide|||pentazocine",
+    "group_id": "source_family_163bb7e51852edff",
+    "split": "validation"
+  },
+  {
+    "pair_id": "metoclopramide|||remifentanil",
+    "group_id": "source_family_163bb7e51852edff",
+    "split": "validation"
+  },
+  {
+    "pair_id": "metoclopramide|||sufentanil",
+    "group_id": "source_family_163bb7e51852edff",
+    "split": "validation"
+  },
+  {
+    "pair_id": "mifepristone|||prednisone",
+    "group_id": "source_family_1c0826f8842f7d9a",
+    "split": "validation"
+  },
+  {
+    "pair_id": "nalidixic acid|||repaglinide",
+    "group_id": "source_family_bb206ff845ff83d5",
+    "split": "validation"
+  },
+  {
+    "pair_id": "nicotine|||ranitidine",
+    "group_id": "source_family_5d88e951a7d063b4",
+    "split": "validation"
+  },
+  {
+    "pair_id": "nitroglycerin|||omeprazole",
+    "group_id": "source_family_44c37191087da828",
+    "split": "validation"
+  },
+  {
+    "pair_id": "norfloxacin|||repaglinide",
+    "group_id": "source_family_bb206ff845ff83d5",
+    "split": "validation"
+  },
+  {
+    "pair_id": "ofloxacin|||repaglinide",
+    "group_id": "source_family_bb206ff845ff83d5",
+    "split": "validation"
+  },
+  {
+    "pair_id": "pexidartinib|||ranitidine",
+    "group_id": "source_family_1bbb4b8f35275868",
+    "split": "validation"
+  },
+  {
+    "pair_id": "plantago seed|||repaglinide",
+    "group_id": "source_family_8647b2b570ddf5e5",
+    "split": "validation"
+  },
+  {
+    "pair_id": "rabeprazole|||raltegravir",
+    "group_id": "source_family_4761043285ca16e8",
+    "split": "validation"
+  },
+  {
+    "pair_id": "raltegravir|||ranitidine",
+    "group_id": "source_family_4761043285ca16e8",
+    "split": "validation"
+  },
+  {
+    "pair_id": "ranitidine|||siponimod",
+    "group_id": "source_family_cc01e06df231aa2b",
+    "split": "validation"
+  },
+  {
+    "pair_id": "repaglinide|||sparfloxacin",
+    "group_id": "source_family_bb206ff845ff83d5",
+    "split": "validation"
+  },
+  {
+    "pair_id": "repaglinide|||trovafloxacin",
+    "group_id": "source_family_bb206ff845ff83d5",
+    "split": "validation"
+  },
+  {
+    "pair_id": "abarelix|||bisacodyl",
+    "group_id": "source_family_4514e87731125558",
+    "split": "test"
+  },
+  {
+    "pair_id": "abarelix|||lactulose",
+    "group_id": "source_family_4514e87731125558",
+    "split": "test"
+  },
+  {
+    "pair_id": "abiraterone|||bisacodyl",
+    "group_id": "source_family_4514e87731125558",
+    "split": "test"
+  },
+  {
+    "pair_id": "abiraterone|||lactulose",
+    "group_id": "source_family_4514e87731125558",
+    "split": "test"
+  },
+  {
+    "pair_id": "abiraterone|||metoclopramide",
+    "group_id": "source_family_fc3b60d685f8728d",
+    "split": "test"
+  },
+  {
+    "pair_id": "acalabrutinib|||dexamethasone",
+    "group_id": "source_family_dcbb62637755bb64",
+    "split": "test"
+  },
+  {
+    "pair_id": "acarbose|||sucralfate",
+    "group_id": "source_family_1915ec8d80517149",
+    "split": "test"
+  },
+  {
+    "pair_id": "acebutolol|||calcium carbonate",
+    "group_id": "source_family_8ce34130f07be3eb",
+    "split": "test"
+  },
+  {
+    "pair_id": "acebutolol|||calcium citrate",
+    "group_id": "source_family_8ce34130f07be3eb",
+    "split": "test"
+  },
+  {
+    "pair_id": "acetazolamide|||bisacodyl",
+    "group_id": "source_family_6569f54fa52721c3",
+    "split": "test"
+  },
+  {
+    "pair_id": "acetazolamide|||dexamethasone",
+    "group_id": "source_family_0776d7c5aa36e4d3",
+    "split": "test"
+  },
+  {
+    "pair_id": "acetazolamide|||hydrocortisone",
+    "group_id": "source_family_0776d7c5aa36e4d3",
+    "split": "test"
+  },
+  {
+    "pair_id": "acetazolamide|||lactulose",
+    "group_id": "source_family_6569f54fa52721c3",
+    "split": "test"
+  },
+  {
+    "pair_id": "acetazolamide|||prednisone",
+    "group_id": "source_family_0776d7c5aa36e4d3",
+    "split": "test"
+  },
+  {
+    "pair_id": "acetohexamide|||calcium carbonate",
+    "group_id": "source_family_322a6f73711e6fc4",
+    "split": "test"
+  },
+  {
+    "pair_id": "acetohexamide|||sucralfate",
+    "group_id": "source_family_1915ec8d80517149",
+    "split": "test"
+  },
+  {
+    "pair_id": "acrivastine|||potassium chloride",
+    "group_id": "source_family_81e4eadd58543db3",
+    "split": "test"
+  },
+  {
+    "pair_id": "albiglutide|||sucralfate",
+    "group_id": "source_family_1915ec8d80517149",
+    "split": "test"
+  },
+  {
+    "pair_id": "alfuzosin|||bisacodyl",
+    "group_id": "source_family_4514e87731125558",
+    "split": "test"
+  },
+  {
+    "pair_id": "alfuzosin|||lactulose",
+    "group_id": "source_family_4514e87731125558",
+    "split": "test"
+  },
+  {
+    "pair_id": "alimemazine|||bisacodyl",
+    "group_id": "source_family_4514e87731125558",
+    "split": "test"
+  },
+  {
+    "pair_id": "alimemazine|||lactulose",
+    "group_id": "source_family_4514e87731125558",
+    "split": "test"
+  },
+  {
+    "pair_id": "alimemazine|||metoclopramide",
+    "group_id": "source_family_a3ebe6164438c801",
+    "split": "test"
+  },
+  {
+    "pair_id": "alimemazine|||potassium chloride",
+    "group_id": "source_family_81e4eadd58543db3",
+    "split": "test"
+  },
+  {
+    "pair_id": "aliskiren|||potassium chloride",
+    "group_id": "source_family_7018ab9c2d549abd",
+    "split": "test"
+  },
+  {
+    "pair_id": "alogliptin|||sucralfate",
+    "group_id": "source_family_1915ec8d80517149",
+    "split": "test"
+  },
+  {
+    "pair_id": "aluminum hydroxide|||bisacodyl",
+    "group_id": "source_family_10bd8a9ef7189592",
+    "split": "test"
+  },
+  {
+    "pair_id": "aluminum hydroxide|||glimepiride",
+    "group_id": "source_family_322a6f73711e6fc4",
+    "split": "test"
+  },
+  {
+    "pair_id": "aluminum hydroxide|||glipizide",
+    "group_id": "source_family_322a6f73711e6fc4",
+    "split": "test"
+  },
+  {
+    "pair_id": "aluminum hydroxide|||glyburide",
+    "group_id": "source_family_322a6f73711e6fc4",
+    "split": "test"
+  },
+  {
+    "pair_id": "amikacin (liposome)|||esomeprazole",
+    "group_id": "source_family_58f59a3f293dc972",
+    "split": "test"
+  },
+  {
+    "pair_id": "amikacin (liposome)|||lansoprazole",
+    "group_id": "source_family_58f59a3f293dc972",
+    "split": "test"
+  },
+  {
+    "pair_id": "amikacin (liposome)|||omeprazole",
+    "group_id": "source_family_58f59a3f293dc972",
+    "split": "test"
+  },
+  {
+    "pair_id": "amikacin (liposome)|||pantoprazole",
+    "group_id": "source_family_58f59a3f293dc972",
+    "split": "test"
+  },
+  {
+    "pair_id": "amikacin (liposome)|||rabeprazole",
+    "group_id": "source_family_58f59a3f293dc972",
+    "split": "test"
+  },
+  {
+    "pair_id": "amikacin|||esomeprazole",
+    "group_id": "source_family_58f59a3f293dc972",
+    "split": "test"
+  },
+  {
+    "pair_id": "amikacin|||lansoprazole",
+    "group_id": "source_family_58f59a3f293dc972",
+    "split": "test"
+  },
+  {
+    "pair_id": "amikacin|||omeprazole",
+    "group_id": "source_family_58f59a3f293dc972",
+    "split": "test"
+  },
+  {
+    "pair_id": "amikacin|||pantoprazole",
+    "group_id": "source_family_58f59a3f293dc972",
+    "split": "test"
+  },
+  {
+    "pair_id": "amikacin|||rabeprazole",
+    "group_id": "source_family_58f59a3f293dc972",
+    "split": "test"
+  },
+  {
+    "pair_id": "amiloride|||bisacodyl",
+    "group_id": "source_family_6569f54fa52721c3",
+    "split": "test"
+  },
+  {
+    "pair_id": "amiloride|||lactulose",
+    "group_id": "source_family_6569f54fa52721c3",
+    "split": "test"
+  },
+  {
+    "pair_id": "amiloride|||potassium chloride",
+    "group_id": "source_family_f2f5e8965747e87b",
+    "split": "test"
+  },
+  {
+    "pair_id": "aminoglutethimide|||repaglinide",
+    "group_id": "source_family_fbc4b31e4e9b17b0",
+    "split": "test"
+  },
+  {
+    "pair_id": "aminoglutethimide|||saxagliptin",
+    "group_id": "source_family_dcbb62637755bb64",
+    "split": "test"
+  },
+  {
+    "pair_id": "aminophylline|||famotidine",
+    "group_id": "source_family_49b51a41cd6ae589",
+    "split": "test"
+  },
+  {
+    "pair_id": "aminophylline|||ranitidine",
+    "group_id": "source_family_49b51a41cd6ae589",
+    "split": "test"
+  },
+  {
+    "pair_id": "amiodarone|||bisacodyl",
+    "group_id": "source_family_4514e87731125558",
+    "split": "test"
+  },
+  {
+    "pair_id": "amiodarone|||hydrocortisone",
+    "group_id": "source_family_2b85f1186502ef07",
+    "split": "test"
+  },
+  {
+    "pair_id": "amiodarone|||lactulose",
+    "group_id": "source_family_4514e87731125558",
+    "split": "test"
+  },
+  {
+    "pair_id": "amisulpride|||bisacodyl",
+    "group_id": "source_family_4514e87731125558",
+    "split": "test"
+  },
+  {
+    "pair_id": "amisulpride|||lactulose",
+    "group_id": "source_family_4514e87731125558",
+    "split": "test"
+  },
+  {
+    "pair_id": "amisulpride|||metoclopramide",
+    "group_id": "source_family_a3ebe6164438c801",
+    "split": "test"
+  },
+  {
+    "pair_id": "amitriptyline|||potassium chloride",
+    "group_id": "source_family_81e4eadd58543db3",
+    "split": "test"
+  },
+  {
+    "pair_id": "amlodipine|||calcium carbonate",
+    "group_id": "source_family_3d591533b98039ea",
+    "split": "test"
+  },
+  {
+    "pair_id": "amlodipine|||calcium citrate",
+    "group_id": "source_family_3d591533b98039ea",
+    "split": "test"
+  },
+  {
+    "pair_id": "amobarbital|||repaglinide",
+    "group_id": "source_family_fbc4b31e4e9b17b0",
+    "split": "test"
+  },
+  {
+    "pair_id": "amobarbital|||saxagliptin",
+    "group_id": "source_family_dcbb62637755bb64",
+    "split": "test"
+  },
+  {
+    "pair_id": "amoxapine|||metoclopramide",
+    "group_id": "source_family_a3ebe6164438c801",
+    "split": "test"
+  },
+  {
+    "pair_id": "amoxapine|||potassium chloride",
+    "group_id": "source_family_81e4eadd58543db3",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphetamine|||esomeprazole",
+    "group_id": "source_family_157f67d3bf0c794b",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphetamine|||lansoprazole",
+    "group_id": "source_family_157f67d3bf0c794b",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphetamine|||omeprazole",
+    "group_id": "source_family_157f67d3bf0c794b",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphetamine|||pantoprazole",
+    "group_id": "source_family_157f67d3bf0c794b",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphetamine|||rabeprazole",
+    "group_id": "source_family_157f67d3bf0c794b",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphotericin b (cholesteryl sulfate)|||dexamethasone",
+    "group_id": "source_family_0776d7c5aa36e4d3",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphotericin b (cholesteryl sulfate)|||esomeprazole",
+    "group_id": "source_family_58f59a3f293dc972",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphotericin b (cholesteryl sulfate)|||hydrocortisone",
+    "group_id": "source_family_0776d7c5aa36e4d3",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphotericin b (cholesteryl sulfate)|||lansoprazole",
+    "group_id": "source_family_58f59a3f293dc972",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphotericin b (cholesteryl sulfate)|||omeprazole",
+    "group_id": "source_family_58f59a3f293dc972",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphotericin b (cholesteryl sulfate)|||pantoprazole",
+    "group_id": "source_family_58f59a3f293dc972",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphotericin b (cholesteryl sulfate)|||prednisone",
+    "group_id": "source_family_0776d7c5aa36e4d3",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphotericin b (cholesteryl sulfate)|||rabeprazole",
+    "group_id": "source_family_58f59a3f293dc972",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphotericin b (lipid complex)|||dexamethasone",
+    "group_id": "source_family_0776d7c5aa36e4d3",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphotericin b (lipid complex)|||esomeprazole",
+    "group_id": "source_family_58f59a3f293dc972",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphotericin b (lipid complex)|||hydrocortisone",
+    "group_id": "source_family_0776d7c5aa36e4d3",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphotericin b (lipid complex)|||lansoprazole",
+    "group_id": "source_family_58f59a3f293dc972",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphotericin b (lipid complex)|||omeprazole",
+    "group_id": "source_family_58f59a3f293dc972",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphotericin b (lipid complex)|||pantoprazole",
+    "group_id": "source_family_58f59a3f293dc972",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphotericin b (lipid complex)|||prednisone",
+    "group_id": "source_family_0776d7c5aa36e4d3",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphotericin b (lipid complex)|||rabeprazole",
+    "group_id": "source_family_58f59a3f293dc972",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphotericin b (liposomal)|||dexamethasone",
+    "group_id": "source_family_0776d7c5aa36e4d3",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphotericin b (liposomal)|||esomeprazole",
+    "group_id": "source_family_58f59a3f293dc972",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphotericin b (liposomal)|||hydrocortisone",
+    "group_id": "source_family_0776d7c5aa36e4d3",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphotericin b (liposomal)|||lansoprazole",
+    "group_id": "source_family_58f59a3f293dc972",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphotericin b (liposomal)|||omeprazole",
+    "group_id": "source_family_58f59a3f293dc972",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphotericin b (liposomal)|||pantoprazole",
+    "group_id": "source_family_58f59a3f293dc972",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphotericin b (liposomal)|||prednisone",
+    "group_id": "source_family_0776d7c5aa36e4d3",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphotericin b (liposomal)|||rabeprazole",
+    "group_id": "source_family_58f59a3f293dc972",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphotericin b|||dexamethasone",
+    "group_id": "source_family_0776d7c5aa36e4d3",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphotericin b|||esomeprazole",
+    "group_id": "source_family_58f59a3f293dc972",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphotericin b|||hydrocortisone",
+    "group_id": "source_family_0776d7c5aa36e4d3",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphotericin b|||lansoprazole",
+    "group_id": "source_family_58f59a3f293dc972",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphotericin b|||omeprazole",
+    "group_id": "source_family_58f59a3f293dc972",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphotericin b|||pantoprazole",
+    "group_id": "source_family_58f59a3f293dc972",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphotericin b|||prednisone",
+    "group_id": "source_family_0776d7c5aa36e4d3",
+    "split": "test"
+  },
+  {
+    "pair_id": "amphotericin b|||rabeprazole",
+    "group_id": "source_family_58f59a3f293dc972",
+    "split": "test"
+  },
+  {
+    "pair_id": "amprenavir|||hydrocortisone",
+    "group_id": "source_family_c63ceed73922792f",
+    "split": "test"
+  },
+  {
+    "pair_id": "amprenavir|||prednisone",
+    "group_id": "source_family_c63ceed73922792f",
+    "split": "test"
+  },
+  {
+    "pair_id": "anagrelide|||bisacodyl",
+    "group_id": "source_family_4514e87731125558",
+    "split": "test"
+  },
+  {
+    "pair_id": "anagrelide|||lactulose",
+    "group_id": "source_family_4514e87731125558",
+    "split": "test"
+  },
+  {
+    "pair_id": "anisindione|||esomeprazole",
+    "group_id": "source_family_e8a8ca0f026ae496",
+    "split": "test"
+  },
+  {
+    "pair_id": "anisindione|||lansoprazole",
+    "group_id": "source_family_e8a8ca0f026ae496",
+    "split": "test"
+  },
+  {
+    "pair_id": "anisindione|||omeprazole",
+    "group_id": "source_family_e8a8ca0f026ae496",
+    "split": "test"
+  },
+  {
+    "pair_id": "anisindione|||pantoprazole",
+    "group_id": "source_family_e8a8ca0f026ae496",
+    "split": "test"
+  },
+  {
+    "pair_id": "anisindione|||rabeprazole",
+    "group_id": "source_family_e8a8ca0f026ae496",
+    "split": "test"
+  },
+  {
+    "pair_id": "apalutamide|||bisacodyl",
+    "group_id": "source_family_4514e87731125558",
+    "split": "test"
+  },
+  {
+    "pair_id": "apalutamide|||lactulose",
+    "group_id": "source_family_4514e87731125558",
+    "split": "test"
+  },
+  {
+    "pair_id": "apalutamide|||repaglinide",
+    "group_id": "source_family_fbc4b31e4e9b17b0",
+    "split": "test"
+  },
+  {
+    "pair_id": "apalutamide|||saxagliptin",
+    "group_id": "source_family_dcbb62637755bb64",
+    "split": "test"
+  },
+  {
+    "pair_id": "apomorphine|||bisacodyl",
+    "group_id": "source_family_4514e87731125558",
+    "split": "test"
+  },
+  {
+    "pair_id": "apomorphine|||lactulose",
+    "group_id": "source_family_4514e87731125558",
+    "split": "test"
+  },
+  {
+    "pair_id": "apremilast|||dexamethasone",
+    "group_id": "source_family_dcbb62637755bb64",
+    "split": "test"
+  },
+  {
+    "pair_id": "aripiprazole|||metoclopramide",
+    "group_id": "source_family_a3ebe6164438c801",
+    "split": "test"
+  },
+  {
+    "pair_id": "armodafinil|||repaglinide",
+    "group_id": "source_family_fbc4b31e4e9b17b0",
+    "split": "test"
+  },
+  {
+    "pair_id": "arsenic trioxide|||bisacodyl",
+    "group_id": "source_family_4514e87731125558",
+    "split": "test"
+  },
+  {
+    "pair_id": "arsenic trioxide|||lactulose",
+    "group_id": "source_family_4514e87731125558",
+    "split": "test"
+  },
+  {
+    "pair_id": "asenapine|||bisacodyl",
+    "group_id": "source_family_4514e87731125558",
+    "split": "test"
+  },
+  {
+    "pair_id": "asenapine|||lactulose",
+    "group_id": "source_family_4514e87731125558",
+    "split": "test"
+  },
+  {
+    "pair_id": "asenapine|||metoclopramide",
+    "group_id": "source_family_a3ebe6164438c801",
+    "split": "test"
+  },
+  {
+    "pair_id": "astemizole|||bisacodyl",
+    "group_id": "source_family_4514e87731125558",
+    "split": "test"
+  },
+  {
+    "pair_id": "azatadine|||potassium chloride",
+    "group_id": "source_family_81e4eadd58543db3",
+    "split": "test"
+  },
+  {
+    "pair_id": "baloxavir marboxil|||calcium citrate",
+    "group_id": "source_family_ac7dcd0993093746",
+    "split": "test"
+  },
+  {
+    "pair_id": "biperiden|||potassium chloride",
+    "group_id": "source_family_81e4eadd58543db3",
+    "split": "test"
+  },
+  {
+    "pair_id": "bisacodyl|||ranolazine",
+    "group_id": "source_family_4514e87731125558",
+    "split": "test"
+  },
+  {
+    "pair_id": "calcium carbonate|||glyburide",
+    "group_id": "source_family_322a6f73711e6fc4",
+    "split": "test"
+  },
+  {
+    "pair_id": "calcium carbonate|||oxytetracycline",
+    "group_id": "source_family_45597f58bb8a2b67",
+    "split": "test"
+  },
+  {
+    "pair_id": "calcium carbonate|||tolazamide",
+    "group_id": "source_family_322a6f73711e6fc4",
+    "split": "test"
+  },
+  {
+    "pair_id": "calcium citrate|||demeclocycline",
+    "group_id": "source_family_45597f58bb8a2b67",
+    "split": "test"
+  },
+  {
+    "pair_id": "calcium citrate|||patiromer",
+    "group_id": "source_family_ac718be9c1a6a3f6",
+    "split": "test"
+  },
+  {
+    "pair_id": "carbinoxamine|||potassium chloride",
+    "group_id": "source_family_81e4eadd58543db3",
+    "split": "test"
+  },
+  {
+    "pair_id": "cefpodoxime|||ranitidine",
+    "group_id": "source_family_4829acbe95560732",
+    "split": "test"
+  },
+  {
+    "pair_id": "chlorpheniramine|||potassium chloride",
+    "group_id": "source_family_81e4eadd58543db3",
+    "split": "test"
+  },
+  {
+    "pair_id": "clemastine|||potassium chloride",
+    "group_id": "source_family_81e4eadd58543db3",
+    "split": "test"
+  },
+  {
+    "pair_id": "cyclizine|||potassium chloride",
+    "group_id": "source_family_81e4eadd58543db3",
+    "split": "test"
+  },
+  {
+    "pair_id": "dexamethasone|||gallium chloride ga-67",
+    "group_id": "source_family_2a729661191efe08",
+    "split": "test"
+  },
+  {
+    "pair_id": "dexamethasone|||mirabegron",
+    "group_id": "source_family_af62070d8249c9f8",
+    "split": "test"
+  },
+  {
+    "pair_id": "dexamethasone|||palbociclib",
+    "group_id": "source_family_6acb47c19baa1ef6",
+    "split": "test"
+  },
+  {
+    "pair_id": "dexamethasone|||ranolazine",
+    "group_id": "source_family_dcbb62637755bb64",
+    "split": "test"
+  },
+  {
+    "pair_id": "dexamethasone|||solifenacin",
+    "group_id": "source_family_82d678049d34d2cd",
+    "split": "test"
+  },
+  {
+    "pair_id": "dexamethasone|||tadalafil",
+    "group_id": "source_family_dcbb62637755bb64",
+    "split": "test"
+  },
+  {
+    "pair_id": "dexamethasone|||teriflunomide",
+    "group_id": "source_family_e5f9de1267c4ac4e",
+    "split": "test"
+  },
+  {
+    "pair_id": "digoxin|||prednisone",
+    "group_id": "source_family_502800a0c578efd4",
+    "split": "test"
+  },
+  {
+    "pair_id": "diphenhydramine|||potassium chloride",
+    "group_id": "source_family_81e4eadd58543db3",
+    "split": "test"
+  },
+  {
+    "pair_id": "enoxacin|||famotidine",
+    "group_id": "source_family_cb899803d4761797",
+    "split": "test"
+  },
+  {
+    "pair_id": "enoxacin|||ranitidine",
+    "group_id": "source_family_cb899803d4761797",
+    "split": "test"
+  },
+  {
+    "pair_id": "esomeprazole|||netilmicin",
+    "group_id": "source_family_58f59a3f293dc972",
+    "split": "test"
+  },
+  {
+    "pair_id": "flavoxate|||potassium chloride",
+    "group_id": "source_family_81e4eadd58543db3",
+    "split": "test"
+  },
+  {
+    "pair_id": "fluconazole|||glimepiride",
+    "group_id": "source_family_801ccaff78208ace",
+    "split": "test"
+  },
+  {
+    "pair_id": "gallium chloride ga-67|||hydrocortisone",
+    "group_id": "source_family_2a729661191efe08",
+    "split": "test"
+  },
+  {
+    "pair_id": "gallium chloride ga-67|||prednisone",
+    "group_id": "source_family_2a729661191efe08",
+    "split": "test"
+  },
+  {
+    "pair_id": "gemfibrozil|||repaglinide",
+    "group_id": "source_family_3d386e023ec96e81",
+    "split": "test"
+  },
+  {
+    "pair_id": "glipizide|||miconazole",
+    "group_id": "source_family_801ccaff78208ace",
+    "split": "test"
+  },
+  {
+    "pair_id": "glyburide|||voriconazole",
+    "group_id": "source_family_801ccaff78208ace",
+    "split": "test"
+  },
+  {
+    "pair_id": "hydrochlorothiazide|||pantoprazole",
+    "group_id": "source_family_58f59a3f293dc972",
+    "split": "test"
+  },
+  {
+    "pair_id": "hydrocortisone|||vigabatrin",
+    "group_id": "source_family_0232d42156f7878e",
+    "split": "test"
+  },
+  {
+    "pair_id": "hydroflumethiazide|||rabeprazole",
+    "group_id": "source_family_58f59a3f293dc972",
+    "split": "test"
+  },
+  {
+    "pair_id": "hyoscyamine|||metoclopramide",
+    "group_id": "source_family_ff85fe91094561ea",
+    "split": "test"
+  },
+  {
+    "pair_id": "insulin human (inhalation, rapid acting)|||sucralfate",
+    "group_id": "source_family_1915ec8d80517149",
+    "split": "test"
+  },
+  {
+    "pair_id": "lactulose|||triclabendazole",
+    "group_id": "source_family_4514e87731125558",
+    "split": "test"
+  },
+  {
+    "pair_id": "lurasidone|||metoclopramide",
+    "group_id": "source_family_a3ebe6164438c801",
+    "split": "test"
+  },
+  {
+    "pair_id": "maprotiline|||potassium chloride",
+    "group_id": "source_family_81e4eadd58543db3",
+    "split": "test"
+  },
+  {
+    "pair_id": "meclizine|||potassium chloride",
+    "group_id": "source_family_81e4eadd58543db3",
+    "split": "test"
+  },
+  {
+    "pair_id": "mepyramine|||potassium chloride",
+    "group_id": "source_family_81e4eadd58543db3",
+    "split": "test"
+  },
+  {
+    "pair_id": "metformin|||midodrine",
+    "group_id": "source_family_82a978c12109814f",
+    "split": "test"
+  },
+  {
+    "pair_id": "methdilazine|||potassium chloride",
+    "group_id": "source_family_81e4eadd58543db3",
+    "split": "test"
+  },
+  {
+    "pair_id": "methotrimeprazine|||potassium chloride",
+    "group_id": "source_family_81e4eadd58543db3",
+    "split": "test"
+  },
+  {
+    "pair_id": "methscopolamine|||potassium chloride",
+    "group_id": "source_family_81e4eadd58543db3",
+    "split": "test"
+  },
+  {
+    "pair_id": "metoclopramide|||molindone",
+    "group_id": "source_family_a3ebe6164438c801",
+    "split": "test"
+  },
+  {
+    "pair_id": "metoclopramide|||pimozide",
+    "group_id": "source_family_a3ebe6164438c801",
+    "split": "test"
+  },
+  {
+    "pair_id": "metoclopramide|||risperidone",
+    "group_id": "source_family_a3ebe6164438c801",
+    "split": "test"
+  },
+  {
+    "pair_id": "metoclopramide|||trifluoperazine",
+    "group_id": "source_family_a3ebe6164438c801",
+    "split": "test"
+  },
+  {
+    "pair_id": "metoclopramide|||ziprasidone",
+    "group_id": "source_family_a3ebe6164438c801",
+    "split": "test"
+  },
+  {
+    "pair_id": "midodrine|||ranitidine",
+    "group_id": "source_family_82a978c12109814f",
+    "split": "test"
+  },
+  {
+    "pair_id": "nortriptyline|||potassium chloride",
+    "group_id": "source_family_81e4eadd58543db3",
+    "split": "test"
+  },
+  {
+    "pair_id": "omeprazole|||rilpivirine",
+    "group_id": "source_family_7833cb75d4094742",
+    "split": "test"
+  },
+  {
+    "pair_id": "omeprazole|||trichlormethiazide",
+    "group_id": "source_family_58f59a3f293dc972",
+    "split": "test"
+  },
+  {
+    "pair_id": "potassium chloride|||prochlorperazine",
+    "group_id": "source_family_81e4eadd58543db3",
+    "split": "test"
+  },
+  {
+    "pair_id": "potassium chloride|||promazine",
+    "group_id": "source_family_81e4eadd58543db3",
+    "split": "test"
+  },
+  {
+    "pair_id": "potassium chloride|||propiomazine",
+    "group_id": "source_family_81e4eadd58543db3",
+    "split": "test"
+  },
+  {
+    "pair_id": "potassium chloride|||trifluoperazine",
+    "group_id": "source_family_81e4eadd58543db3",
+    "split": "test"
+  },
+  {
+    "pair_id": "potassium chloride|||triflupromazine",
+    "group_id": "source_family_81e4eadd58543db3",
+    "split": "test"
+  },
+  {
+    "pair_id": "potassium chloride|||tripelennamine",
+    "group_id": "source_family_81e4eadd58543db3",
+    "split": "test"
+  },
+  {
+    "pair_id": "rabeprazole|||saquinavir",
+    "group_id": "source_family_5d7db18e280a062c",
+    "split": "test"
+  },
+  {
+    "pair_id": "rosiglitazone|||sucralfate",
+    "group_id": "source_family_1915ec8d80517149",
+    "split": "test"
+  }
+]
