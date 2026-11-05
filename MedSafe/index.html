@@ -2012,6 +2012,95 @@
       margin-top: 6px;
     }
 
+    /* ── Remove Medicine Danger Zone in Edit Stock Modal ── */
+    .edit-stock-danger-zone {
+      border-top: 1px solid #fee2e2;
+      padding-top: 14px;
+      margin-top: 2px;
+    }
+
+    .edit-stock-remove-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      background: #fff5f5;
+      border: 1.5px solid #fecaca;
+      border-radius: 10px;
+      color: #dc2626;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .15s ease;
+    }
+
+    .edit-stock-remove-btn:hover {
+      background: #fee2e2;
+      border-color: #f87171;
+      color: #b91c1c;
+    }
+
+    .edit-stock-remove-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* ── Remove Confirmation State ── */
+    .edit-stock-confirm-zone {
+      border-top: 1px solid #fee2e2;
+      padding-top: 14px;
+      margin-top: 2px;
+      animation: fadeSlide .2s ease;
+    }
+
+    .edit-stock-confirm-msg {
+      font-size: 13px;
+      color: #b91c1c;
+      font-weight: 600;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .edit-stock-confirm-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .edit-stock-confirm-cancel {
+      padding: 8px 18px;
+      background: #f3f4f6;
+      border: 1.5px solid #d1d5db;
+      border-radius: 8px;
+      color: #374151;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .12s;
+    }
+
+    .edit-stock-confirm-cancel:hover {
+      background: #e5e7eb;
+    }
+
+    .edit-stock-confirm-delete {
+      padding: 8px 18px;
+      background: #dc2626;
+      border: 1.5px solid #dc2626;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .12s;
+    }
+
+    .edit-stock-confirm-delete:hover {
+      background: #b91c1c;
+      border-color: #b91c1c;
+    }
+
     /* ── Responsive ────────────────────────────────────── */
     @media (max-width: 800px) {
       .card {
@@ -2748,6 +2837,22 @@ body { display: block; background: #fff; }
       <div class="edit-stock-actions">
         <button type="button" class="btn btn-outline" onclick="closeEditStockModal()">Cancel</button>
         <button type="button" class="btn btn-filled" onclick="saveStockModalChanges()">Save Changes</button>
+      </div>
+
+      <!-- Remove Medicine Danger Zone -->
+      <div id="edit-stock-danger-zone" class="edit-stock-danger-zone">
+        <button type="button" class="edit-stock-remove-btn" onclick="showRemoveMedicineConfirm()">
+          🗑️ Remove This Medicine
+        </button>
+      </div>
+      <div id="edit-stock-confirm-zone" class="edit-stock-confirm-zone" style="display:none;">
+        <div class="edit-stock-confirm-msg" id="edit-stock-confirm-msg">
+          Are you sure? This will permanently remove this medicine.
+        </div>
+        <div class="edit-stock-confirm-actions">
+          <button type="button" class="edit-stock-confirm-cancel" onclick="hideRemoveMedicineConfirm()">Cancel</button>
+          <button type="button" class="edit-stock-confirm-delete" onclick="confirmRemoveMedicine()">Yes, Remove</button>
+        </div>
       </div>
     </div>
   </div>
@@ -4132,6 +4237,60 @@ body { display: block; background: #fff; }
       if (modal) modal.classList.remove('open');
       document.body.style.overflow = '';
       editingStockContext = { target: null, index: -1 };
+      hideRemoveMedicineConfirm();
+    }
+
+    function showRemoveMedicineConfirm() {
+      const dangerZone = document.getElementById('edit-stock-danger-zone');
+      const confirmZone = document.getElementById('edit-stock-confirm-zone');
+      const confirmMsg = document.getElementById('edit-stock-confirm-msg');
+
+      // Get medicine name for the confirmation message
+      const { target, index } = editingStockContext;
+      let medName = 'this medicine';
+      if (target === 'patient' && patientMeds && patientMeds[index]) {
+        medName = patientMeds[index].name;
+      } else if (target === 'caregiver') {
+        const pt = caregiverPatients.find(p => p.id === currentAssignPatientId);
+        if (pt && Array.isArray(pt.medicines) && pt.medicines[index]) {
+          medName = pt.medicines[index].name;
+        }
+      }
+
+      if (confirmMsg) {
+        confirmMsg.textContent = `Are you sure you want to remove "${medName}"? This action cannot be undone.`;
+      }
+      if (dangerZone) dangerZone.style.display = 'none';
+      if (confirmZone) confirmZone.style.display = 'block';
+    }
+
+    function hideRemoveMedicineConfirm() {
+      const dangerZone = document.getElementById('edit-stock-danger-zone');
+      const confirmZone = document.getElementById('edit-stock-confirm-zone');
+      if (dangerZone) dangerZone.style.display = 'block';
+      if (confirmZone) confirmZone.style.display = 'none';
+    }
+
+    function confirmRemoveMedicine() {
+      const { target, index } = editingStockContext;
+
+      if (target === 'patient') {
+        if (patientMeds && index >= 0 && index < patientMeds.length) {
+          patientMeds.splice(index, 1);
+          savePatientMeds();
+          renderDashboard();
+        }
+      } else if (target === 'caregiver') {
+        const pt = caregiverPatients.find(p => p.id === currentAssignPatientId);
+        if (pt && Array.isArray(pt.medicines) && index >= 0 && index < pt.medicines.length) {
+          pt.medicines.splice(index, 1);
+          saveCaregiverPatients();
+          renderDashboard();
+          renderAssignMedsPage();
+        }
+      }
+
+      closeEditStockModal();
     }
 
     function handleEditStockBackdropClick(e) {
