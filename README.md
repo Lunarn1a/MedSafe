@@ -8,7 +8,7 @@ Share the entire project, including `MedSafe/backend/models`, `MedSafe/backend/d
 
 Each groupmate needs **Python 3.13 or 3.12** installed once (enable the Python launcher / add Python to PATH on Windows). The first launch needs internet to install the pinned packages automatically. No retraining is required. Subsequent launches use the installed environment. Saved source details work offline; a pair without saved details needs internet to retrieve its source page.
 
-Each copy runs its own complete website, including patient and caregiver screens and the trained model. Medicine records stay in that person's browser; this does not synchronize accounts or records between computers. The existing sign-in is a classroom UI, not server-backed authentication.
+Each copy runs its own complete website and trained model. Signup, login, and saved patient records use the shared Supabase project and require internet. Signing in to the same account on another computer loads its saved records. Groupmates do not need database administrator access to use the app.
 
 For a shared link with no installations for visitors, the Python backend and frontend must be hosted online. This setup runs the project in each member's workspace and does not publish a website.
 
@@ -36,7 +36,22 @@ python3.13 run.py
 
 Use `python3.12 run.py` if that is your installed version. Linux distributions may also require their matching Python `venv` package. Open the same local address. To check setup without running the website, append `--check`; to change ports, append `--port 8001`. The launcher supports these platforms; the browser and model integration were tested on Windows.
 
-Opening `index.html` directly still permits reference lookups, but model inference requires the local server. Browser records belong to their original browser origin, so records saved under a `file:` URL or another port may not appear at this address.
+Use the launcher rather than opening `index.html` directly: accounts and model inference require the local server. Records from the previous browser-only demo are left untouched in browser storage, but are not automatically imported into an authenticated account. Enter the records you want to keep after signing up.
+
+## Accounts and shared records
+
+The database administrator runs `MedSafe/supabase/setup.sql` **once** and completes the email and redirect setup in `MedSafe/supabase/README.md`. Do not rerun a successful setup. The checked-in `MedSafe/supabase-config.js` contains the public project URL and publishable key, never an administrator secret. The Supabase JavaScript client is bundled locally; groupmates do not need Node.js or an extra CDN download.
+
+1. Choose **Create an account**, enter your name, choose Patient or Caregiver, and use a password of at least 10 characters. Confirm your email, then sign in. Your saved account determines your role; it cannot be switched at login.
+2. Patients add medicines under **My Medicines**. Successful changes are saved in Supabase. **Refresh records** loads changes from another device; the dashboard also refreshes every minute while visible and no record dialog is open.
+3. A caregiver copies their code from **Patients**. A patient pastes it into **Caregiver access** and grants access. Access is view only unless the patient enables editing. Both accounts must have completed their first sign-in.
+4. A patient can remove access at any time. The caregiver loses database access immediately and the displayed list clears on its next successful refresh. Data already viewed or copied cannot be remotely erased.
+5. **Forgot password?** sends a reset link. Open it in the same browser that requested it, with MedSafe running, and choose a new password.
+6. Click your name, then **Edit profile** to change your display name or optional date of birth. Changes are saved to your own profile and appear on other devices after refresh. Email and account type are shown for reference and cannot be changed in this form.
+
+Supabase enforces each user's access through database policies. The browser never writes medicine records to its old local cache. The login session is saved in this browser until sign-out or session expiry. Sign out on shared computers. Email confirmation and reset delivery require the project's email configuration; adding code to GitHub does not configure those settings.
+
+This addition does not implement reminders, stock-change history, or clinician validation of the interaction content. It is still a classroom prototype.
 
 ## Source-backed explanations and questions
 
@@ -95,6 +110,10 @@ MedSafe/
   drugs-data.js                  Existing browser reference
   drugs.json                     Existing server reference
   model-suggestions.js           Model question panel and request handling
+  accounts.js                    Supabase authentication and permitted record changes
+  supabase-config.js             Public project connection details
+  supabase/                      One-time SQL, setup instructions, and account tests
+  vendor/                        Pinned Supabase browser client and license
   backend/
     server.py                    Local web server and JSON endpoints
     model_runtime.py             Validated catalog and model inference

@@ -1,0 +1,33 @@
+{
+  "engine": "PostgreSQL 18.6 (PGlite 0.5.15) on wasm32-unknown-emscripten, compiled by emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 6.0.13 (e13ee988ce3d87a738dd8f3661d02223308c412a), 32-bit",
+  "scope": "Local PGlite PostgreSQL engine; simulated auth.uid and auth.users only. No live Supabase or browser authentication test was performed.",
+  "passed": 26,
+  "checks": [
+    "Setup executes in a PostgreSQL engine",
+    "A signed-in user cannot create another user profile",
+    "Users can create their own patient or caregiver profile",
+    "Patients cannot read unrelated profiles",
+    "Role changes through profile UPDATE are denied",
+    "Patients can update their own display name",
+    "Patients can save their own medicines with server-generated creator IDs",
+    "Anonymous clients cannot read medicine records",
+    "An authenticated role without a user ID sees no records",
+    "Patients cannot read each other's medicines",
+    "Unlinked caregivers cannot see patient medicines",
+    "Caregivers cannot grant themselves patient access",
+    "A patient cannot link another patient as a caregiver",
+    "A caregiver cannot create a patient medicine under their own caregiver profile",
+    "Patient approval grants read-only access by default",
+    "Read-only caregivers cannot add or change medicine stock",
+    "Caregivers cannot enable their own edit permission",
+    "Patient-granted editing allows the linked caregiver to change stock",
+    "An editing caregiver can add and remove a linked patient medicine",
+    "Edit access does not extend to unrelated patients",
+    "Record ownership and creator cannot be forged",
+    "Invalid stock is rejected",
+    "A patient can revoke access; subsequent reads and edits are blocked",
+    "A caregiver can leave a patient-authorized link",
+    "App roles cannot truncate tables",
+    "Running setup again fails without changing existing data"
+  ]
+}
