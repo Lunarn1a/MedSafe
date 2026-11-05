@@ -1,0 +1,29 @@
+{
+  "reference_pairs": 7545,
+  "saved_pairs": 3076,
+  "saved_pairs_with_plain_summary": 1040,
+  "distinct_plain_summaries": 25,
+  "uncached_pairs_with_eligible_source_links": 4453,
+  "withheld_or_missing_source_links": 16,
+  "snapshot_sha256": "76a4c825987288b5beb1bd2733658364119cdac4d1a8c670d5b546f60bc2be44",
+  "complete_offline_detail_coverage": false,
+  "note": "Snapshot audit only. Missing eligible pages can be fetched on demand; this is not a report of successful checks of every public page or clinical validation.",
+  "withheld_pairs": [
+    "aluminum hydroxide|||ursodeoxycholic acid",
+    "dexamethasone|||picosulfuric acid",
+    "fosnetupitant|||hydrocortisone",
+    "fosnetupitant|||prednisone",
+    "homatropine|||potassium chloride",
+    "hydrocortisone|||netupitant",
+    "hydrocortisone|||picosulfuric acid",
+    "ledipasvir|||linagliptin",
+    "ledipasvir|||loperamide",
+    "ledipasvir|||saxagliptin",
+    "magaldrate|||ursodeoxycholic acid",
+    "metoclopramide|||picosulfuric acid",
+    "metoclopramide|||sodium sulfate",
+    "netupitant|||prednisone",
+    "phenyltoloxamine|||potassium chloride",
+    "picosulfuric acid|||prednisone"
+  ]
+}

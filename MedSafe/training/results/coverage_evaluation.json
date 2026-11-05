@@ -1,0 +1,147 @@
+{
+  "test_rows": 60,
+  "models": {
+    "classified": {
+      "macro_f1": 0.7476420188638491,
+      "per_label_report": {
+        "label_review": {
+          "precision": 1.0,
+          "recall": 0.8695652173913043,
+          "f1-score": 0.9302325581395349,
+          "support": 46.0
+        },
+        "label_monitoring": {
+          "precision": 0.7272727272727273,
+          "recall": 1.0,
+          "f1-score": 0.8421052631578947,
+          "support": 40.0
+        },
+        "label_timing": {
+          "precision": 0.3333333333333333,
+          "recall": 0.8,
+          "f1-score": 0.47058823529411764,
+          "support": 10.0
+        },
+        "micro avg": {
+          "precision": 0.7394957983193278,
+          "recall": 0.9166666666666666,
+          "f1-score": 0.8186046511627907,
+          "support": 96.0
+        },
+        "macro avg": {
+          "precision": 0.6868686868686869,
+          "recall": 0.8898550724637682,
+          "f1-score": 0.7476420188638491,
+          "support": 96.0
+        },
+        "weighted avg": {
+          "precision": 0.8169191919191919,
+          "recall": 0.9166666666666666,
+          "f1-score": 0.8456332349341205,
+          "support": 96.0
+        },
+        "samples avg": {
+          "precision": 0.7444444444444444,
+          "recall": 0.75,
+          "f1-score": 0.7311111111111112,
+          "support": 96.0
+        }
+      }
+    },
+    "severity_only": {
+      "macro_f1": 0.4173777443620987,
+      "per_label_report": {
+        "label_review": {
+          "precision": 1.0,
+          "recall": 0.15217391304347827,
+          "f1-score": 0.2641509433962264,
+          "support": 46.0
+        },
+        "label_monitoring": {
+          "precision": 0.660377358490566,
+          "recall": 0.875,
+          "f1-score": 0.7526881720430108,
+          "support": 40.0
+        },
+        "label_timing": {
+          "precision": 0.13793103448275862,
+          "recall": 0.8,
+          "f1-score": 0.23529411764705882,
+          "support": 10.0
+        },
+        "micro avg": {
+          "precision": 0.423728813559322,
+          "recall": 0.5208333333333334,
+          "f1-score": 0.4672897196261682,
+          "support": 96.0
+        },
+        "macro avg": {
+          "precision": 0.5994361309911083,
+          "recall": 0.6090579710144928,
+          "f1-score": 0.4173777443620987,
+          "support": 96.0
+        },
+        "weighted avg": {
+          "precision": 0.7686917154630232,
+          "recall": 0.5208333333333334,
+          "f1-score": 0.46470220265018164,
+          "support": 96.0
+        },
+        "samples avg": {
+          "precision": 0.4166666666666667,
+          "recall": 0.41388888888888886,
+          "f1-score": 0.4083333333333333,
+          "support": 96.0
+        }
+      }
+    },
+    "majority": {
+      "macro_f1": 0.5559748427672956,
+      "per_label_report": {
+        "label_review": {
+          "precision": 0.7666666666666667,
+          "recall": 1.0,
+          "f1-score": 0.8679245283018868,
+          "support": 46.0
+        },
+        "label_monitoring": {
+          "precision": 0.6666666666666666,
+          "recall": 1.0,
+          "f1-score": 0.8,
+          "support": 40.0
+        },
+        "label_timing": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 10.0
+        },
+        "micro avg": {
+          "precision": 0.7166666666666667,
+          "recall": 0.8958333333333334,
+          "f1-score": 0.7962962962962963,
+          "support": 96.0
+        },
+        "macro avg": {
+          "precision": 0.4777777777777778,
+          "recall": 0.6666666666666666,
+          "f1-score": 0.5559748427672956,
+          "support": 96.0
+        },
+        "weighted avg": {
+          "precision": 0.6451388888888888,
+          "recall": 0.8958333333333334,
+          "f1-score": 0.7492138364779874,
+          "support": 96.0
+        },
+        "samples avg": {
+          "precision": 0.7166666666666667,
+          "recall": 0.7222222222222222,
+          "f1-score": 0.711111111111111,
+          "support": 96.0
+        }
+      }
+    }
+  },
+  "limitations": "Same previously inspected research test set; not a fresh external evaluation. AI-assisted labels, no clinical validation. Wider reference coverage does not establish accuracy on unseen pairs."
+}

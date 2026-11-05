@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "task": "Predict source management topics from mechanism text",
+  "labels": [
+    "blood_sugar",
+    "bleeding",
+    "heart_rhythm",
+    "blood_pressure",
+    "kidneys",
+    "potassium",
+    "drowsiness",
+    "breathing",
+    "seizures",
+    "infection",
+    "movement",
+    "muscle_injury",
+    "medicine_levels",
+    "timing",
+    "procedure"
+  ],
+  "untrained_topics": [
+    "magnesium"
+  ],
+  "selected_C": 1.0,
+  "validation_macro_f1": 0.19562642727773843,
+  "candidates": [
+    {
+      "C": 0.1,
+      "validation_macro_f1": 0.13737221384280207
+    },
+    {
+      "C": 1.0,
+      "validation_macro_f1": 0.19562642727773843
+    },
+    {
+      "C": 10.0,
+      "validation_macro_f1": 0.19494266659397777
+    }
+  ],
+  "examples_sha256": "b4004af2eaf2ffdfc6336186f7cd8529179ed038e7151ea1d7b23cb4ac607a79",
+  "split_rows": {
+    "train": 581,
+    "validation": 120,
+    "test": 185
+  },
+  "split_groups": {
+    "train": 181,
+    "validation": 39,
+    "test": 39
+  },
+  "input": "Severity token and factual source mechanism text; excludes management text, source URLs, and target labels.",
+  "annotation": "Weak supervision from source text; no clinician-verified targets.",
+  "grouping": "Character TF-IDF similarity >=0.88 after normalising drug names and numbers; connected components stay together.",
+  "versions": {
+    "numpy": "2.1.3",
+    "pandas": "2.2.3",
+    "scikit-learn": "1.6.1",
+    "joblib": "1.6.0"
+  },
+  "limitations": "Agreement with weak source-derived labels is not medical accuracy. Same reference source as earlier experiments; not an independent external evaluation. Topic highlighting is not clinical priority. Full source questions remain visible even when not selected.",
+  "seed": 42
+}

@@ -1,0 +1,1382 @@
+[
+  {
+    "pair_id": "meperidine|||metoclopramide",
+    "labels": [
+      0,
+      0,
+      0
+    ],
+    "classified": [
+      0,
+      1,
+      1
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "esterified estrogens|||metformin",
+    "labels": [
+      1,
+      1,
+      0
+    ],
+    "classified": [
+      1,
+      1,
+      0
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "doxazosin|||prednisone",
+    "labels": [
+      1,
+      1,
+      0
+    ],
+    "classified": [
+      1,
+      1,
+      0
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "acarbose|||sucralfate",
+    "labels": [
+      1,
+      1,
+      0
+    ],
+    "classified": [
+      0,
+      1,
+      0
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "methotrexate|||pantoprazole",
+    "labels": [
+      1,
+      1,
+      1
+    ],
+    "classified": [
+      1,
+      1,
+      1
+    ],
+    "severity_only": [
+      1,
+      0,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "calcium carbonate|||quinapril",
+    "labels": [
+      0,
+      0,
+      1
+    ],
+    "classified": [
+      0,
+      0,
+      1
+    ],
+    "severity_only": [
+      0,
+      1,
+      0
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "ketoconazole|||omeprazole",
+    "labels": [
+      1,
+      0,
+      0
+    ],
+    "classified": [
+      1,
+      1,
+      0
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "hydrochlorothiazide|||pantoprazole",
+    "labels": [
+      1,
+      1,
+      0
+    ],
+    "classified": [
+      1,
+      1,
+      0
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "encorafenib|||metformin",
+    "labels": [
+      1,
+      1,
+      0
+    ],
+    "classified": [
+      1,
+      1,
+      1
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "pexidartinib|||ranitidine",
+    "labels": [
+      0,
+      0,
+      1
+    ],
+    "classified": [
+      0,
+      0,
+      1
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "erlotinib|||ranitidine",
+    "labels": [
+      1,
+      0,
+      1
+    ],
+    "classified": [
+      1,
+      1,
+      0
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "metformin|||triamterene",
+    "labels": [
+      1,
+      1,
+      0
+    ],
+    "classified": [
+      1,
+      1,
+      1
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "celecoxib|||metformin",
+    "labels": [
+      1,
+      1,
+      0
+    ],
+    "classified": [
+      0,
+      1,
+      0
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "nebivolol|||sucralfate",
+    "labels": [
+      0,
+      0,
+      1
+    ],
+    "classified": [
+      0,
+      0,
+      1
+    ],
+    "severity_only": [
+      0,
+      1,
+      0
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "bepridil|||loperamide",
+    "labels": [
+      1,
+      0,
+      0
+    ],
+    "classified": [
+      1,
+      0,
+      1
+    ],
+    "severity_only": [
+      1,
+      0,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "butorphanol|||metoclopramide",
+    "labels": [
+      0,
+      0,
+      0
+    ],
+    "classified": [
+      0,
+      1,
+      1
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "promazine|||saxagliptin",
+    "labels": [
+      1,
+      1,
+      0
+    ],
+    "classified": [
+      1,
+      1,
+      0
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "prednisone|||trimethaphan",
+    "labels": [
+      1,
+      1,
+      0
+    ],
+    "classified": [
+      1,
+      1,
+      0
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "insulin human (inhalation, rapid acting)|||sucralfate",
+    "labels": [
+      1,
+      1,
+      0
+    ],
+    "classified": [
+      0,
+      1,
+      0
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "methotrexate|||rabeprazole",
+    "labels": [
+      1,
+      1,
+      1
+    ],
+    "classified": [
+      1,
+      1,
+      1
+    ],
+    "severity_only": [
+      1,
+      0,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "itraconazole|||omeprazole",
+    "labels": [
+      1,
+      0,
+      0
+    ],
+    "classified": [
+      1,
+      1,
+      0
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "amphotericin b|||omeprazole",
+    "labels": [
+      1,
+      1,
+      0
+    ],
+    "classified": [
+      1,
+      1,
+      0
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "encorafenib|||glyburide",
+    "labels": [
+      1,
+      1,
+      0
+    ],
+    "classified": [
+      1,
+      1,
+      1
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "erlotinib|||famotidine",
+    "labels": [
+      1,
+      0,
+      1
+    ],
+    "classified": [
+      1,
+      1,
+      0
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "metformin|||morphine",
+    "labels": [
+      1,
+      1,
+      0
+    ],
+    "classified": [
+      1,
+      1,
+      1
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "etodolac|||metformin",
+    "labels": [
+      1,
+      1,
+      0
+    ],
+    "classified": [
+      0,
+      1,
+      0
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "amiodarone|||loperamide",
+    "labels": [
+      1,
+      0,
+      0
+    ],
+    "classified": [
+      1,
+      0,
+      1
+    ],
+    "severity_only": [
+      1,
+      0,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "methadone|||metoclopramide",
+    "labels": [
+      0,
+      0,
+      0
+    ],
+    "classified": [
+      0,
+      1,
+      1
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "glipizide|||somapacitan",
+    "labels": [
+      1,
+      1,
+      0
+    ],
+    "classified": [
+      1,
+      1,
+      0
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "guanethidine|||prednisone",
+    "labels": [
+      1,
+      1,
+      0
+    ],
+    "classified": [
+      1,
+      1,
+      0
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "rosiglitazone|||sucralfate",
+    "labels": [
+      1,
+      1,
+      0
+    ],
+    "classified": [
+      0,
+      1,
+      0
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "lansoprazole|||methotrexate",
+    "labels": [
+      1,
+      1,
+      1
+    ],
+    "classified": [
+      1,
+      1,
+      1
+    ],
+    "severity_only": [
+      1,
+      0,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "hydroflumethiazide|||rabeprazole",
+    "labels": [
+      1,
+      1,
+      0
+    ],
+    "classified": [
+      1,
+      1,
+      0
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "flurbiprofen|||metformin",
+    "labels": [
+      1,
+      1,
+      0
+    ],
+    "classified": [
+      0,
+      1,
+      0
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "metoclopramide|||morphine (liposomal)",
+    "labels": [
+      0,
+      0,
+      0
+    ],
+    "classified": [
+      0,
+      1,
+      1
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "azilsartan medoxomil|||dexamethasone",
+    "labels": [
+      1,
+      1,
+      0
+    ],
+    "classified": [
+      1,
+      1,
+      0
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "methotrexate|||omeprazole",
+    "labels": [
+      1,
+      1,
+      1
+    ],
+    "classified": [
+      1,
+      1,
+      1
+    ],
+    "severity_only": [
+      1,
+      0,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "omeprazole|||trichlormethiazide",
+    "labels": [
+      1,
+      1,
+      0
+    ],
+    "classified": [
+      1,
+      1,
+      0
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "fentanyl|||metoclopramide",
+    "labels": [
+      0,
+      0,
+      0
+    ],
+    "classified": [
+      0,
+      1,
+      1
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "quetiapine|||repaglinide",
+    "labels": [
+      1,
+      1,
+      0
+    ],
+    "classified": [
+      1,
+      1,
+      0
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "esomeprazole|||methotrexate",
+    "labels": [
+      1,
+      1,
+      1
+    ],
+    "classified": [
+      1,
+      1,
+      1
+    ],
+    "severity_only": [
+      1,
+      0,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "esomeprazole|||netilmicin",
+    "labels": [
+      1,
+      1,
+      0
+    ],
+    "classified": [
+      1,
+      1,
+      0
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "dezocine|||metoclopramide",
+    "labels": [
+      0,
+      0,
+      0
+    ],
+    "classified": [
+      0,
+      1,
+      1
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "metformin|||terbutaline",
+    "labels": [
+      1,
+      1,
+      0
+    ],
+    "classified": [
+      1,
+      1,
+      0
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "prazosin|||prednisone",
+    "labels": [
+      1,
+      1,
+      0
+    ],
+    "classified": [
+      1,
+      1,
+      0
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "metoclopramide|||opium",
+    "labels": [
+      0,
+      0,
+      0
+    ],
+    "classified": [
+      0,
+      1,
+      1
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "midostaurin|||pioglitazone",
+    "labels": [
+      1,
+      1,
+      0
+    ],
+    "classified": [
+      1,
+      1,
+      0
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "hydrocortisone|||minoxidil",
+    "labels": [
+      1,
+      1,
+      0
+    ],
+    "classified": [
+      1,
+      1,
+      0
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "metoclopramide|||morphine",
+    "labels": [
+      0,
+      0,
+      0
+    ],
+    "classified": [
+      0,
+      1,
+      1
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "asparaginase escherichia coli|||glyburide",
+    "labels": [
+      1,
+      1,
+      0
+    ],
+    "classified": [
+      1,
+      1,
+      0
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "carvedilol|||dexamethasone",
+    "labels": [
+      1,
+      1,
+      0
+    ],
+    "classified": [
+      1,
+      1,
+      0
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "metoclopramide|||remifentanil",
+    "labels": [
+      0,
+      0,
+      0
+    ],
+    "classified": [
+      0,
+      1,
+      1
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "asparaginase escherichia coli|||metformin",
+    "labels": [
+      1,
+      1,
+      0
+    ],
+    "classified": [
+      1,
+      1,
+      0
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "acebutolol|||prednisone",
+    "labels": [
+      1,
+      1,
+      0
+    ],
+    "classified": [
+      1,
+      1,
+      0
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "dihydrocodeine|||metoclopramide",
+    "labels": [
+      0,
+      0,
+      0
+    ],
+    "classified": [
+      0,
+      1,
+      0
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "linagliptin|||saquinavir",
+    "labels": [
+      1,
+      1,
+      0
+    ],
+    "classified": [
+      1,
+      1,
+      0
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "pindolol|||prednisone",
+    "labels": [
+      1,
+      1,
+      0
+    ],
+    "classified": [
+      1,
+      1,
+      0
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "levacetylmethadol|||metoclopramide",
+    "labels": [
+      0,
+      0,
+      0
+    ],
+    "classified": [
+      0,
+      1,
+      1
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "nisoldipine|||prednisone",
+    "labels": [
+      1,
+      1,
+      0
+    ],
+    "classified": [
+      1,
+      1,
+      0
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  },
+  {
+    "pair_id": "hydralazine|||prednisone",
+    "labels": [
+      1,
+      1,
+      0
+    ],
+    "classified": [
+      1,
+      1,
+      0
+    ],
+    "severity_only": [
+      0,
+      1,
+      1
+    ],
+    "majority": [
+      1,
+      1,
+      0
+    ]
+  }
+]

@@ -1,0 +1,359 @@
+{
+  "trained_topic_selector": {
+    "macro_f1": 0.1054562763497892,
+    "per_topic": {
+      "blood_sugar": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 22.0
+      },
+      "bleeding": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 30.0
+      },
+      "heart_rhythm": {
+        "precision": 1.0,
+        "recall": 0.43333333333333335,
+        "f1-score": 0.6046511627906976,
+        "support": 60.0
+      },
+      "blood_pressure": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 7.0
+      },
+      "kidneys": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 2.0
+      },
+      "potassium": {
+        "precision": 1.0,
+        "recall": 0.11764705882352941,
+        "f1-score": 0.21052631578947367,
+        "support": 17.0
+      },
+      "drowsiness": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 9.0
+      },
+      "breathing": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 0.0
+      },
+      "seizures": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 34.0
+      },
+      "infection": {
+        "precision": 1.0,
+        "recall": 0.3333333333333333,
+        "f1-score": 0.5,
+        "support": 3.0
+      },
+      "movement": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 11.0
+      },
+      "muscle_injury": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 0.0
+      },
+      "medicine_levels": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 4.0
+      },
+      "timing": {
+        "precision": 0.3333333333333333,
+        "recall": 0.2222222222222222,
+        "f1-score": 0.26666666666666666,
+        "support": 9.0
+      },
+      "procedure": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 0.0
+      },
+      "micro avg": {
+        "precision": 0.7209302325581395,
+        "recall": 0.14903846153846154,
+        "f1-score": 0.24701195219123506,
+        "support": 208.0
+      },
+      "macro avg": {
+        "precision": 0.22222222222222224,
+        "recall": 0.07376906318082789,
+        "f1-score": 0.1054562763497892,
+        "support": 208.0
+      },
+      "weighted avg": {
+        "precision": 0.39903846153846156,
+        "recall": 0.14903846153846154,
+        "f1-score": 0.21037508238395633,
+        "support": 208.0
+      },
+      "samples avg": {
+        "precision": 0.16756756756756758,
+        "recall": 0.15945945945945947,
+        "f1-score": 0.16216216216216217,
+        "support": 208.0
+      }
+    }
+  },
+  "majority_baseline": {
+    "macro_f1": 0.0,
+    "per_topic": {
+      "blood_sugar": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 22.0
+      },
+      "bleeding": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 30.0
+      },
+      "heart_rhythm": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 60.0
+      },
+      "blood_pressure": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 7.0
+      },
+      "kidneys": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 2.0
+      },
+      "potassium": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 17.0
+      },
+      "drowsiness": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 9.0
+      },
+      "breathing": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 0.0
+      },
+      "seizures": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 34.0
+      },
+      "infection": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 3.0
+      },
+      "movement": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 11.0
+      },
+      "muscle_injury": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 0.0
+      },
+      "medicine_levels": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 4.0
+      },
+      "timing": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 9.0
+      },
+      "procedure": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 0.0
+      },
+      "micro avg": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 208.0
+      },
+      "macro avg": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 208.0
+      },
+      "weighted avg": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 208.0
+      },
+      "samples avg": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 208.0
+      }
+    }
+  },
+  "mechanism_keyword_baseline": {
+    "macro_f1": 0.36855818134506657,
+    "per_topic": {
+      "blood_sugar": {
+        "precision": 1.0,
+        "recall": 0.2727272727272727,
+        "f1-score": 0.42857142857142855,
+        "support": 22.0
+      },
+      "bleeding": {
+        "precision": 1.0,
+        "recall": 0.8333333333333334,
+        "f1-score": 0.9090909090909091,
+        "support": 30.0
+      },
+      "heart_rhythm": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 60.0
+      },
+      "blood_pressure": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 7.0
+      },
+      "kidneys": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 2.0
+      },
+      "potassium": {
+        "precision": 0.38636363636363635,
+        "recall": 1.0,
+        "f1-score": 0.5573770491803278,
+        "support": 17.0
+      },
+      "drowsiness": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 9.0
+      },
+      "breathing": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 0.0
+      },
+      "seizures": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 34.0
+      },
+      "infection": {
+        "precision": 1.0,
+        "recall": 0.3333333333333333,
+        "f1-score": 0.5,
+        "support": 3.0
+      },
+      "movement": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 11.0
+      },
+      "muscle_injury": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 0.0
+      },
+      "medicine_levels": {
+        "precision": 0.07692307692307693,
+        "recall": 0.5,
+        "f1-score": 0.13333333333333333,
+        "support": 4.0
+      },
+      "timing": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 9.0
+      },
+      "procedure": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 0.0
+      },
+      "micro avg": {
+        "precision": 0.75,
+        "recall": 0.75,
+        "f1-score": 0.75,
+        "support": 208.0
+      },
+      "macro avg": {
+        "precision": 0.4308857808857809,
+        "recall": 0.3959595959595959,
+        "f1-score": 0.36855818134506657,
+        "support": 208.0
+      },
+      "weighted avg": {
+        "precision": 0.8022878563743949,
+        "recall": 0.75,
+        "f1-score": 0.7365867397629693,
+        "support": 208.0
+      },
+      "samples avg": {
+        "precision": 0.5864864864864865,
+        "recall": 0.6297297297297297,
+        "f1-score": 0.5900900900900901,
+        "support": 208.0
+      }
+    }
+  }
+}

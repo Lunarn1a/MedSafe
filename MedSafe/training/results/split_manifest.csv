@@ -1,0 +1,301 @@
+pair_id,group_id,split
+lansoprazole|||nelfinavir,DDI_F001,validation
+loperamide|||quinidine,DDI_F002,train
+glyburide|||nalidixic acid,DDI_F003,train
+iopromide|||metformin,DDI_F004,train
+loperamide|||telithromycin,DDI_F005,validation
+dexamethasone|||mifepristone,DDI_F006,train
+esomeprazole|||tacrolimus,DDI_F007,train
+potassium chloride|||trifluoperazine,DDI_F008,train
+metoclopramide|||ziprasidone,DDI_F009,train
+hydrocortisone|||magnesium oxide,DDI_F010,train
+enoxacin|||ranitidine,DDI_F011,validation
+nifedipine|||omeprazole,DDI_F012,validation
+desonide (topical)|||metformin,DDI_F013,validation
+dexamethasone|||isoniazid,DDI_F014,train
+amphetamine|||rabeprazole,DDI_F015,train
+meperidine|||metoclopramide,DDI_F016,test
+ascorbic acid|||sucralfate,DDI_F017,train
+fluvoxamine|||glimepiride,DDI_F018,train
+esterified estrogens|||metformin,DDI_F019,test
+clarithromycin|||glipizide,DDI_F020,train
+famotidine|||pemetrexed,DDI_F021,train
+dexamethasone|||nelfinavir,DDI_F022,train
+doxazosin|||prednisone,DDI_F023,test
+chloramphenicol|||glipizide,DDI_F024,train
+dexamethasone|||phenyl salicylate,DDI_F025,train
+loperamide|||saquinavir,DDI_F026,train
+acarbose|||sucralfate,DDI_F027,test
+glimepiride|||sulfisoxazole,DDI_F028,train
+methotrexate|||pantoprazole,DDI_F029,test
+glipizide|||miconazole,DDI_F030,train
+calcium carbonate|||quinapril,DDI_F031,test
+midodrine|||ranitidine,DDI_F032,validation
+baloxavir marboxil|||calcium citrate,DDI_F033,train
+ketoconazole|||omeprazole,DDI_F034,test
+glimepiride|||nalmefene,DDI_F035,train
+metformin|||ospemifene,DDI_F036,train
+nelfinavir|||pioglitazone,DDI_F037,train
+glimepiride|||sulfinpyrazone,DDI_F038,train
+lorcaserin|||metoclopramide,DDI_F039,train
+hydrochlorothiazide|||pantoprazole,DDI_F040,test
+dexamethasone|||iopamidol,DDI_F041,validation
+glyburide|||lactic acid,DDI_F042,train
+armodafinil|||prednisone,DDI_F043,validation
+capmatinib|||rabeprazole,DDI_F044,train
+cefpodoxime|||ranitidine,DDI_F045,validation
+atorvastatin|||pantoprazole,DDI_F046,validation
+lasmiditan|||saxagliptin,DDI_F047,train
+encorafenib|||metformin,DDI_F048,test
+dexamethasone|||palbociclib,DDI_F049,train
+rabeprazole|||saquinavir,DDI_F050,validation
+famotidine|||pazopanib,DDI_F051,train
+dexamethasone|||lefamulin,DDI_F052,train
+dextropropoxyphene|||metoclopramide,DDI_F053,train
+famotidine|||magnesium carbonate,DDI_F055,train
+nabumetone|||ranitidine,DDI_F056,train
+pexidartinib|||ranitidine,DDI_F057,test
+apalutamide|||glyburide,DDI_F058,train
+dexamethasone|||salicylic acid (sodium),DDI_F025,train
+pipecuronium|||prednisone,DDI_F061,train
+benzhydrocodone|||metoclopramide,DDI_F062,train
+dexamethasone|||fentanyl,DDI_F063,train
+glimepiride|||omeprazole,DDI_F065,train
+metoclopramide|||milnacipran,DDI_F069,train
+enzalutamide|||linagliptin,DDI_F073,train
+glimepiride|||methyldopa,DDI_F076,train
+calcium carbonate|||glyburide,DDI_F077,train
+enasidenib|||repaglinide,DDI_F079,train
+calcium carbonate|||sucralfate,DDI_F087,validation
+hydrocortisone|||measles virus vaccine live attenuated,DDI_F090,train
+erlotinib|||ranitidine,DDI_F091,test
+glyburide|||nitazoxanide,DDI_F092,train
+glimepiride|||pindolol,DDI_F094,train
+dexamethasone|||moxifloxacin,DDI_F097,train
+metformin|||triamterene,DDI_F099,test
+celecoxib|||metformin,DDI_F100,test
+dacomitinib|||lansoprazole,DDI_F101,train
+liotrix|||sucralfate,DDI_F104,train
+nicotine|||ranitidine,DDI_F105,train
+dexamethasone|||zanubrutinib,DDI_F108,train
+nebivolol|||sucralfate,DDI_F110,test
+atazanavir|||calcium carbonate,DDI_F111,validation
+chenodeoxycholic acid|||sucralfate,DDI_F116,train
+dexamethasone|||tadalafil,DDI_F118,validation
+calcium carbonate|||dolutegravir,DDI_F120,train
+famotidine|||velpatasvir,DDI_F123,train
+bepridil|||loperamide,DDI_F127,test
+erdafitinib|||loperamide,DDI_F128,train
+clopidogrel|||esomeprazole,DDI_F131,train
+dexamethasone (ophthalmic)|||pioglitazone,DDI_F013,validation
+calcium citrate|||strontium chloride sr-89,DDI_F138,train
+calcium citrate|||patiromer,DDI_F140,train
+etidronic acid|||iron,DDI_F142,train
+entacapone|||iron,DDI_F148,train
+calcium carbonate|||methenamine,DDI_F152,train
+dasatinib|||lansoprazole,DDI_F153,train
+lansoprazole|||phenobarbital,DDI_F155,train
+calcium carbonate|||tipranavir,DDI_F159,train
+esomeprazole|||nelfinavir,DDI_F001,validation
+glipizide|||nalidixic acid,DDI_F003,train
+ioversol|||metformin,DDI_F004,train
+clopidogrel|||loperamide,DDI_F005,validation
+hydrocortisone|||mifepristone,DDI_F006,train
+lansoprazole|||tacrolimus,DDI_F007,train
+cyclizine|||potassium chloride,DDI_F008,train
+amisulpride|||metoclopramide,DDI_F009,train
+calcium carbonate|||prednisone,DDI_F010,train
+enoxacin|||famotidine,DDI_F011,validation
+nisoldipine|||omeprazole,DDI_F012,validation
+desoximetasone (topical)|||glimepiride,DDI_F013,validation
+isoniazid|||prednisone,DDI_F014,train
+butorphanol|||metoclopramide,DDI_F016,test
+promazine|||saxagliptin,DDI_F019,test
+clarithromycin|||glimepiride,DDI_F020,train
+metformin|||pemetrexed,DDI_F021,train
+dexamethasone|||fosamprenavir,DDI_F022,train
+prednisone|||trimethaphan,DDI_F023,test
+chloramphenicol|||glyburide,DDI_F024,train
+hydrocortisone|||phenyl salicylate,DDI_F025,train
+"insulin human (inhalation, rapid acting)|||sucralfate",DDI_F027,test
+glimepiride|||selegiline,DDI_F028,train
+methotrexate|||rabeprazole,DDI_F029,test
+glyburide|||voriconazole,DDI_F030,train
+metformin|||midodrine,DDI_F032,validation
+itraconazole|||omeprazole,DDI_F034,test
+chloramphenicol|||glimepiride,DDI_F035,train
+glimepiride|||phenylbutazone,DDI_F038,train
+amphotericin b|||omeprazole,DDI_F040,test
+hydrocortisone|||iopamidol,DDI_F041,validation
+glipizide|||potassium citrate,DDI_F042,train
+armodafinil|||saxagliptin,DDI_F043,validation
+capmatinib|||lansoprazole,DDI_F044,train
+esomeprazole|||simvastatin,DDI_F046,validation
+lasmiditan|||linagliptin,DDI_F047,train
+encorafenib|||glyburide,DDI_F048,test
+pazopanib|||ranitidine,DDI_F051,train
+ibuprofen|||ranitidine,DDI_F056,train
+apalutamide|||omeprazole,DDI_F058,train
+doxacurium|||prednisone,DDI_F061,train
+dexamethasone|||hydrocodone,DDI_F063,train
+chlorpropamide|||esomeprazole,DDI_F065,train
+metoclopramide|||sibutramine,DDI_F069,train
+aminoglutethimide|||linagliptin,DDI_F073,train
+glyburide|||methyldopa,DDI_F076,train
+calcium carbonate|||tolazamide,DDI_F077,train
+enasidenib|||glyburide,DDI_F079,train
+dexamethasone|||varicella zoster vaccine (recombinant),DDI_F090,train
+erlotinib|||famotidine,DDI_F091,test
+glimepiride|||nitazoxanide,DDI_F092,train
+glyburide|||nebivolol,DDI_F094,train
+hydrocortisone|||moxifloxacin,DDI_F097,train
+metformin|||morphine,DDI_F099,test
+etodolac|||metformin,DDI_F100,test
+"sucralfate|||thyroid, porcine",DDI_F104,train
+famotidine|||nicotine,DDI_F105,train
+dexamethasone|||simeprevir,DDI_F108,train
+idelalisib|||repaglinide,DDI_F118,validation
+amiodarone|||loperamide,DDI_F127,test
+erdafitinib|||saxagliptin,DDI_F128,train
+clopidogrel|||omeprazole,DDI_F131,train
+dexamethasone (ophthalmic)|||glimepiride,DDI_F013,validation
+calcium carbonate|||strontium chloride sr-89,DDI_F138,train
+esomeprazole|||phenobarbital,DDI_F155,train
+glimepiride|||moxifloxacin,DDI_F003,train
+diatrizoate|||metformin,DDI_F004,train
+amprenavir|||loperamide,DDI_F005,validation
+mifepristone|||prednisone,DDI_F006,train
+omeprazole|||tacrolimus,DDI_F007,train
+biperiden|||potassium chloride,DDI_F008,train
+metoclopramide|||molindone,DDI_F009,train
+alclometasone (topical)|||repaglinide,DDI_F013,validation
+hydrocortisone|||isoniazid,DDI_F014,train
+methadone|||metoclopramide,DDI_F016,test
+glipizide|||somapacitan,DDI_F019,test
+clarithromycin|||glyburide,DDI_F020,train
+guanethidine|||prednisone,DDI_F023,test
+phenyl salicylate|||prednisone,DDI_F025,train
+rosiglitazone|||sucralfate,DDI_F027,test
+glyburide|||nabumetone,DDI_F028,train
+lansoprazole|||methotrexate,DDI_F029,test
+fluconazole|||glimepiride,DDI_F030,train
+glimepiride|||warfarin,DDI_F035,train
+glipizide|||phenylbutazone,DDI_F038,train
+hydroflumethiazide|||rabeprazole,DDI_F040,test
+glipizide|||sodium citrate,DDI_F042,train
+atorvastatin|||omeprazole,DDI_F046,validation
+lasmiditan|||loperamide,DDI_F047,train
+famotidine|||ibuprofen,DDI_F056,train
+apalutamide|||loperamide,DDI_F058,train
+choline salicylate|||dexamethasone,DDI_F025,train
+hydrocortisone|||pipecuronium,DDI_F061,train
+fluvoxamine|||metoclopramide,DDI_F069,train
+hydrocortisone|||rotavirus vaccine,DDI_F090,train
+glipizide|||nitazoxanide,DDI_F092,train
+glipizide|||metoprolol,DDI_F094,train
+grepafloxacin|||hydrocortisone,DDI_F097,train
+flurbiprofen|||metformin,DDI_F100,test
+esomeprazole|||rifampicin,DDI_F108,train
+diltiazem|||repaglinide,DDI_F118,validation
+erdafitinib|||linagliptin,DDI_F128,train
+glimepiride|||lomefloxacin,DDI_F003,train
+ioxilan|||metformin,DDI_F004,train
+idelalisib|||loperamide,DDI_F005,validation
+methotrimeprazine|||potassium chloride,DDI_F008,train
+metoclopramide|||trifluoperazine,DDI_F009,train
+dexamethasone (topical)|||repaglinide,DDI_F013,validation
+metoclopramide|||morphine (liposomal),DDI_F016,test
+azilsartan medoxomil|||dexamethasone,DDI_F023,test
+balsalazide|||repaglinide,DDI_F028,train
+methotrexate|||omeprazole,DDI_F029,test
+glyburide|||sulfinpyrazone,DDI_F038,train
+omeprazole|||trichlormethiazide,DDI_F040,test
+glyburide|||tromethamine,DDI_F042,train
+lovastatin|||pantoprazole,DDI_F046,validation
+ranitidine|||tolmetin,DDI_F056,train
+apalutamide|||glimepiride,DDI_F058,train
+choline salicylate|||prednisone,DDI_F025,train
+prednisone|||yellow fever vaccine,DDI_F090,train
+carvedilol|||glipizide,DDI_F094,train
+dexamethasone|||venetoclax,DDI_F108,train
+dexamethasone|||ranolazine,DDI_F118,validation
+repaglinide|||sparfloxacin,DDI_F003,train
+iopamidol|||metformin,DDI_F004,train
+methdilazine|||potassium chloride,DDI_F008,train
+aripiprazole|||metoclopramide,DDI_F009,train
+flurandrenolide (topical)|||linagliptin,DDI_F013,validation
+fentanyl|||metoclopramide,DDI_F016,test
+quetiapine|||repaglinide,DDI_F019,test
+glimepiride|||mesalazine,DDI_F028,train
+esomeprazole|||methotrexate,DDI_F029,test
+glyburide|||phenylbutazone,DDI_F038,train
+esomeprazole|||netilmicin,DDI_F040,test
+glyburide|||sodium citrate,DDI_F042,train
+pantoprazole|||simvastatin,DDI_F046,validation
+meclofenamic acid|||ranitidine,DDI_F056,train
+apalutamide|||hydrocortisone,DDI_F058,train
+acetylsalicylic acid|||dexamethasone,DDI_F025,train
+acebutolol|||repaglinide,DDI_F094,train
+glimepiride|||sparfloxacin,DDI_F003,train
+iohexol|||metformin,DDI_F004,train
+azatadine|||potassium chloride,DDI_F008,train
+metoclopramide|||risperidone,DDI_F009,train
+dexamethasone (topical)|||linagliptin,DDI_F013,validation
+dezocine|||metoclopramide,DDI_F016,test
+metformin|||terbutaline,DDI_F019,test
+prazosin|||prednisone,DDI_F023,test
+glipizide|||probenecid,DDI_F028,train
+glipizide|||sulfinpyrazone,DDI_F038,train
+glipizide|||tromethamine,DDI_F042,train
+lansoprazole|||simvastatin,DDI_F046,validation
+famotidine|||tolmetin,DDI_F056,train
+apalutamide|||rabeprazole,DDI_F058,train
+gemifloxacin|||glipizide,DDI_F003,train
+iodipamide|||metformin,DDI_F004,train
+maprotiline|||potassium chloride,DDI_F008,train
+metoclopramide|||pimozide,DDI_F009,train
+glimepiride|||triamcinolone (topical),DDI_F013,validation
+metoclopramide|||opium,DDI_F016,test
+midostaurin|||pioglitazone,DDI_F019,test
+hydrocortisone|||minoxidil,DDI_F023,test
+glipizide|||lactic acid,DDI_F042,train
+atorvastatin|||esomeprazole,DDI_F046,validation
+ranitidine|||sulindac,DDI_F056,train
+apalutamide|||esomeprazole,DDI_F058,train
+delafloxacin|||glimepiride,DDI_F003,train
+iothalamic acid|||metformin,DDI_F004,train
+potassium chloride|||promazine,DDI_F008,train
+lurasidone|||metoclopramide,DDI_F009,train
+flurandrenolide (topical)|||glimepiride,DDI_F013,validation
+metoclopramide|||morphine,DDI_F016,test
+asparaginase escherichia coli|||glyburide,DDI_F019,test
+carvedilol|||dexamethasone,DDI_F023,test
+glipizide|||sodium acetate,DDI_F042,train
+lovastatin|||omeprazole,DDI_F046,validation
+apalutamide|||glipizide,DDI_F058,train
+glipizide|||norfloxacin,DDI_F003,train
+iodixanol|||metformin,DDI_F004,train
+carbinoxamine|||potassium chloride,DDI_F008,train
+clocortolone (topical)|||saxagliptin,DDI_F013,validation
+metoclopramide|||remifentanil,DDI_F016,test
+asparaginase escherichia coli|||metformin,DDI_F019,test
+acebutolol|||prednisone,DDI_F023,test
+glyburide|||sodium acetate,DDI_F042,train
+omeprazole|||simvastatin,DDI_F046,validation
+apalutamide|||lansoprazole,DDI_F058,train
+gemifloxacin|||glyburide,DDI_F003,train
+potassium chloride|||prochlorperazine,DDI_F008,train
+linagliptin|||prednicarbate (topical),DDI_F013,validation
+dihydrocodeine|||metoclopramide,DDI_F016,test
+linagliptin|||saquinavir,DDI_F019,test
+pindolol|||prednisone,DDI_F023,test
+glyburide|||potassium citrate,DDI_F042,train
+atorvastatin|||lansoprazole,DDI_F046,validation
+glyburide|||lomefloxacin,DDI_F003,train
+levacetylmethadol|||metoclopramide,DDI_F016,test
+desoximetasone (topical)|||pioglitazone,DDI_F013,validation
+alclometasone (topical)|||metformin,DDI_F013,validation
+methscopolamine|||potassium chloride,DDI_F008,train
+nisoldipine|||prednisone,DDI_F023,test
+hydralazine|||prednisone,DDI_F023,test
+glyburide|||sparfloxacin,DDI_F003,train

@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+*.py[cod]
+MedSafe/training/coverage_export/
+MedSafe/training/topic_export/
+MedSafe/backend/.source_cache/
