@@ -1,0 +1,19 @@
+{
+  "name": "MedSafe Medication Safety Assistant",
+  "short_name": "MedSafe",
+  "description": "Medication list management and local reference-catalog interaction lookup.",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f5f5",
+  "theme_color": "#1a1a1a",
+  "icons": [
+    {
+      "src": "assets/icons/medsafe-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

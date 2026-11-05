@@ -1,0 +1,9 @@
+{
+  "name": "medsafe-static-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests",
+    "check": "node --check assets/js/app.js && node --check assets/js/services/medicine-service.js && node --check assets/js/services/interaction-service.js && node --check assets/js/services/ai-client.js && node --check assets/js/services/storage-service.js && node --check service-worker.js"
+  }
+}

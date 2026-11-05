@@ -1,13 +1,23 @@
 # MedSafe
 
-MedSafe is a local classroom prototype with a browser interface, a DDInter interaction reference, source-linked discussion questions, and experimental trained topic classifiers. It does not provide validated treatment recommendations.
+MedSafe is a responsive static web prototype for medication list management, stock tracking, and local reference-catalog interaction lookup. It is not a diagnostic or prescribing tool.
 
-## Share with groupmates
+## Start here
 
-Share the entire project, including `MedSafe/backend/models`, `MedSafe/backend/data`, and `MedSafe/training/results`. Do not copy `.venv`; each computer creates its own environment. No Matthew-specific paths, Codex installation, Excel, or Colab session are needed.
+- [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) explains the source structure and local development.
+- [`docs/AI_INTEGRATION_CONTRACT.md`](docs/AI_INTEGRATION_CONTRACT.md) defines the boundary for a future trained model or backend.
+- [`docs/MOBILE_APP_PLAN.md`](docs/MOBILE_APP_PLAN.md) defines responsive-browser scope and validation.
+- [`docs/MOBILE_VIEW_IMPLEMENTATION.md`](docs/MOBILE_VIEW_IMPLEMENTATION.md) is the implementation checklist for mobile HTML and CSS work.
+- [`backend/README.md`](backend/README.md) explains the Python 3.12/3.13 AI-service scaffold.
+- [`docs/OPEN_AND_INSTALL.md`](docs/OPEN_AND_INSTALL.md) explains how to open the website and install it on iOS or Android.
+- [`AGENTS.md`](AGENTS.md) and [`docs/UI_VISUAL_IMPROVEMENT_GUIDE.md`](docs/UI_VISUAL_IMPROVEMENT_GUIDE.md) define how AI agents should improve visual UI without changing the app structure.
 
-Each groupmate needs **Python 3.13 or 3.12** installed once (enable the Python launcher / add Python to PATH on Windows). The first launch needs internet to install the pinned packages automatically. No retraining is required. Subsequent launches use the installed environment. Saved source details work offline; a pair without saved details needs internet to retrieve its source page.
+## Run and test
 
+```bash
+python3 -m http.server 8000
+npm run check
+npm test
 Each copy runs its own complete website and trained model. Signup, login, and saved patient records use the shared Supabase project and require internet. Signing in to the same account on another computer loads its saved records. Groupmates do not need database administrator access to use the app.
 
 For a shared link with no installations for visitors, the Python backend and frontend must be hosted online. This setup runs the project in each member's workspace and does not publish a website.
@@ -150,32 +160,12 @@ MedSafe/
     results/                     Original and additional model evaluations
 ```
 
-The server checks data checksums, model metadata, source identities, and library versions at startup. It exposes only the interface assets and three API routes; model and training files are not downloadable through it. Only load your own trusted `.joblib` exports. The server binds to this computer at `127.0.0.1` and is intended for a local demonstration.
+Open `http://localhost:8000` after starting the local server. There are no package dependencies to install.
 
-Runtime source downloads are saved in ignored `backend/.source_cache/`. To bundle more eligible records for your group, run `MedSafe/backend/.venv/Scripts/python.exe MedSafe/training/collect_source_details.py --limit 100 --workers 2` from the repository root. This extends the tracked source snapshot, not the frozen training set. Inspect and share those changes through Git. Do not regenerate training examples merely to improve an already-inspected test score.
+## Contributions
 
-## Evaluation and limitations
-
-The 300 rows have AI-assisted, source-based labels, not clinician-validated ground truth. The exported split is 192 training, 48 validation, and 60 test rows, grouped by source family. See `training/annotation_notes.md` and `training/results/` for provenance and results.
-
-| Held-out comparison | Macro F1 |
-| --- | ---: |
-| Majority baseline | 0.556 |
-| Severity-only baseline | 0.417 |
-| Mechanism + severity model | 0.554 |
-
-The original text model did **not** beat the majority baseline. Its timing recall was **0/10** on the held-out test set. It remains the active model for the original 300 detailed records.
-
-The additional categorical classifier scored **0.748 macro F1** on the same 60-row test partition; the additional severity-only model scored **0.417**. These are component evaluations, not a combined-system score and not validation across 7,545 pairs. The test set had already been inspected in earlier work, so this is not a new external evaluation. The categorical classifier's timing precision was only **0.333**, despite timing recall of **0.800**. Broad classifications cannot capture all pair-specific details.
-
-The additional models were trained locally during the coverage expansion. The original Colab artifact was preserved. Open `MedSafe/training/MedSafe_Coverage_Training.ipynb` in Colab to reproduce the additional training. The notebook exports separate `coverage_*` files; do not overwrite the original model files. See `MedSafe/backend/data/SOURCE.md` for provenance. Independent labels and a fresh evaluation are still needed before making any claim of clinical usefulness.
-
-## Verify integration
-
-After setup:
-
-```powershell
-.\MedSafe\backend\.venv\Scripts\python.exe -m unittest discover -s .\MedSafe\backend\tests -v
-```
-
-These tests exercise inference for every documented pair, check both original and additional exported test predictions, verify limited-input disclosures and the HTTP contract, and reject duplicate server ports. They check integration correctness, not medical validity.
+- Keep `assets/js/data/medicine-catalog.js` as the only checked-in medicine dataset.
+- Keep service logic separate from UI code and add Node tests for service behavior.
+- Do not add API keys, model files, patient identifiers, or secrets to frontend code.
+- Do not present an absent local reference match or model result as proof that a medication combination is safe.
+- Verify desktop and responsive browser behavior before submitting changes.
