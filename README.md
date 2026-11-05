@@ -1,162 +1,31 @@
 # MedSafe
 
-MedSafe is a local classroom prototype with a browser interface, a DDInter interaction reference, source-linked discussion questions, and experimental trained topic classifiers. It does not provide validated treatment recommendations.
+MedSafe is a responsive static web prototype for medication list management, stock tracking, and local reference-catalog interaction lookup. It is not a diagnostic or prescribing tool.
 
-## Share with groupmates
+## Start here
 
-Share the entire project, including `MedSafe/backend/models`, `MedSafe/backend/data`, and `MedSafe/training/results`. Do not copy `.venv`; each computer creates its own environment. No Matthew-specific paths, Codex installation, Excel, or Colab session are needed.
+- [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) explains the source structure and local development.
+- [`docs/AI_INTEGRATION_CONTRACT.md`](docs/AI_INTEGRATION_CONTRACT.md) defines the boundary for a future trained model or backend.
+- [`docs/MOBILE_APP_PLAN.md`](docs/MOBILE_APP_PLAN.md) defines responsive-browser scope and validation.
+- [`docs/MOBILE_VIEW_IMPLEMENTATION.md`](docs/MOBILE_VIEW_IMPLEMENTATION.md) is the implementation checklist for mobile HTML and CSS work.
+- [`backend/README.md`](backend/README.md) explains the Python 3.12/3.13 AI-service scaffold.
+- [`docs/OPEN_AND_INSTALL.md`](docs/OPEN_AND_INSTALL.md) explains how to open the website and install it on iOS or Android.
+- [`AGENTS.md`](AGENTS.md) and [`docs/UI_VISUAL_IMPROVEMENT_GUIDE.md`](docs/UI_VISUAL_IMPROVEMENT_GUIDE.md) define how AI agents should improve visual UI without changing the app structure.
 
-Each groupmate needs **Python 3.13 or 3.12** installed once (enable the Python launcher / add Python to PATH on Windows). The first launch needs internet to install the pinned packages automatically. No retraining is required. Subsequent launches use the installed environment. Saved source details work offline; a pair without saved details needs internet to retrieve its source page.
+## Run and test
 
-Each copy runs its own complete website, including patient and caregiver screens and the trained model. Medicine records stay in that person's browser; this does not synchronize accounts or records between computers. The existing sign-in is a classroom UI, not server-backed authentication.
-
-For a shared link with no installations for visitors, the Python backend and frontend must be hosted online. This setup runs the project in each member's workspace and does not publish a website.
-
-## Run on Windows
-
-Clone or pull the complete GitHub repository, then double-click **Start-MedSafe.cmd**. Keep the terminal open and visit **http://127.0.0.1:8000/**.
-
-From the repository folder, run this in a PowerShell terminal:
-
-```powershell
-powershell -ExecutionPolicy Bypass -File .\MedSafe\backend\start.ps1
+```bash
+python3 -m http.server 8000
+npm run check
+npm test
 ```
 
-Open **http://127.0.0.1:8000/**. Keep the terminal open; press Ctrl+C to stop. To use another port, append `-Port 8001` to the command.
+Open `http://localhost:8000` after starting the local server. There are no package dependencies to install.
 
-The launcher creates an isolated `backend/.venv` using Python 3.13 or 3.12 and installs the exported requirements. Python 3.14 is not supported by these pinned dependencies. The virtual environment is ignored by Git; no global packages are changed. All paths are resolved relative to the project, so the project folder can be anywhere. If you move an already-configured copy, recreate only its `.venv`.
+## Contributions
 
-## Run on macOS or Linux
-
-Install Python 3.13 or 3.12, open a terminal in the cloned project folder, and run:
-
-```sh
-python3.13 run.py
-```
-
-Use `python3.12 run.py` if that is your installed version. Linux distributions may also require their matching Python `venv` package. Open the same local address. To check setup without running the website, append `--check`; to change ports, append `--port 8001`. The launcher supports these platforms; the browser and model integration were tested on Windows.
-
-Opening `index.html` directly still permits reference lookups, but model inference requires the local server. Browser records belong to their original browser origin, so records saved under a `file:` URL or another port may not appear at this address.
-
-## Source-backed explanations and questions
-
-1. The browser checks the selected medicines against the existing interaction reference.
-2. It sends only the two medicine names to `POST /api/guidance`.
-3. The server retrieves the matching saved DDInter explanation. For uncached pairs with an eligible detail link, it fetches that exact public page with a short timeout and checks both source drug IDs before caching it. No patient profile, account, or medicine list is sent to DDInter; the outgoing URL contains the public interaction record ID.
-4. Where available, an AI-assisted plain-language summary explains what could happen and why. Summaries are matched to the exact source-text hash and preserve conditions such as high doses, route, and limited evidence. There are 25 distinct summary texts, reused only for identical source explanations. Many source records do not yet have a plain-language summary; the UI says so explicitly.
-5. The app displays questions about topics mentioned in that pair's source record, such as blood sugar, heartbeat, kidney health, or timing. These are **rule-based question templates**, not generated medical advice. Source excerpts remain available beside each question. Keyword matching can identify background conditions or alternative treatments too; a topic mention does not establish that the pair causes a problem.
-6. A separate trained classifier can highlight source-mentioned topics for demonstration. Its predictions cannot create unsupported questions, remove existing questions, change severity, or determine treatment. Highlights are **off by default** because this experiment did not beat its keyword baseline. Open **About the training experiment** to enable them.
-
-The source snapshot is `backend/data/source_details.json`; `/api/health` reports the currently loaded `source_detail_pairs`. This is a partial saved reference, not a claim that every possible pair has a detailed explanation. Uncached eligible records can be loaded on demand. Disputed records, absent detail links, failed identity checks, and source outages produce an explicit **General questions only** fallback. Missing interaction pairs are never called safe. No unseen source statement is replaced with a guessed explanation.
-
-The bundled snapshot has **3,076 source records**, including **1,040 pairs matched to a plain-language summary**. Another **4,453 pairs have eligible source links** for on-demand retrieval; **16 pairs have withheld or missing detail links**. These counts describe saved source coverage, not trained examples or clinical validation. `training/results/source_coverage.json` records the snapshot hash and counts; rerun `training/audit_source_coverage.py` after extending the snapshot.
-
-Source excerpts use original professional wording and may be technical. Only the optional excerpt panels show that wording. Both source extraction and the simplified summaries need independent clinical review. The app does not automatically choose doses, stop medicines, or schedule them.
-
-### What was actually trained
-
-The new **TF-IDF + one-vs-rest logistic regression** model predicts 15 discussion-topic labels from factual interaction descriptions and the reference severity. Management text, target labels, and source URLs are excluded from model inputs. Labels were generated from topics in management text and advice sentences using documented rules (weak supervision), not clinician annotation. Medicine names may occur in the natural source descriptions; this is not a drug-identity-free experiment.
-
-The frozen dataset has **886 examples in 259 similar-text groups**, split into **581 train / 120 validation / 185 test** rows. Near-duplicate mechanisms stay in one partition. Validation selected C=1 from 0.1, 1, and 10. The vocabulary and classifier were fitted on training rows only. Magnesium lacked sufficient training support and remains outside the model, although source-based magnesium questions can still appear.
-
-| New topic experiment: held-out comparison | Macro F1 |
-| --- | ---: |
-| Trained topic classifier | 0.105 |
-| Keyword baseline on mechanism text | 0.369 |
-| Majority baseline | 0.000 |
-
-These scores measure agreement with automatic labels, **not medical accuracy**. Macro F1 includes all 15 trained topics; three have no positive test examples and score zero. This is the same reference source used earlier, not an independent external evaluation. The result is weak and is reported without tuning on the test set. A credible next training iteration requires independently reviewed labels and a fresh frozen evaluation, not just more duplicated rows.
-
-The new export was trained locally. To reproduce it in your own Google Colab session, open **`MedSafe/training/MedSafe_Source_Guidance_Training.ipynb`** and upload the three files it lists. It downloads five separate files, without a ZIP. Do not replace the original model with this experiment.
-
-### Original classifiers retained as baselines and fallback
-
-`POST /api/suggestions` preserves the original API. It predicts the review, monitoring, and timing categories that select fixed general questions. This API remains available for parity checks and the detailed-source fallback.
-
-All **7,545 documented pairs**, involving all **1,242 listed medicines**, now receive model-selected discussion questions:
-
-| Input available | Pairs | Classifier |
-| --- | ---: | --- |
-| Detailed mechanism description | 300 | Original Colab TF-IDF model, unchanged |
-| Broad source mechanism classifications | 7,229 | Additional trained categorical-feature model |
-| Missing or conflicting classifications | 16 | Additional trained severity-only model, explicitly labeled limited information |
-
-These baseline models do not generate treatment instructions or determine severity. The 7,545 reference records are **not 7,545 labeled training examples**. Each baseline classifier was fitted on the original 192 training rows, with 48 validation and 60 test rows. Model output is not used as a training label. There are 770,661 possible unordered pairs among the 1,242 names; only 7,545 have reference records. Baseline predictions work offline; fetching missing source details requires internet.
-
-Use these pairs to compare the new information: **Calcium carbonate + Dolutegravir** (uptake and timing), **Glimepiride + Ofloxacin** (blood sugar), **Loperamide + Quinidine** (heartbeat, dose qualification), **Iopamidol + Metformin** (scan/procedure and kidney context), and **Esomeprazole + Tacrolimus** (medicine levels and magnesium). These are software demonstrations, not clinical test cases or independent performance tests.
-
-Use **Calcium citrate + Dolutegravir** to test the newly expanded coverage. Use **Magaldrate + Ursodeoxycholic acid** to see the limited-input disclosure.
-
-## Files
-
-```text
-MedSafe/
-  index.html                     Full-page interface with embedded responsive styles
-  drugs-data.js                  Existing browser reference
-  drugs.json                     Existing server reference
-  model-suggestions.js           Model question panel and request handling
-  backend/
-    server.py                    Local web server and JSON endpoints
-    model_runtime.py             Validated catalog and model inference
-    feature_schema.py            Shared categorical feature definitions
-    suggestion_copy.py           Plain-language questions and information notices
-    pair_guidance.py             Source retrieval, integrity checks, and optional highlights
-    source_reader.py             Restricted public-source reader and drug-ID checks
-    source_topics.py             Auditable topic annotation and question templates
-    start.ps1                    Windows launcher
-    requirements.txt             Unchanged Colab-exported versions
-    models/
-      medsafe_suggestions.joblib Unchanged trained Colab export
-      metadata.json              Unchanged export metadata
-      coverage_suggestions.joblib Additional categorical and severity-only models
-      coverage_metadata.json     Input hashes, training split, and model settings
-      source_topic_selector.joblib Experimental fine-grained topic classifier
-      source_topic_metadata.json Frozen dataset hash and training metadata
-    data/
-      medsafe_suggestions_300.csv Exact CSV matched to export checksum
-      reference_catalog.json    Label-free features for all 7,545 pairs
-      source_details.json       Saved source explanations, dates, IDs, and hashes
-      plain_source_summaries.json Exact-source plain-language paraphrases
-      SOURCE.md                 Source attribution and classification caveats
-    tests/test_integration.py    Export parity and API checks
-    tests/test_source_guidance.py Source boundaries, fallback, and topic export checks
-  training/
-    annotation_notes.md          Dataset provenance and limitations
-    train_coverage_model.py       Reproducible coverage-model training
-    MedSafe_Coverage_Training.ipynb Colab workflow for the additional models
-    MedSafe_Source_Guidance_Training.ipynb Colab workflow for the new topic experiment
-    source_topic_examples.json   Frozen 886-row training/validation/test dataset
-    train_source_topics.py       Reproducible topic training and baseline comparisons
-    collect_source_details.py    Resume collection of missing eligible source records
-    results/                     Original and additional model evaluations
-```
-
-The server checks data checksums, model metadata, source identities, and library versions at startup. It exposes only the interface assets and three API routes; model and training files are not downloadable through it. Only load your own trusted `.joblib` exports. The server binds to this computer at `127.0.0.1` and is intended for a local demonstration.
-
-Runtime source downloads are saved in ignored `backend/.source_cache/`. To bundle more eligible records for your group, run `MedSafe/backend/.venv/Scripts/python.exe MedSafe/training/collect_source_details.py --limit 100 --workers 2` from the repository root. This extends the tracked source snapshot, not the frozen training set. Inspect and share those changes through Git. Do not regenerate training examples merely to improve an already-inspected test score.
-
-## Evaluation and limitations
-
-The 300 rows have AI-assisted, source-based labels, not clinician-validated ground truth. The exported split is 192 training, 48 validation, and 60 test rows, grouped by source family. See `training/annotation_notes.md` and `training/results/` for provenance and results.
-
-| Held-out comparison | Macro F1 |
-| --- | ---: |
-| Majority baseline | 0.556 |
-| Severity-only baseline | 0.417 |
-| Mechanism + severity model | 0.554 |
-
-The original text model did **not** beat the majority baseline. Its timing recall was **0/10** on the held-out test set. It remains the active model for the original 300 detailed records.
-
-The additional categorical classifier scored **0.748 macro F1** on the same 60-row test partition; the additional severity-only model scored **0.417**. These are component evaluations, not a combined-system score and not validation across 7,545 pairs. The test set had already been inspected in earlier work, so this is not a new external evaluation. The categorical classifier's timing precision was only **0.333**, despite timing recall of **0.800**. Broad classifications cannot capture all pair-specific details.
-
-The additional models were trained locally during the coverage expansion. The original Colab artifact was preserved. Open `MedSafe/training/MedSafe_Coverage_Training.ipynb` in Colab to reproduce the additional training. The notebook exports separate `coverage_*` files; do not overwrite the original model files. See `MedSafe/backend/data/SOURCE.md` for provenance. Independent labels and a fresh evaluation are still needed before making any claim of clinical usefulness.
-
-## Verify integration
-
-After setup:
-
-```powershell
-.\MedSafe\backend\.venv\Scripts\python.exe -m unittest discover -s .\MedSafe\backend\tests -v
-```
-
-These tests exercise inference for every documented pair, check both original and additional exported test predictions, verify limited-input disclosures and the HTTP contract, and reject duplicate server ports. They check integration correctness, not medical validity.
+- Keep `assets/js/data/medicine-catalog.js` as the only checked-in medicine dataset.
+- Keep service logic separate from UI code and add Node tests for service behavior.
+- Do not add API keys, model files, patient identifiers, or secrets to frontend code.
+- Do not present an absent local reference match or model result as proof that a medication combination is safe.
+- Verify desktop and responsive browser behavior before submitting changes.

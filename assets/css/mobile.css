@@ -1,0 +1,360 @@
+/* ── Phone Layout (<600px) ─────────────────────────────
+   Purpose: Mobile is a distinct layout, not desktop squeezed smaller (R-03).
+   Stacks columns, reduces spacing, fluid typography, bottom navigation.
+   All touch targets meet 44px minimum.
+────────────────────────────────────────────────────── */
+@media (max-width: 599px) {
+  html {
+    background: var(--color-page);
+  }
+
+  body {
+    display: block;
+    min-width: 0;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    line-height: 1.5;
+  }
+
+  .card {
+    width: 100%;
+    min-height: 100dvh;
+    border-radius: 0;
+    box-shadow: none;
+    flex-direction: column;
+  }
+
+  /* Branding panel stacks on top, reduced padding */
+  .panel-left {
+    padding: 1.5rem 1.25rem;
+    border-right: 0;
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  .panel-left .logo-circle {
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Fluid heading sizes, prevents oversized text on small screens (R-06) */
+  .panel-left h1 {
+    font-size: clamp(1.3rem, 5vw, 1.5rem);
+  }
+
+  .panel-left p {
+    font-size: 0.875rem;
+    max-width: none;
+  }
+
+  .panel-right {
+    padding: 1.75rem 1.25rem;
+    align-items: flex-start;
+  }
+
+  .screen,
+  .screen-role,
+  .screen-signin {
+    max-width: none;
+  }
+
+  /* Fluid screen headings */
+  .screen-role h2,
+  .screen-signin h2 {
+    font-size: clamp(1.5rem, 7vw, 1.75rem);
+  }
+
+  /* Touch targets: minimum 44px on all interactive elements (R-03) */
+  .btn,
+  .toggle-btn,
+  .back-btn,
+  .dash-add-btn,
+  .dash-nav-item,
+  .ic-modal-close-icon,
+  .ic-close-text-btn,
+  .combobox-clear-btn,
+  .combobox-arrow-btn,
+  .stepper-btn,
+  .preset-pill,
+  .dash-remove-btn,
+  .edit-stock-btn,
+  .dash-alert-btn,
+  .ic-reset-btn,
+  .dash-ix-btn,
+  .dash-logout-btn,
+  .stock-inline-edit-icon {
+    min-height: 44px;
+  }
+
+  .back-btn,
+  .stepper-btn,
+  .ic-modal-close-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  .dash-remove-btn {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .stock-inline-edit-icon {
+    min-width: 44px;
+    min-height: 44px;
+    opacity: 1;
+  }
+
+  .edit-stock-btn {
+    min-height: 44px;
+    padding: 10px 14px;
+  }
+
+  .preset-pill {
+    padding: 10px 14px;
+  }
+
+  /* Prevent iOS Safari auto-zoom by keeping inputs at 16px+ (R-06) */
+  input,
+  select,
+  .combobox-search-input,
+  .cs-search-input,
+  .edit-stock-input {
+    font-size: 16px !important;
+  }
+
+  /* Modals slide up from bottom, not centered (R-03) */
+  .modal-overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .interaction-card,
+  .edit-stock-card {
+    width: 100%;
+    max-width: 100%;
+    max-height: 94dvh;
+    min-height: 0;
+    border-radius: 1.25rem 1.25rem 0 0;
+  }
+
+  .interaction-card {
+    flex-direction: column;
+  }
+
+  .ic-sidebar {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border-right: 0;
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  .ic-brand {
+    margin-bottom: 0;
+  }
+
+  .ic-nav,
+  .ic-sidebar-footer,
+  .ic-sidebar-patient-section {
+    display: none;
+  }
+
+  .ic-main {
+    max-height: none;
+    padding: 1.5rem 1.25rem calc(1.5rem + env(safe-area-inset-bottom));
+  }
+
+  .ic-heading {
+    font-size: clamp(1.25rem, 5vw, 1.5rem);
+    margin-bottom: 1.25rem;
+  }
+
+  .cs-list,
+  .combobox-list {
+    max-height: min(38dvh, 18rem);
+  }
+
+  .dashboard-overlay {
+    min-height: 100dvh;
+  }
+
+  .dash-card {
+    width: 100%;
+    max-width: none;
+    min-height: 100dvh;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  /* Bottom navigation bar (R-03, R-39) */
+  .dash-sidebar {
+    position: fixed;
+    inset: auto 0 0;
+    z-index: 600;
+    width: 100%;
+    padding: 0.5rem max(0.75rem, env(safe-area-inset-right)) calc(0.5rem + env(safe-area-inset-bottom)) max(0.75rem, env(safe-area-inset-left));
+    border: 0;
+    border-top: 1px solid var(--gray-200);
+    background: rgba(242, 243, 245, 0.98);
+    box-shadow: 0 -8px 18px rgba(15, 23, 42, 0.08);
+  }
+
+  .dash-brand,
+  .dash-sidebar-footer,
+  .dash-sidebar-interaction-widget {
+    display: none;
+  }
+
+  .dash-nav {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+    gap: 0.35rem;
+    overflow-x: auto;
+  }
+
+  .dash-nav-item {
+    justify-content: center;
+    gap: 0.25rem;
+    padding: 0.55rem 0.4rem;
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+
+  /* Reserve space for fixed bottom nav so content is not obscured (R-03) */
+  .dash-main {
+    min-width: 0;
+    padding: 1.25rem 1rem calc(5.75rem + env(safe-area-inset-bottom));
+  }
+
+  .dash-topbar {
+    gap: 0.75rem;
+  }
+
+  .dash-topbar-title {
+    font-size: clamp(1.1rem, 5vw, 1.375rem);
+  }
+
+  .dash-user-pill {
+    max-width: 46vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* Fluid greeting */
+  .dash-greeting {
+    font-size: clamp(1.25rem, 6vw, 1.5rem);
+  }
+
+  /* Stack stat cards vertically */
+  .dash-stats,
+  .dash-add-row,
+  .ic-action-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .dash-add-row,
+  .dash-add-field,
+  .med-combobox-wrapper,
+  .dash-add-field input,
+  .dash-add-field select {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* Tables scroll horizontally, minimum readable width (R-03) */
+  .dash-table {
+    display: block;
+    width: 100%;
+    min-width: 34rem;
+    overflow-x: auto;
+  }
+
+  .dash-page {
+    min-width: 0;
+    overflow-x: auto;
+  }
+
+  .edit-stock-card {
+    padding: 1.5rem 1.25rem calc(1.5rem + env(safe-area-inset-bottom));
+  }
+
+  .edit-stock-stepper-wrap {
+    flex-wrap: wrap;
+  }
+
+  /* Stat cards stack with consistent gap */
+  .dash-stat-card {
+    padding: 14px 16px;
+  }
+
+  .dash-stat-value {
+    font-size: 1.75rem;
+  }
+
+  /* Section titles fluid */
+  .dash-section-title {
+    font-size: 1rem;
+  }
+}
+
+/* ── Tablet Layout (600px to 960px) ───────────────────
+   Purpose: A middle state, not a stretched phone or crammed desktop (R-03).
+   Two-column welcome card, narrower sidebar, wrapped form rows.
+────────────────────────────────────────────────────── */
+@media (min-width: 600px) and (max-width: 960px) {
+  body {
+    padding: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .card {
+    flex-direction: column;
+    width: min(100%, 52rem);
+    min-height: auto;
+  }
+
+  .panel-left {
+    border-right: none;
+    border-bottom: 1px solid var(--gray-200);
+    padding: 36px 24px;
+  }
+
+  .panel-right {
+    padding: 36px 28px;
+  }
+
+  .dash-card,
+  .interaction-card {
+    width: min(100%, 52rem);
+  }
+
+  .dash-sidebar {
+    width: 11rem;
+    padding: 1.25rem 0.75rem;
+  }
+
+  .dash-main {
+    min-width: 0;
+    padding: 1.5rem;
+  }
+
+  .dash-add-row {
+    flex-wrap: wrap;
+  }
+
+  .dash-table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  /* Tablet stat cards: 2 per row feel */
+  .dash-stats {
+    flex-wrap: wrap;
+  }
+
+  .dash-stat-card {
+    min-width: calc(50% - 7px);
+  }
+}
