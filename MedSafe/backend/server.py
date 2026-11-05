@@ -13,11 +13,15 @@ from model_runtime import SuggestionService
 
 
 STATIC_FILES = {
+    "/assets/medsafe-logo.png": ("assets/medsafe-logo.png", "image/png"),
     "/": ("index.html", "text/html; charset=utf-8"),
     "/index.html": ("index.html", "text/html; charset=utf-8"),
     "/drugs-data.js": ("drugs-data.js", "text/javascript; charset=utf-8"),
     "/drugs.json": ("drugs.json", "application/json; charset=utf-8"),
     "/model-suggestions.js": ("model-suggestions.js", "text/javascript; charset=utf-8"),
+    "/accounts.js": ("accounts.js", "text/javascript; charset=utf-8"),
+    "/supabase-config.js": ("supabase-config.js", "text/javascript; charset=utf-8"),
+    "/vendor/supabase-2.119.0.js": ("vendor/supabase-2.119.0.js", "text/javascript; charset=utf-8"),
 }
 MAX_BODY_BYTES = 4096
 

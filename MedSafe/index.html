@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Medication Safety Assistant</title>
+  <link rel="icon" type="image/png" href="assets/medsafe-logo.png" />
   <!-- Load Supported Drugs and Interactions Database -->
   <script src="drugs-data.js"></script>
   <style>
@@ -52,11 +53,11 @@
       background: #fafafa;
     }
 
-    .logo-circle {
+    .logo-mark {
       width: 80px;
       height: 80px;
-      border-radius: 50%;
-      background: #ddd;
+      display: block;
+      object-fit: contain;
       margin-bottom: 28px;
     }
 
@@ -341,10 +342,10 @@
     }
 
     .ic-brand-icon {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: #8e8e93;
+      width: 36px;
+      height: 36px;
+      display: block;
+      object-fit: contain;
       flex-shrink: 0;
     }
 
@@ -814,10 +815,10 @@
     }
 
     .dash-brand-icon {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: #8e8e93;
+      width: 36px;
+      height: 36px;
+      display: block;
+      object-fit: contain;
       flex-shrink: 0;
     }
 
@@ -1315,15 +1316,23 @@
 
     .dash-nav-badge {
       margin-left: auto;
-      padding: 2px 7px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      min-width: 24px;
+      height: 24px;
+      padding: 0 7px;
       border-radius: 9999px;
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 700;
-      line-height: 1.2;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
     }
 
     .dash-nav-badge.badge-danger {
-      background: #ef4444;
+      background: #b91c1c;
       color: #ffffff;
     }
 
@@ -2012,6 +2021,95 @@
       margin-top: 6px;
     }
 
+    /* ── Remove Medicine Danger Zone in Edit Stock Modal ── */
+    .edit-stock-danger-zone {
+      border-top: 1px solid #fee2e2;
+      padding-top: 14px;
+      margin-top: 2px;
+    }
+
+    .edit-stock-remove-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      background: #fff5f5;
+      border: 1.5px solid #fecaca;
+      border-radius: 10px;
+      color: #dc2626;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .15s ease;
+    }
+
+    .edit-stock-remove-btn:hover {
+      background: #fee2e2;
+      border-color: #f87171;
+      color: #b91c1c;
+    }
+
+    .edit-stock-remove-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* ── Remove Confirmation State ── */
+    .edit-stock-confirm-zone {
+      border-top: 1px solid #fee2e2;
+      padding-top: 14px;
+      margin-top: 2px;
+      animation: fadeSlide .2s ease;
+    }
+
+    .edit-stock-confirm-msg {
+      font-size: 13px;
+      color: #b91c1c;
+      font-weight: 600;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .edit-stock-confirm-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .edit-stock-confirm-cancel {
+      padding: 8px 18px;
+      background: #f3f4f6;
+      border: 1.5px solid #d1d5db;
+      border-radius: 8px;
+      color: #374151;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .12s;
+    }
+
+    .edit-stock-confirm-cancel:hover {
+      background: #e5e7eb;
+    }
+
+    .edit-stock-confirm-delete {
+      padding: 8px 18px;
+      background: #dc2626;
+      border: 1.5px solid #dc2626;
+      border-radius: 8px;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .12s;
+    }
+
+    .edit-stock-confirm-delete:hover {
+      background: #b91c1c;
+      border-color: #b91c1c;
+    }
+
     /* ── Responsive ────────────────────────────────────── */
     @media (max-width: 800px) {
       .card {
@@ -2183,7 +2281,7 @@ body { display: block; background: #fff; }
 @media (max-width: 800px) {
   .card { width: 100%; }
   .panel-left { flex: none; padding: 32px 24px; }
-  .logo-circle { width: 48px; height: 48px; margin-bottom: 16px; }
+  .logo-mark { width: 64px; height: 64px; margin-bottom: 16px; }
   .panel-right { padding: 32px 24px; }
   .dash-card { flex-direction: column; }
   .dash-sidebar {
@@ -2209,6 +2307,54 @@ body { display: block; background: #fff; }
   .ic-heading { padding-right: 32px; }
 }
 
+
+    [hidden] { display: none !important; }
+    .dash-account { position: relative; max-width: 100%; margin-left: auto; }
+    button.dash-user-pill { font-family: inherit; cursor: pointer; background: #fff; }
+    .dash-user-pill:hover { background: #f8fafc; }
+    .dash-user-pill:focus-visible, .dash-account-panel button:focus-visible { outline: 2px solid #0f766e; outline-offset: 3px; }
+    .dash-user-pill[aria-expanded="true"] { border-color: #0f766e; }
+    .dash-account-panel {
+      position: absolute; right: 0; top: calc(100% + 8px); z-index: 20;
+      width: min(300px, calc(100vw - 32px)); padding: 18px;
+      max-height: calc(100dvh - 120px); overflow-y: auto;
+      background: #fff; border: 1px solid #dbe2ea; border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, .12); color: #17202e;
+      overflow-wrap: anywhere; text-align: left;
+    }
+    .dash-account-panel strong { display: block; font-size: 15px; }
+    .dash-account-panel p { margin: 6px 0; font-size: 13px; line-height: 1.5; color: #475569; }
+    .dash-account-actions { display: grid; gap: 6px; margin-top: 14px; padding-top: 12px; border-top: 1px solid #e5e7eb; }
+    .dash-account-actions button { padding: 10px 12px; border: 0; border-radius: 8px; text-align: left; background: #f1f5f9; color: #17202e; font: inherit; font-size: 14px; cursor: pointer; }
+    .dash-account-actions button:hover { background: #e2e8f0; }
+    .profile-dialog { margin: auto; width: min(440px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); overflow-y: auto; padding: 24px; border: 1px solid #dbe2ea; border-radius: 16px; color: #17202e; box-shadow: 0 16px 48px rgba(15, 23, 42, .18); }
+    .profile-dialog::backdrop { background: rgba(15, 23, 42, .45); }
+    .profile-dialog h2 { margin: 0 0 8px; font-size: 24px; }
+    .profile-dialog .profile-intro { margin: 0 0 20px; font-size: 14px; color: #475569; line-height: 1.5; }
+    .profile-dialog label { display: block; margin: 16px 0 6px; font-size: 14px; font-weight: 600; }
+    .profile-dialog input { box-sizing: border-box; width: 100%; min-width: 0; padding: 11px 12px; border: 1px solid #94a3b8; border-radius: 8px; font: inherit; }
+    .profile-dialog input:focus-visible, .profile-dialog button:focus-visible { outline: 2px solid #0f766e; outline-offset: 3px; }
+    .profile-details { margin-top: 20px; padding: 12px; background: #f8fafc; border-radius: 8px; font-size: 13px; line-height: 1.6; overflow-wrap: anywhere; }
+    .profile-details dt { color: #475569; }
+    .profile-details dd { margin: 0 0 8px; }
+    .profile-details dd:last-child { margin-bottom: 0; }
+    .profile-actions { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .profile-actions button { padding: 11px 18px; border: 1px solid #cbd5e1; border-radius: 8px; background: #fff; font: inherit; font-size: 14px; cursor: pointer; }
+    .profile-actions button[type="submit"] { background: #111315; border-color: #111315; color: #fff; }
+    .screen-signin .back-btn { position: static; margin-bottom: 14px; }
+    .account-link { display: block; border: 0; background: none; color: #1d4ed8; padding: 8px 0; cursor: pointer; text-align: left; }
+    .account-feedback { margin: 10px 0; font-size: 13px; line-height: 1.5; overflow-wrap: anywhere; color: #334155; }
+    .account-feedback[data-error="true"] { color: #b91c1c; }
+    .account-sync-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+    .account-code-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; padding: 16px 0; }
+    .account-code-row output { font-family: monospace; overflow-wrap: anywhere; }
+    .account-access-form { display: grid; gap: 12px; max-width: 580px; margin: 24px 0; }
+    .account-access-form > input { padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; min-width: 0; }
+    .account-check { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; }
+    .account-check input { width: auto; margin-top: 3px; }
+    .account-access-card { border: 1px solid #cbd5e1; border-radius: 10px; padding: 16px; margin-bottom: 12px; }
+    .account-access-card button { margin-top: 12px; }
+    button:disabled { opacity: 0.55; cursor: wait; }
   </style>
 </head>
 
@@ -2218,7 +2364,7 @@ body { display: block; background: #fff; }
   <div class="card">
     <!-- ─── Left Panel ─────────────────────────────────── -->
     <div class="panel-left">
-      <div class="logo-circle"></div>
+      <img class="logo-mark" src="assets/medsafe-logo.png" alt="MedSafe" width="80" height="80" />
       <h1>Medication Safety Assistant</h1>
       <p>Track maintenance medicines, monitor stock and catch risky combinations early.</p>
     </div>
@@ -2240,29 +2386,46 @@ body { display: block; background: #fff; }
       <div id="screen-signin" class="screen screen-signin">
         <button class="back-btn" onclick="goBack()" aria-label="Go back">←</button>
 
-        <h2>Sign in</h2>
-        <p class="subtitle">I am a…</p>
+        <h2 id="auth-title">Sign in</h2>
+        <p class="subtitle" id="auth-subtitle">Use your MedSafe account.</p>
 
-        <div class="toggle-row">
+        <div class="toggle-row" id="auth-role-choice" hidden>
           <button id="tog-patient" class="toggle-btn selected" onclick="selectRole('patient')">Patient</button>
           <button id="tog-caregiver" class="toggle-btn" onclick="selectRole('caregiver')">Caregiver</button>
         </div>
 
-        <form onsubmit="handleSignIn(event)">
-          <div class="field">
+        <form id="auth-form" onsubmit="handleSignIn(event)">
+          <div id="auth-profile-fields" hidden>
+            <div class="field">
+              <label for="auth-name">Your name</label>
+              <input id="auth-name" type="text" maxlength="120" autocomplete="name" />
+            </div>
+            <div class="field">
+              <label for="auth-birth-date">Date of birth (optional)</label>
+              <input id="auth-birth-date" type="date" min="1900-01-01" />
+            </div>
+          </div>
+          <div class="field" id="auth-email-field">
             <label for="email">Email</label>
-            <input id="email" type="email" placeholder="name@email.com" required />
+            <input id="email" type="email" placeholder="name@email.com" autocomplete="email" required />
           </div>
 
-          <div class="field">
+          <div class="field" id="auth-password-field">
             <label for="password">Password</label>
-            <input id="password" type="password" placeholder="••••••••" required />
+            <input id="password" type="password" placeholder="••••••••" autocomplete="current-password" required />
+          </div>
+          <div class="field" id="auth-confirm-field" hidden>
+            <label for="auth-confirm">Confirm password</label>
+            <input id="auth-confirm" type="password" autocomplete="new-password" />
           </div>
 
-          <button type="submit" class="btn btn-filled btn-signin">Sign In</button>
+          <p id="auth-feedback" class="account-feedback" role="status" aria-live="polite"></p>
+          <button id="auth-submit" type="submit" class="btn btn-filled btn-signin">Sign In</button>
         </form>
 
-        <a class="forgot" href="#">Forgot password?</a>
+        <button class="forgot account-link" id="auth-forgot" onclick="MedSafeAccounts.showMode('recover')">Forgot password?</button>
+        <button class="account-link" id="auth-switch" onclick="MedSafeAccounts.switchMode()">Create an account</button>
+        <button class="account-link" id="auth-cancel" hidden onclick="dashLogout()">Sign out</button>
       </div>
 
     </div>
@@ -2275,7 +2438,7 @@ body { display: block; background: #fff; }
       <!-- Sidebar -->
       <div class="dash-sidebar">
         <div class="dash-brand">
-          <div class="dash-brand-icon"></div>
+          <img class="dash-brand-icon" src="assets/medsafe-logo.png" alt="" width="36" height="36" />
           <span class="dash-brand-title">MedSafe</span>
         </div>
 
@@ -2293,7 +2456,22 @@ body { display: block; background: #fff; }
         <!-- Top Bar -->
         <div class="dash-topbar">
           <span class="dash-topbar-title" id="dash-topbar-title">Home</span>
-          <div class="dash-user-pill" id="dash-user-pill">Maria ▾</div>
+          <div class="dash-account" id="dash-account">
+            <button type="button" class="dash-user-pill" id="dash-user-pill" aria-expanded="false" aria-controls="dash-account-panel" onclick="toggleAccountPanel()">My account</button>
+            <section class="dash-account-panel" id="dash-account-panel" aria-label="Account details" hidden>
+              <strong id="dash-account-name"></strong>
+              <p id="dash-account-email"></p>
+              <p id="dash-account-role"></p>
+              <div class="dash-account-actions">
+                <button type="button" id="dash-account-edit" onclick="MedSafeAccounts.openProfile()">Edit profile</button>
+                <button type="button" onclick="dashLogout()">Sign out</button>
+              </div>
+            </section>
+          </div>
+        </div>
+        <div class="account-sync-row">
+          <p id="account-feedback" class="account-feedback" role="status" aria-live="polite"></p>
+          <button class="dash-add-btn" onclick="MedSafeAccounts.refresh()">Refresh records</button>
         </div>
 
         <!-- Page: Home -->
@@ -2360,7 +2538,7 @@ body { display: block; background: #fff; }
                 <tr>
                   <th>Patient</th>
                   <th>Medicines</th>
-                  <th>Last check</th>
+                  <th>Last saved change</th>
                   <th>Status</th>
                 </tr>
               </thead>
@@ -2437,27 +2615,19 @@ body { display: block; background: #fff; }
         <!-- Page: Patients (caregiver only) -->
         <div class="dash-page" id="dash-page-patients">
           <div class="dash-section-title">My patients</div>
-          <div class="dash-add-row" id="add-patient-row">
-            <div class="dash-add-field">
-              <label for="add-pt-name">Name</label>
-              <input type="text" id="add-pt-name" placeholder="e.g. Lolo Ben" style="width:140px" />
-            </div>
-            <div class="dash-add-field">
-              <label for="add-pt-age">Age</label>
-              <input type="number" id="add-pt-age" placeholder="75" style="width:60px" min="0" />
-            </div>
-            <button class="dash-add-btn" onclick="addPatient()">+ Add Patient</button>
-          </div>
+          <p>Give your caregiver code to a patient you care for. They can add it under <strong>Caregiver access</strong> in their own account.</p>
+          <div class="account-code-row"><output id="caregiver-share-code"></output>
+            <button class="dash-add-btn" onclick="MedSafeAccounts.copyCode()">Copy my code</button></div>
           <div id="pt-page-empty" class="dash-empty">
             <div class="dash-empty-icon">👥</div>
-            <div class="dash-empty-text">No patients added yet. Use the form above to create a patient profile.</div>
+            <div class="dash-empty-text">No patients have granted access yet. After a patient adds your code, refresh your records.</div>
           </div>
           <div class="dash-table-scroll" tabindex="0" role="region" aria-label="Scrollable records table"><table class="dash-table" id="pt-page-table" style="display:none">
             <thead>
               <tr>
                 <th>Patient</th>
                 <th>Medicines</th>
-                <th>Last check</th>
+                <th>Last saved change</th>
                 <th>Status</th>
                 <th></th>
               </tr>
@@ -2468,16 +2638,16 @@ body { display: block; background: #fff; }
 
         <!-- Page: Assign Medicines (caregiver only) -->
         <div class="dash-page" id="dash-page-assign_meds">
-          <div class="dash-section-title">Assign Medicines to Patients</div>
+          <div class="dash-section-title">Patient medicines</div>
 
           <!-- Empty state when caregiver has NO patients -->
           <div id="assign-meds-no-patients" class="dash-empty">
             <div class="dash-empty-icon">👥</div>
             <div class="dash-empty-text">
               No patients found.<br>
-              You must create a patient profile in the <strong>Patients</strong> tab before assigning medications.
+              A patient must grant access from their own account before you can view their medicines.
             </div>
-            <button class="dash-add-btn" onclick="dashNavTo('patients')">+ Add Patient Profile</button>
+            <button class="dash-add-btn" onclick="dashNavTo('patients')">View my caregiver code</button>
           </div>
 
           <!-- Container when caregiver HAS patients -->
@@ -2496,6 +2666,7 @@ body { display: block; background: #fff; }
             </div>
 
             <!-- Form: Assign Medicine to Selected Patient -->
+            <p id="caregiver-readonly" hidden>This patient has allowed viewing only. They can grant editing from their Caregiver access page.</p>
             <div class="dash-add-row" id="assign-med-row">
               <div class="dash-add-field med-combobox-wrapper" style="flex:2; min-width:220px;">
                 <label for="assign-med-input">Medicine (search or scroll)</label>
@@ -2589,7 +2760,20 @@ body { display: block; background: #fff; }
           </div>
         </div>
 
-        <!-- Page: History (caregiver only) -->
+        <div class="dash-page" id="dash-page-access">
+          <div class="dash-section-title">Caregiver access</div>
+          <p>Add the code from your caregiver's MedSafe account. They will be able to view your profile and medicine list.</p>
+          <form id="caregiver-access-form" class="account-access-form" onsubmit="MedSafeAccounts.grantAccess(event)">
+            <label for="caregiver-code">Caregiver code</label>
+            <input id="caregiver-code" type="text" required autocomplete="off" placeholder="Paste the code your caregiver shared" />
+            <label class="account-check"><input id="caregiver-edit" type="checkbox" /> Also allow adding, editing, and removing medicine records</label>
+            <button class="dash-add-btn" type="submit">Grant access</button>
+          </form>
+          <div id="caregiver-access-list"></div>
+          <p class="ic-model-note">You can change or remove access here. Removing access stops future requests; it cannot erase information someone has already seen.</p>
+        </div>
+
+        <!-- History remains a future feature and is not shown in navigation. -->
         <div class="dash-page" id="dash-page-history">
           <div class="dash-section-title">History</div>
           <p style="font-size:14px;color:#888;margin-top:8px;">No interaction checks recorded yet.</p>
@@ -2606,7 +2790,7 @@ body { display: block; background: #fff; }
       <!-- Left Sidebar (Matching PNG) -->
       <div class="ic-sidebar">
         <div class="ic-brand">
-          <div class="ic-brand-icon"></div>
+          <img class="ic-brand-icon" src="assets/medsafe-logo.png" alt="" width="36" height="36" />
           <span class="ic-brand-title">MedSafe</span>
         </div>
 
@@ -2749,8 +2933,44 @@ body { display: block; background: #fff; }
         <button type="button" class="btn btn-outline" onclick="closeEditStockModal()">Cancel</button>
         <button type="button" class="btn btn-filled" onclick="saveStockModalChanges()">Save Changes</button>
       </div>
+
+      <!-- Remove Medicine Danger Zone -->
+      <div id="edit-stock-danger-zone" class="edit-stock-danger-zone">
+        <button type="button" class="edit-stock-remove-btn" onclick="showRemoveMedicineConfirm()">
+          🗑️ Remove This Medicine
+        </button>
+      </div>
+      <div id="edit-stock-confirm-zone" class="edit-stock-confirm-zone" style="display:none;">
+        <div class="edit-stock-confirm-msg" id="edit-stock-confirm-msg">
+          Are you sure? This will permanently remove this medicine.
+        </div>
+        <div class="edit-stock-confirm-actions">
+          <button type="button" class="edit-stock-confirm-cancel" onclick="hideRemoveMedicineConfirm()">Cancel</button>
+          <button type="button" class="edit-stock-confirm-delete" onclick="confirmRemoveMedicine()">Yes, Remove</button>
+        </div>
+      </div>
     </div>
   </div>
+
+  <dialog id="profile-dialog" class="profile-dialog" aria-labelledby="profile-title" aria-describedby="profile-intro">
+    <h2 id="profile-title">Edit profile</h2>
+    <p id="profile-intro" class="profile-intro">Update your name and optional date of birth.</p>
+    <form id="profile-form" onsubmit="MedSafeAccounts.saveProfile(event)">
+      <label for="profile-name">Your name</label>
+      <input id="profile-name" name="name" autocomplete="name" required maxlength="120" autofocus />
+      <label for="profile-birth-date">Date of birth (optional)</label>
+      <input id="profile-birth-date" name="birthdate" type="date" autocomplete="bday" min="1900-01-01" />
+      <dl class="profile-details">
+        <dt>Email · view only</dt><dd id="profile-email"></dd>
+        <dt>Account type · view only</dt><dd id="profile-role"></dd>
+      </dl>
+      <p id="profile-feedback" class="account-feedback" role="status" aria-live="polite"></p>
+      <div class="profile-actions">
+        <button type="button" id="profile-cancel" onclick="MedSafeAccounts.cancelProfile()">Cancel</button>
+        <button type="submit" id="profile-save">Save changes</button>
+      </div>
+    </form>
+  </dialog>
 
   <script>
     let currentRole = 'patient';
@@ -2770,7 +2990,7 @@ body { display: block; background: #fff; }
     function goSignIn(role) {
       currentRole = role;
       updateToggle();
-      show('screen-signin');
+      window.MedSafeAccounts?.showMode('signin');
     }
 
     function goBack() {
@@ -2794,29 +3014,21 @@ body { display: block; background: #fff; }
     };
 
     function handleSignIn(e) {
-      e.preventDefault();
-      const email = (document.getElementById('email').value || '').trim().toLowerCase();
-      const name = email.split('@')[0].replace(/[^a-zA-Z]/g, ' ').replace(/\b\w/g, c => c.toUpperCase()) || (currentRole === 'patient' ? 'Patient' : 'Caregiver');
-      currentUser = {
-        email: email,
-        role: currentRole,
-        name: name
-      };
-      openDashboard(currentRole, name, email);
+      return window.MedSafeAccounts?.submitAuth(e);
     }
 
     /* ── Dashboard Logic ───────────────────────────────── */
     const patientNav = [
       { id: 'home', label: 'Home' },
       { id: 'medicines', label: 'My Medicines' },
+      { id: 'access', label: 'Caregiver access' },
       { id: 'interaction', label: 'Interaction Check' }
     ];
     const caregiverNav = [
       { id: 'home', label: 'Home' },
       { id: 'patients', label: 'Patients' },
-      { id: 'assign_meds', label: 'Assign Medicines' },
-      { id: 'interaction', label: 'Interaction Check' },
-      { id: 'history', label: 'History' }
+      { id: 'assign_meds', label: 'Patient medicines' },
+      { id: 'interaction', label: 'Interaction Check' }
     ];
     let activeDashPage = 'home';
 
@@ -2825,76 +3037,15 @@ body { display: block; background: #fff; }
     let caregiverPatients = [];
     let caregiverMeds = [];
 
-    function getStoragePrefix() {
-      const emailKey = (currentUser && currentUser.email) ? currentUser.email.toLowerCase().trim() : 'anonymous';
-      const roleKey = (currentUser && currentUser.role) ? currentUser.role : currentRole;
-      return `medsafe_${roleKey}_${encodeURIComponent(emailKey)}`;
-    }
 
-    function loadSavedData() {
-      // Clear legacy shared keys so un-scoped data never bleeds
-      try {
-        localStorage.removeItem('medsafe_patient_meds');
-        localStorage.removeItem('medsafe_caregiver_patients');
-      } catch (e) { }
 
-      if (currentRole === 'patient') {
-        try {
-          const key = `${getStoragePrefix()}_meds`;
-          const savedMeds = localStorage.getItem(key);
-          patientMeds = savedMeds ? JSON.parse(savedMeds) : [];
-        } catch (e) {
-          patientMeds = [];
-        }
-        caregiverPatients = [];
-        caregiverMeds = [];
-      } else {
-        // Caregiver
-        try {
-          const ptKey = `${getStoragePrefix()}_patients`;
-          const savedPts = localStorage.getItem(ptKey);
-          caregiverPatients = (savedPts ? JSON.parse(savedPts) : []).map(p => ({
-            ...p,
-            id: p.id || ('pt_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5)),
-            medicines: Array.isArray(p.medicines) ? p.medicines : []
-          }));
-        } catch (e) {
-          caregiverPatients = [];
-        }
-        try {
-          const medKey = `${getStoragePrefix()}_meds`;
-          const savedMeds = localStorage.getItem(medKey);
-          caregiverMeds = savedMeds ? JSON.parse(savedMeds) : [];
-        } catch (e) {
-          caregiverMeds = [];
-        }
-        patientMeds = [];
-      }
-    }
 
-    function savePatientMeds() {
-      if (currentRole !== 'patient') return;
-      try {
-        const key = `${getStoragePrefix()}_meds`;
-        localStorage.setItem(key, JSON.stringify(patientMeds));
-      } catch (e) { }
-    }
 
-    function saveCaregiverPatients() {
-      if (currentRole !== 'caregiver') return;
-      try {
-        const key = `${getStoragePrefix()}_patients`;
-        localStorage.setItem(key, JSON.stringify(caregiverPatients));
-      } catch (e) { }
-    }
 
-    function saveCaregiverMeds() {
-      if (currentRole !== 'caregiver') return;
-      try {
-        const key = `${getStoragePrefix()}_meds`;
-        localStorage.setItem(key, JSON.stringify(caregiverMeds));
-      } catch (e) { }
-    }
+
+
+
+
 
     /* ── Searchable Medicine Combobox Functions ───────── */
     const comboboxHighlightedIndex = { add: -1, assign: -1 };
@@ -3122,102 +3273,17 @@ body { display: block; background: #fff; }
     }
 
     function addMedicine() {
-      const select = document.getElementById('add-med-select');
-      const input = document.getElementById('add-med-input');
-      const dosageInput = document.getElementById('add-med-dosage');
-      const freqSelect = document.getElementById('add-med-freq');
-      const stockInput = document.getElementById('add-med-stock');
-
-      let name = (select ? select.value.trim() : '') || (input ? input.value.trim() : '');
-      const validDrug = drugsList.find(d => d.toLowerCase() === name.toLowerCase());
-      if (validDrug) {
-        name = validDrug;
-      }
-
-      if (!name || !validDrug) {
-        alert('Please search and select a valid medicine from the supported list.');
-        if (input) input.focus();
-        return;
-      }
-
-      const exists = patientMeds.some(m => m.name.toLowerCase() === name.toLowerCase());
-      if (exists) {
-        alert(`"${name}" is already in your medication list.`);
-        return;
-      }
-
-      const dosage = dosageInput.value.trim() || 'Standard';
-      const frequency = freqSelect.value || '1x daily';
-      const stockVal = stockInput.value.trim();
-      const stock = stockVal !== '' ? parseInt(stockVal, 10) : 30;
-
-      patientMeds.push({
-        name,
-        dosage,
-        frequency,
-        stock: isNaN(stock) ? 30 : stock
-      });
-
-      savePatientMeds();
-
-      // Reset fields
-      if (input) input.value = '';
-      if (select) select.value = '';
-      dosageInput.value = '';
-      stockInput.value = '';
-      closeAllComboboxes();
-
-      renderDashboard();
+      return window.MedSafeAccounts?.addMedicine();
     }
 
     function removeMedicine(index) {
-      if (index >= 0 && index < patientMeds.length) {
-        patientMeds.splice(index, 1);
-        savePatientMeds();
-        renderDashboard();
-      }
+      return window.MedSafeAccounts?.removeMedicine(index);
     }
 
-    function addPatient() {
-      const nameInput = document.getElementById('add-pt-name');
-      const ageInput = document.getElementById('add-pt-age');
 
-      const name = nameInput.value.trim();
-      if (!name) {
-        alert('Please enter a patient name.');
-        nameInput.focus();
-        return;
-      }
-
-      const ageVal = ageInput.value.trim();
-      const age = ageVal !== '' ? parseInt(ageVal, 10) : 65;
-
-      const newPt = {
-        id: 'pt_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5),
-        name,
-        age: isNaN(age) ? 65 : age,
-        medicines: [],
-        lastCheck: 'Today',
-        status: 'Healthy'
-      };
-
-      caregiverPatients.push(newPt);
-      currentAssignPatientId = newPt.id;
-      saveCaregiverPatients();
-
-      // Reset fields
-      nameInput.value = '';
-      ageInput.value = '';
-
-      renderDashboard();
-    }
 
     function removePatient(index) {
-      if (index >= 0 && index < caregiverPatients.length) {
-        caregiverPatients.splice(index, 1);
-        saveCaregiverPatients();
-        renderDashboard();
-      }
+      return window.MedSafeAccounts?.removePatient(index);
     }
 
     function evaluatePatientInteractions() {
@@ -3349,9 +3415,9 @@ body { display: block; background: #fff; }
 
         homeRows += `
           <tr>
-            <td><strong>${m.name}</strong></td>
-            <td>${m.dosage}</td>
-            <td>${m.frequency}</td>
+            <td><strong>${escapeHtml(m.name)}</strong></td>
+            <td>${escapeHtml(m.dosage)}</td>
+            <td>${escapeHtml(m.frequency)}</td>
             <td>
               <div class="stock-cell-wrap" onclick="openEditStockModal('patient', ${idx})" title="Click to edit stock count">
                 <div class="stock-bar-wrap">
@@ -3377,9 +3443,9 @@ body { display: block; background: #fff; }
 
         medRows += `
           <tr>
-            <td><strong>${m.name}</strong></td>
-            <td>${m.dosage}</td>
-            <td>${m.frequency}</td>
+            <td><strong>${escapeHtml(m.name)}</strong></td>
+            <td>${escapeHtml(m.dosage)}</td>
+            <td>${escapeHtml(m.frequency)}</td>
             <td>
               <div class="stock-cell-wrap" onclick="openEditStockModal('patient', ${idx})" title="Click to edit stock count">
                 <div class="stock-bar-wrap">
@@ -3427,10 +3493,10 @@ body { display: block; background: #fff; }
         const medCount = Array.isArray(p.medicines) ? p.medicines.length : (typeof p.medicines === 'number' ? p.medicines : 0);
         homeRows += `
           <tr>
-            <td><strong>${p.name}</strong> (${p.age} yrs)</td>
+            <td><strong>${escapeHtml(p.name)}</strong> (${p.age} yrs)</td>
             <td><a href="javascript:void(0)" onclick="goToAssignPatient('${p.id}')" style="color:#2563eb; font-weight:600; text-decoration:none;">${medCount} med${medCount !== 1 ? 's' : ''} →</a></td>
-            <td>${p.lastCheck}</td>
-            <td><span class="status-badge ok">${p.status}</span></td>
+            <td>${escapeHtml(p.lastCheck)}</td>
+            <td><span class="status-badge ok">${escapeHtml(p.status)}</span></td>
           </tr>
         `;
       });
@@ -3441,13 +3507,13 @@ body { display: block; background: #fff; }
         const medCount = Array.isArray(p.medicines) ? p.medicines.length : (typeof p.medicines === 'number' ? p.medicines : 0);
         ptRows += `
           <tr>
-            <td><strong>${p.name}</strong> (${p.age} yrs)</td>
+            <td><strong>${escapeHtml(p.name)}</strong> (${p.age} yrs)</td>
             <td><a href="javascript:void(0)" onclick="goToAssignPatient('${p.id}')" style="color:#2563eb; font-weight:600; text-decoration:none;">${medCount} med${medCount !== 1 ? 's' : ''} →</a></td>
-            <td>${p.lastCheck}</td>
-            <td><span class="status-badge ok">${p.status}</span></td>
+            <td>${escapeHtml(p.lastCheck)}</td>
+            <td><span class="status-badge ok">${escapeHtml(p.status)}</span></td>
             <td style="text-align:right">
-              <button type="button" class="dash-add-btn" style="padding:4px 10px; font-size:11px; margin-right:8px;" onclick="goToAssignPatient('${p.id}')">Assign Meds</button>
-              <button type="button" class="dash-remove-btn" onclick="removePatient(${idx})" title="Remove patient">✕</button>
+              <button type="button" class="dash-add-btn" style="padding:4px 10px; font-size:11px; margin-right:8px;" onclick="goToAssignPatient('${p.id}')">View medicines</button>
+              <button type="button" class="dash-remove-btn" onclick="removePatient(${idx})" title="Remove my access">✕</button>
             </td>
           </tr>
         `;
@@ -3511,10 +3577,13 @@ body { display: block; background: #fff; }
     function renderSelectedPatientMeds() {
       const pt = caregiverPatients.find(p => p.id === currentAssignPatientId);
       if (!pt) return;
+      const editable = pt.can_edit === true;
+      document.getElementById('assign-med-row').hidden = !editable;
+      document.getElementById('caregiver-readonly').hidden = editable;
 
       const summary = document.getElementById('assign-patient-summary');
       if (summary) {
-        summary.innerHTML = `Managing medications for <strong>${pt.name}</strong> (${pt.age} yrs old)`;
+        summary.innerHTML = `Managing medications for <strong>${escapeHtml(pt.name)}</strong> (${pt.age} yrs old)`;
       }
 
       const emptyEl = document.getElementById('assign-patient-meds-empty');
@@ -3525,7 +3594,7 @@ body { display: block; background: #fff; }
 
       if (meds.length === 0) {
         if (emptyEl) emptyEl.style.display = 'block';
-        if (emptyText) emptyText.innerHTML = `No medications assigned to <strong>${pt.name}</strong> yet. Use the form above to assign medications.`;
+        if (emptyText) emptyText.innerHTML = `No medications assigned to <strong>${escapeHtml(pt.name)}</strong> yet. Use the form above to assign medications.`;
         if (tableEl) tableEl.style.display = 'none';
       } else {
         if (emptyEl) emptyEl.style.display = 'none';
@@ -3541,9 +3610,9 @@ body { display: block; background: #fff; }
 
           rows += `
             <tr>
-              <td><strong>${m.name}</strong></td>
-              <td>${m.dosage}</td>
-              <td>${m.frequency}</td>
+              <td><strong>${escapeHtml(m.name)}</strong></td>
+              <td>${escapeHtml(m.dosage)}</td>
+              <td>${escapeHtml(m.frequency)}</td>
               <td>
                 <div class="stock-cell-wrap" onclick="openEditStockModal('caregiver', ${idx})" title="Click to edit stock count">
                   <div class="stock-bar-wrap">
@@ -3561,7 +3630,13 @@ body { display: block; background: #fff; }
             </tr>
           `;
         });
-        if (tbodyEl) tbodyEl.innerHTML = rows;
+        if (tbodyEl) {
+          tbodyEl.innerHTML = rows;
+          if (!editable) {
+            tbodyEl.querySelectorAll('button').forEach(button => button.remove());
+            tbodyEl.querySelectorAll('[onclick]').forEach(element => element.removeAttribute('onclick'));
+          }
+        }
       }
 
       // Check interactions among this patient's assigned medicines
@@ -3584,6 +3659,7 @@ body { display: block; background: #fff; }
     }
 
     function renderPatientAssignInteractions(patientName, medCount, interactions) {
+      patientName = escapeHtml(patientName);
       const container = document.getElementById('assign-patient-interactions');
       if (!container) return;
 
@@ -3656,74 +3732,11 @@ body { display: block; background: #fff; }
     }
 
     function assignMedicineToPatient() {
-      const pt = caregiverPatients.find(p => p.id === currentAssignPatientId);
-      if (!pt) {
-        alert('Please select a patient first.');
-        return;
-      }
-
-      const select = document.getElementById('assign-med-select');
-      const input = document.getElementById('assign-med-input');
-      const dosageInput = document.getElementById('assign-med-dosage');
-      const freqSelect = document.getElementById('assign-med-freq');
-      const stockInput = document.getElementById('assign-med-stock');
-
-      let name = (select ? select.value.trim() : '') || (input ? input.value.trim() : '');
-      const validDrug = drugsList.find(d => d.toLowerCase() === name.toLowerCase());
-      if (validDrug) {
-        name = validDrug;
-      }
-
-      if (!name || !validDrug) {
-        alert('Please search and select a valid medication from the supported list.');
-        if (input) input.focus();
-        return;
-      }
-
-      if (!Array.isArray(pt.medicines)) pt.medicines = [];
-
-      const exists = pt.medicines.some(m => m.name.toLowerCase() === name.toLowerCase());
-      if (exists) {
-        alert(`"${name}" is already assigned to ${pt.name}.`);
-        return;
-      }
-
-      const dosage = dosageInput.value.trim() || 'Standard';
-      const frequency = freqSelect.value || '1x daily';
-      const stockVal = stockInput.value.trim();
-      const stock = stockVal !== '' ? parseInt(stockVal, 10) : 30;
-
-      pt.medicines.push({
-        name,
-        dosage,
-        frequency,
-        stock: isNaN(stock) ? 30 : stock
-      });
-      pt.lastCheck = 'Today';
-
-      saveCaregiverPatients();
-
-      // Reset fields
-      if (input) input.value = '';
-      if (select) select.value = '';
-      dosageInput.value = '';
-      stockInput.value = '';
-      closeAllComboboxes();
-
-      renderDashboard();
-      renderAssignMedsPage();
+      return window.MedSafeAccounts?.assignMedicine();
     }
 
     function removeAssignedMedicine(index) {
-      const pt = caregiverPatients.find(p => p.id === currentAssignPatientId);
-      if (!pt || !Array.isArray(pt.medicines)) return;
-
-      if (index >= 0 && index < pt.medicines.length) {
-        pt.medicines.splice(index, 1);
-        saveCaregiverPatients();
-        renderDashboard();
-        renderAssignMedsPage();
-      }
+      return window.MedSafeAccounts?.removeAssignedMedicine(index);
     }
 
     function renderSidebarInteractionAlerts(interactions) {
@@ -3737,12 +3750,17 @@ body { display: block; background: #fff; }
           if (interactions.length > 0) {
             const badge = document.createElement('span');
             badge.className = 'dash-nav-badge badge-danger';
-            badge.textContent = `⚠️ ${interactions.length}`;
+            badge.textContent = String(interactions.length);
+            const description = `${interactions.length} interaction${interactions.length === 1 ? '' : 's'} found`;
+            badge.setAttribute('aria-label', description);
+            badge.title = description;
             navBtn.appendChild(badge);
           } else if (patientMeds.length >= 2) {
             const badge = document.createElement('span');
             badge.className = 'dash-nav-badge badge-unknown';
-            badge.textContent = 'No information found';
+            badge.textContent = 'No data';
+            badge.setAttribute('aria-label', 'No interaction information found');
+            badge.title = 'No interaction information found. This does not mean the medicines are safe together.';
             navBtn.appendChild(badge);
           }
         }
@@ -3821,8 +3839,8 @@ body { display: block; background: #fff; }
 
       patientMeds.forEach(m => {
         html += `
-          <div class="ic-sidebar-med-chip" onclick="quickSelectChip('${m.name.replace(/'/g, "\\'")}')" title="Click to inspect ${m.name}">
-            <span>💊 ${m.name}</span>
+          <div class="ic-sidebar-med-chip" onclick="quickSelectChip(${escapeHtml(JSON.stringify(m.name))})" title="Click to inspect ${escapeHtml(m.name)}">
+            <span>💊 ${escapeHtml(m.name)}</span>
             <span style="font-size:10px; color:#9ca3af;">Use</span>
           </div>
         `;
@@ -3947,7 +3965,45 @@ body { display: block; background: #fff; }
       }
     }
 
+    function closeAccountPanel(restoreFocus = false) {
+      document.getElementById('dash-account-panel').hidden = true;
+      document.getElementById('dash-user-pill').setAttribute('aria-expanded', 'false');
+      if (restoreFocus) document.getElementById('dash-user-pill').focus();
+    }
+
+    function toggleAccountPanel() {
+      const panel = document.getElementById('dash-account-panel');
+      if (!panel.hidden) { closeAccountPanel(); return; }
+      document.getElementById('dash-account-name').textContent = currentUser.name;
+      document.getElementById('dash-account-email').textContent = currentUser.email;
+      document.getElementById('dash-account-role').textContent = currentRole === 'caregiver' ? 'Caregiver account' : 'Patient account';
+      panel.hidden = false;
+      document.getElementById('dash-user-pill').setAttribute('aria-expanded', 'true');
+    }
+
+    document.addEventListener('click', event => {
+      if (!document.getElementById('dash-account').contains(event.target)) closeAccountPanel();
+    });
+    document.getElementById('dash-account').addEventListener('focusout', event => {
+      if (!event.currentTarget.contains(event.relatedTarget)) closeAccountPanel();
+    });
+    document.getElementById('dash-account').addEventListener('keydown', event => {
+      if (event.key === 'Escape' && !document.getElementById('dash-account-panel').hidden) {
+        event.preventDefault();
+        closeAccountPanel(true);
+      }
+    });
+
+    function renderAccountIdentity() {
+      document.getElementById('dash-user-pill').textContent = currentUser.name + ' ▾';
+      document.getElementById('dash-account-name').textContent = currentUser.name;
+      const hour = new Date().getHours();
+      const greeting = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening';
+      document.getElementById('dash-greeting').textContent = `${greeting}, ${currentUser.name}`;
+    }
+
     function openDashboard(role, userName, email) {
+      closeAccountPanel();
       currentRole = role;
       if (email) {
         currentUser.email = email.trim().toLowerCase();
@@ -3958,15 +4014,7 @@ body { display: block; background: #fff; }
       overlay.classList.add('open');
       document.body.style.overflow = 'hidden';
 
-      // Set user name
-      document.getElementById('dash-user-pill').textContent = userName + ' ▾';
-
-      // Greeting based on time of day
-      const hour = new Date().getHours();
-      let greeting = 'Good morning';
-      if (hour >= 12 && hour < 18) greeting = 'Good afternoon';
-      else if (hour >= 18) greeting = 'Good evening';
-      document.getElementById('dash-greeting').textContent = `${greeting}, ${userName}`;
+      renderAccountIdentity();
 
       // Build nav
       const navItems = role === 'caregiver' ? caregiverNav : patientNav;
@@ -3992,7 +4040,6 @@ body { display: block; background: #fff; }
 
       // Populate medicine options and load account-scoped data
       populateMedicineSelect();
-      loadSavedData();
       renderDashboard();
 
       activeDashPage = 'home';
@@ -4000,6 +4047,7 @@ body { display: block; background: #fff; }
     }
 
     function dashNavTo(pageId) {
+      closeAccountPanel();
       activeDashPage = pageId;
       document.querySelectorAll('.dash-nav-item').forEach(btn => {
         btn.classList.toggle('active', btn.getAttribute('data-page') === pageId);
@@ -4012,7 +4060,8 @@ body { display: block; background: #fff; }
         home: 'Home',
         medicines: 'My Medicines',
         patients: 'Patients',
-        assign_meds: 'Assign Medicines',
+        assign_meds: 'Patient medicines',
+        access: 'Caregiver access',
         interaction: 'Interaction Check',
         history: 'History'
       };
@@ -4031,12 +4080,25 @@ body { display: block; background: #fff; }
       }
     }
 
-    function dashLogout() {
+    function clearAccountView() {
+      window.MedSafeAccounts?.closeProfile(false);
+      closeAccountPanel();
+      ['dash-account-name', 'dash-account-email', 'dash-account-role'].forEach(id => document.getElementById(id).textContent = '');
       document.getElementById('dashboard-overlay').classList.remove('open');
       document.body.style.overflow = '';
 
       // Reset state and clear memory so data never bleeds to next account
       currentUser = { email: '', role: 'patient', name: '' };
+      currentRole = 'patient';
+      currentAssignPatientId = null;
+      closeInteractionModal();
+      document.querySelectorAll('tbody').forEach(body => body.replaceChildren());
+      document.querySelectorAll('.dash-interactions-panel').forEach(panel => panel.replaceChildren());
+      document.getElementById('caregiver-access-list').replaceChildren();
+      document.getElementById('caregiver-share-code').textContent = '';
+      document.getElementById('dash-greeting').textContent = '';
+      document.getElementById('dash-user-pill').textContent = '';
+      document.getElementById('dash-sidebar-interaction-widget').replaceChildren();
       patientMeds = [];
       caregiverPatients = [];
       caregiverMeds = [];
@@ -4065,10 +4127,19 @@ body { display: block; background: #fff; }
       show('screen-role');
     }
 
+    function dashLogout() {
+      return window.MedSafeAccounts?.signOut();
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[c]));
+    }
+
     /* ── Edit Medicine Stock Modal Functions ──────────── */
     let editingStockContext = { target: null, index: -1 };
 
     function openEditStockModal(target, index) {
+      if (target === 'caregiver' && !caregiverPatients.find(p => p.id === currentAssignPatientId)?.can_edit) return;
       editingStockContext = { target, index };
       let med = null;
       let patientName = '';
@@ -4132,6 +4203,60 @@ body { display: block; background: #fff; }
       if (modal) modal.classList.remove('open');
       document.body.style.overflow = '';
       editingStockContext = { target: null, index: -1 };
+      hideRemoveMedicineConfirm();
+    }
+
+    function showRemoveMedicineConfirm() {
+      const dangerZone = document.getElementById('edit-stock-danger-zone');
+      const confirmZone = document.getElementById('edit-stock-confirm-zone');
+      const confirmMsg = document.getElementById('edit-stock-confirm-msg');
+
+      // Get medicine name for the confirmation message
+      const { target, index } = editingStockContext;
+      let medName = 'this medicine';
+      if (target === 'patient' && patientMeds && patientMeds[index]) {
+        medName = patientMeds[index].name;
+      } else if (target === 'caregiver') {
+        const pt = caregiverPatients.find(p => p.id === currentAssignPatientId);
+        if (pt && Array.isArray(pt.medicines) && pt.medicines[index]) {
+          medName = pt.medicines[index].name;
+        }
+      }
+
+      if (confirmMsg) {
+        confirmMsg.textContent = `Are you sure you want to remove "${medName}"? This action cannot be undone.`;
+      }
+      if (dangerZone) dangerZone.style.display = 'none';
+      if (confirmZone) confirmZone.style.display = 'block';
+    }
+
+    function hideRemoveMedicineConfirm() {
+      const dangerZone = document.getElementById('edit-stock-danger-zone');
+      const confirmZone = document.getElementById('edit-stock-confirm-zone');
+      if (dangerZone) dangerZone.style.display = 'block';
+      if (confirmZone) confirmZone.style.display = 'none';
+    }
+
+    function confirmRemoveMedicine() {
+      const { target, index } = editingStockContext;
+
+      if (target === 'patient') {
+        if (patientMeds && index >= 0 && index < patientMeds.length) {
+          patientMeds.splice(index, 1);
+          savePatientMeds();
+          renderDashboard();
+        }
+      } else if (target === 'caregiver') {
+        const pt = caregiverPatients.find(p => p.id === currentAssignPatientId);
+        if (pt && Array.isArray(pt.medicines) && index >= 0 && index < pt.medicines.length) {
+          pt.medicines.splice(index, 1);
+          saveCaregiverPatients();
+          renderDashboard();
+          renderAssignMedsPage();
+        }
+      }
+
+      closeEditStockModal();
     }
 
     function handleEditStockBackdropClick(e) {
@@ -4175,35 +4300,7 @@ body { display: block; background: #fff; }
     }
 
     function saveStockModalChanges() {
-      const { target, index } = editingStockContext;
-      const inputEl = document.getElementById('edit-stock-input');
-      if (!inputEl) return;
-
-      const val = parseInt(inputEl.value, 10);
-      if (isNaN(val) || val < 0) {
-        alert('Please enter a valid non-negative number for stock.');
-        inputEl.focus();
-        return;
-      }
-      const newStock = val;
-
-      if (target === 'patient') {
-        if (patientMeds[index]) {
-          patientMeds[index].stock = newStock;
-          savePatientMeds();
-          renderDashboard();
-        }
-      } else if (target === 'caregiver') {
-        const pt = caregiverPatients.find(p => p.id === currentAssignPatientId);
-        if (pt && Array.isArray(pt.medicines) && pt.medicines[index]) {
-          pt.medicines[index].stock = newStock;
-          saveCaregiverPatients();
-          renderDashboard();
-          renderSelectedPatientMeds();
-        }
-      }
-
-      closeEditStockModal();
+      return window.MedSafeAccounts?.saveStock();
     }
 
     /* ── Interaction Check Modal Functions ─────────────── */
@@ -4464,6 +4561,9 @@ body { display: block; background: #fff; }
   </script>
 
   <script src="model-suggestions.js"></script>
+  <script src="supabase-config.js"></script>
+  <script src="vendor/supabase-2.119.0.js"></script>
+  <script src="accounts.js"></script>
 </body>
 
 </html>

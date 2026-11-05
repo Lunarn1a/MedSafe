@@ -5,3 +5,5 @@ MedSafe/training/coverage_export/
 MedSafe/training/topic_export/
 MedSafe/backend/.source_cache/
 .DS_Store
+MedSafe/supabase/tests/node_modules/
+MedSafe/supabase/tests/test-output/
